@@ -1,14 +1,11 @@
 package fr.projeti1.marketplace.MVPPattern;
 
-import fr.projeti1.marketplace.MVPPattern.ActivityContract.View;
-import fr.projeti1.marketplace.MVPPattern.ActivityContract.Model;
-
 public class ActivityPresenter implements ActivityContract.Presenter{
 
-    private View mView;
-    private Model mModel;
+    protected Activity mView;
+    protected ActivityModel mModel;
 
-    public ActivityPresenter(View view){
+    public ActivityPresenter(Activity view){
         mView = view;
         initPresenter();
     }
@@ -20,7 +17,10 @@ public class ActivityPresenter implements ActivityContract.Presenter{
 
     @Override
     public void onClick(android.view.View view){
-        String data = mModel.getData();
-        mView.setViewData(data);
+        mView.bind();
+    }
+
+    public ActivityModel getModel() {
+        return mModel;
     }
 }

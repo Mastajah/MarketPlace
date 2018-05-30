@@ -8,4 +8,18 @@
     <string name="title_activity_main">MVP Example</string>
     <string name="username_error">Nom d utilisateur ne peut pas être vide</string>
     <string name="password_error">Mot de passe ne peut pas être vide</string>
+
+    <!--- Creer Annonce -->
+    <string name="titre_creer_annonce">Creer une annonce</string>
+    <string name="libelle_num_client_creer_annonce">Client N°</string>
+    <string name="libelle_nom_client_creer_annonce">Nom :</string>
+    <string name="libelle_prenom_client_creer_annonce">Prénom :</string>
+    <string name="libelle_num_tel_client_creer_annonce">Numéro Tel.</string>
+    <string name="libelle_titre_annonce_creer_annonce">Titre de l\'annonce :</string>
+    <string name="libelle_description_annonce_creer_annonce">Description :</string>
+    <string name="libelle_competences_annonce_creer_annonce">ici Fragment compétences</string>
+    <string name="libelle_adresse_client_creer_annonce">Adresse :</string>
+    <string name="libelle_ville_client_creer_annonce">Ville :</string>
+    <string name="libelle_codePostal_client_creer_annonce">Code Postal :</string>
+    <string name="libelle_button_valider_creer_annonce">Valider</string>
 </resources>

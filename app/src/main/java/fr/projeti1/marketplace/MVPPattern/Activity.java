@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import fr.projeti1.marketplace.MVPPattern.ActivityContract.Presenter;
 import fr.projeti1.marketplace.MVPPattern.ActivityContract.View;
 
 import fr.projeti1.marketplace.R;
 
 public class Activity extends AppCompatActivity implements View {
 
+    protected ActivityPresenter mPresenter;
     private TextView mTextView;
     private Button mButton;
-    private Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,13 @@ public class Activity extends AppCompatActivity implements View {
     }
 
     @Override
-    public void setViewData(String data) {
-        mTextView.setText(data);
+    public void bind() {
+        mTextView.setText(mPresenter.getModel().getData());
+    }
+
+    @Override
+    public void flush() {
+
     }
 
     @Override

@@ -6,7 +6,9 @@ public interface ActivityContract {
 
         void initView();
 
-        void setViewData(String data);
+        void bind();
+
+        void flush();
     }
 
     interface Model {

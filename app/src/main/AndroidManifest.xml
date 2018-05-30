@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MVPPattern.Activity"></activity>
+        <activity android:name=".MVPPattern.Activity" />
+        <activity android:name=".annonce.creer_annonce.CreerAnnonce"></activity>
     </application>
 
 </manifest>
