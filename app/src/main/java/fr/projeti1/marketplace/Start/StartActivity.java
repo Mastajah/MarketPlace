@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import fr.projeti1.marketplace.Main.MainActivity;
+import fr.projeti1.marketplace.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 
 public class StartActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class StartActivity extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), MainActivity.class);
+                Intent connection = new Intent(getApplicationContext(), Activity.class);
                 startActivity(connection);
                 finish();
             }
