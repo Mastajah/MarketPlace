@@ -18,6 +18,9 @@ public class CreerAnnonce extends Activity {
 
     protected CreerAnnoncePresenter mPresenter;
 
+    /**
+     * Elements IHM que l'on va custom
+     */
     private EditText textfieldNomClient;
     private EditText textfieldPrenomClient;
     private EditText textfieldNumTel;
