@@ -17,9 +17,57 @@
     <string name="libelle_num_tel_client_creer_annonce">Numéro Tel.</string>
     <string name="libelle_titre_annonce_creer_annonce">Titre de l\'annonce :</string>
     <string name="libelle_description_annonce_creer_annonce">Description :</string>
-    <string name="libelle_competences_annonce_creer_annonce">ici Fragment compétences</string>
+    <string name="libelle_competences_annonce_creer_annonce">Compétences :</string>
     <string name="libelle_adresse_client_creer_annonce">Adresse :</string>
     <string name="libelle_ville_client_creer_annonce">Ville :</string>
     <string name="libelle_codePostal_client_creer_annonce">Code Postal :</string>
     <string name="libelle_button_valider_creer_annonce">Valider</string>
+
+    <!--- PROFIL PROFESSIONNEL - START-->
+    <!--- Creer Profil -->
+    <string name="titre_creer_profil_pro">Creer profil professionnel</string>
+    <string name="libelle_num_depanneur_creer_profil">Dépanneur professionnel N°</string>
+    <string name="libelle_nom_depanneur_creer_profil">Nom :</string>
+    <string name="libelle_prenom_depanneur_creer_profil">Prénom :</string>
+    <string name="libelle_nom_societe_depanneur_creer_profil">Nom de la société :</string>
+    <string name="libelle_num_siret_depanneur_creer_profil">N° siret :</string>
+    <string name="libelle_num_decennale_depanneur_creer_profil">N° Décennale</string>
+    <string name="libelle_competences_depanneur_creer_profil">Compétences :</string>
+    <string name="libelle_num_tel_depanneur_creer_profil">Numéro Tel.</string>
+    <string name="libelle_adresse_mail_depanneur_creer_profil">Mail :</string>
+    <string name="libelle_adresse_depanneur_creer_profil">Adresse :</string>
+    <string name="libelle_ville_depanneur_creer_profil">Ville :</string>
+    <string name="libelle_codePostal_depanneur_creer_profil">Code Postal :</string>
+    <string name="libelle_button_valider_depanneur_creer_profil">Valider</string>
+    <!--- Modifier Profil -->
+    <string name="titre_modifier_profil_pro">Modifier profil professionnel</string>
+    <string name="libelle_num_depanneur_modifier_profil">Dépanneur professionnel N°</string>
+    <string name="libelle_nom_depanneur_modifier_profil">Nom :</string>
+    <string name="libelle_prenom_depanneur_modifier_profil">Prénom :</string>
+    <string name="libelle_nom_societe_depanneur_modifier_profil">Nom de la société :</string>
+    <string name="libelle_num_siret_depanneur_modifier_profil">N° siret :</string>
+    <string name="libelle_num_decennale_depanneur_modifier_profil">N° Décennale</string>
+    <string name="libelle_competences_depanneur_modifier_profil">Compétences :</string>
+    <string name="libelle_num_tel_depanneur_modifier_profil">Numéro Tel.</string>
+    <string name="libelle_adresse_mail_depanneur_modifier_profil">Mail :</string>
+    <string name="libelle_adresse_depanneur_modifier_profil">Adresse :</string>
+    <string name="libelle_ville_depanneur_modifier_profil">Ville :</string>
+    <string name="libelle_codePostal_depanneur_modifier_profil">Code Postal :</string>
+    <string name="libelle_button_valider_depanneur_modifier_profil">Valider</string>
+    <!--- Consulter Profil -->
+    <string name="titre_consulter_profil_pro">Dépanneur professionnel N°</string>
+    <string name="libelle_nom_depanneur_consulter_profil">Nom :</string>
+    <string name="libelle_prenom_depanneur_consulter_profil">Prénom :</string>
+    <string name="libelle_nom_societe_depanneur_consulter_profil">Nom de la société :</string>
+    <string name="libelle_num_siret_depanneur_consulter_profil">N° siret :</string>
+    <string name="libelle_num_decennale_depanneur_consulter_profil">N° Décennale</string>
+    <string name="libelle_competences_depanneur_consulter_profil">Compétences :</string>
+    <string name="libelle_num_tel_depanneur_consulter_profil">Numéro Tel.</string>
+    <string name="libelle_adresse_mail_depanneur_consulter_profil">Mail :</string>
+    <string name="libelle_adresse_depanneur_consulter_profil">Adresse :</string>
+    <string name="libelle_ville_depanneur_consulter_profil">Ville :</string>
+    <string name="libelle_codePostal_depanneur_consulter_profil">Code Postal :</string>
+    <string name="libelle_button_valider_depanneur_consulter_profil">Valider</string>
+    <!--- PROFIL PROFESSIONNEL - END-->
+
 </resources>
