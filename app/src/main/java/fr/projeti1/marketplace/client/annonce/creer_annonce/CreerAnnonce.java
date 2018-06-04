@@ -1,9 +1,9 @@
-package fr.projeti1.marketplace.annonce.creer_annonce;
+package fr.projeti1.marketplace.client.annonce.creer_annonce;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import fr.projeti1.marketplace.MVPPattern.ActivityPresenter;
-import fr.projeti1.marketplace.MVPPattern.Activity;
+
+import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 
 public class CreerAnnonce extends Activity {

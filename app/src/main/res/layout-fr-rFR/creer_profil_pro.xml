@@ -147,7 +147,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/addCompetenceButton"
+                android:src="@drawable/addcompetencebutton"
                 />
         </TableRow>
         <TableRow>
@@ -162,7 +162,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/deleteCompetenceButton"
+                android:src="@drawable/deletecompetencebutton"
                 />
         </TableRow>
         <TableRow>

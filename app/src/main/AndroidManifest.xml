@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Start.StartActivity">
+        <activity android:name=".client.Start.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MVPPattern.Activity" />
-        <activity android:name=".annonce.creer_annonce.CreerAnnonce"></activity>
+        <activity android:name=".client.MVPPattern.Activity" />
+        <activity android:name=".client.annonce.creer_annonce.CreerAnnonce" />
+
     </application>
 
 </manifest>

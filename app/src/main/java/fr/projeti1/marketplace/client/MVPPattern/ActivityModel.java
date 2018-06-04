@@ -1,4 +1,4 @@
-package fr.projeti1.marketplace.MVPPattern;
+package fr.projeti1.marketplace.client.MVPPattern;
 
 public class ActivityModel implements ActivityContract.Model{
     @Override

@@ -1,13 +1,13 @@
-package fr.projeti1.marketplace.MVPPattern;
+package fr.projeti1.marketplace.client.MVPPattern;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import fr.projeti1.marketplace.MVPPattern.ActivityContract.View;
 
 import fr.projeti1.marketplace.R;
+import fr.projeti1.marketplace.client.MVPPattern.ActivityContract.View;
 
 public class Activity extends AppCompatActivity implements View {
 

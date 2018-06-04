@@ -1,4 +1,4 @@
-package fr.projeti1.marketplace.Start;
+package fr.projeti1.marketplace.client.Start;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import fr.projeti1.marketplace.MVPPattern.Activity;
+import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 
 public class StartActivity extends AppCompatActivity {

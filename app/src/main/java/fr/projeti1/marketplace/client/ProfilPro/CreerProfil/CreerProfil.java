@@ -1,8 +1,8 @@
-package fr.projeti1.marketplace.ProfilPro.CreerProfil;
+package fr.projeti1.marketplace.client.ProfilPro.CreerProfil;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import fr.projeti1.marketplace.MVPPattern.Activity;
+import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 
 public class CreerProfil extends Activity{
@@ -25,7 +25,7 @@ public class CreerProfil extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creer_pofil_pro);
+        setContentView(R.layout.creer_profil_pro);
     }
 
     @Override
