@@ -1,11 +1,28 @@
 package fr.projeti1.marketplace.client.annonce.creer_annonce;
 
-import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 
 public class CreerAnnoncePresenter extends ActivityPresenter{
 
-    public CreerAnnoncePresenter(Activity view) {
+    protected CreerAnnonce mView;
+    protected CreerAnnonceModel mModel;
+
+    public CreerAnnoncePresenter(CreerAnnonce view) {
         super(view);
+        initPresenter();
+    }
+
+    private void initPresenter(){
+        mModel = new CreerAnnonceModel();
+        mView.initView();
+    }
+
+    @Override
+    public void onClick(android.view.View view){
+        mView.bind();
+    }
+
+    public CreerAnnonceModel getModel() {
+        return mModel;
     }
 }
