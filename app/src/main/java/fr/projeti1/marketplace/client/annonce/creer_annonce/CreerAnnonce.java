@@ -57,7 +57,9 @@ public class CreerAnnonce extends Activity {
         buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onClick(v);
+                flush();
+                AnnonceDTO aDTO = mPresenter.getModel().getAnnonceDTO();
+                mPresenter.doValider(aDTO);
             }
         });
     }
@@ -92,6 +94,10 @@ public class CreerAnnonce extends Activity {
         clientDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
+
+        //On alimente le model
+        mPresenter.getModel().setAnnonceDTO(annonceDTO);
+        mPresenter.getModel().setClientDTO(clientDTO);
 
     }
 }

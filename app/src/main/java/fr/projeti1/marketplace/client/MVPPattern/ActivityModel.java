@@ -3,6 +3,7 @@ package fr.projeti1.marketplace.client.MVPPattern;
 import java.util.TreeSet;
 
 public class ActivityModel{
+
     private TreeSet<String> errorMessages = new TreeSet<String>();
 
     private TreeSet<String> infoMessages = new TreeSet<String>();
@@ -22,4 +23,5 @@ public class ActivityModel{
     public void setInfoMessages(TreeSet<String> infoMessages) {
         this.infoMessages = infoMessages;
     }
+
 }

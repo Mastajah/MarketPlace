@@ -1,8 +1,11 @@
 package fr.projeti1.marketplace.client.annonce.creer_annonce;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
+import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 
 public class CreerAnnoncePresenter extends ActivityPresenter{
+
+    //private AnnonceService annonceService;
 
     protected CreerAnnonce mView;
     protected CreerAnnonceModel mModel;
@@ -27,6 +30,10 @@ public class CreerAnnoncePresenter extends ActivityPresenter{
         // annonceDTO et client DTO que l'on a récupéré des requêtes
         // Et on fait un bind pour tout afficher IHM ou on déclare un Intent pour changer d'activité
         mView.bind();
+    }
+
+    public void doValider(AnnonceDTO inputDTO){
+        // AnnonoceService.creerAnnonce(inputDTO);
     }
 
     public CreerAnnonceModel getModel() {
