@@ -9,18 +9,21 @@ import android.widget.TextView;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityContract.View;
 
-public class Activity extends AppCompatActivity implements View {
+public abstract class Activity<P extends ActivityContract.PresenterCallBack<? extends ActivityModel>> extends AppCompatActivity implements View<P>{
 
-    protected ActivityPresenter mPresenter;
+    protected P presenter;
     private TextView mTextView;
     private Button mButton;
+
+    @Override
+    public void setPresenter(P presenter) {
+        this.presenter = presenter;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity);
-
-        mPresenter = new ActivityPresenter(this);
     }
 
     @Override
@@ -30,14 +33,14 @@ public class Activity extends AppCompatActivity implements View {
         mButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                mPresenter.onClick(view);
+                presenter.onClick(view);
             }
         });
     }
 
     @Override
     public void bind() {
-        mTextView.setText(mPresenter.getModel().getData());
+        mTextView.setText("Test");
     }
 
     @Override

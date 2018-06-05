@@ -2,7 +2,9 @@ package fr.projeti1.marketplace.client.MVPPattern;
 
 public interface ActivityContract {
 
-    interface View{
+    interface View<P extends PresenterCallBack<? extends ActivityModel>>{
+
+        void setPresenter(P presenterCallback);
 
         void initView();
 
@@ -11,12 +13,9 @@ public interface ActivityContract {
         void flush();
     }
 
-    interface Model {
+    interface PresenterCallBack<M extends ActivityModel> {
 
-        String getData();
-    }
-
-    interface Presenter{
+        M getModel();
 
         void onClick(android.view.View view);
     }

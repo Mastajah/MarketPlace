@@ -1,26 +1,40 @@
 package fr.projeti1.marketplace.client.MVPPattern;
 
-public class ActivityPresenter implements ActivityContract.Presenter{
+/**
+ * Presenter
+ *
+ * @param <M>
+ *      le modele que le presenter retourne
+ * @param <V>
+ *      l'interface {@link fr.projeti1.marketplace.client.MVPPattern.ActivityContract.View} associée au présenter
+ */
+public abstract class ActivityPresenter<M extends ActivityModel, V extends ActivityContract.View<? extends ActivityContract.PresenterCallBack<M>>> implements ActivityContract.PresenterCallBack<M>{
 
-    protected Activity mView;
-    protected ActivityModel mModel;
+    /**
+     * Le modèle sur lequel le présenteur agit.
+     */
+    protected M model;
 
-    public ActivityPresenter(Activity view){
-        mView = view;
+    /**
+     * La vue représentant les données du modèle et redirigeant les actions de l'utilisateur.
+     */
+    protected V view;
+
+    public ActivityPresenter(V view){
+        this.view = view;
         initPresenter();
     }
 
     private void initPresenter(){
-        mModel = new ActivityModel();
-        mView.initView();
+        view.initView();
     }
 
     @Override
     public void onClick(android.view.View view){
-        mView.bind();
+
     }
 
-    public ActivityModel getModel() {
-        return mModel;
+    public M getModel() {
+        return model;
     }
 }
