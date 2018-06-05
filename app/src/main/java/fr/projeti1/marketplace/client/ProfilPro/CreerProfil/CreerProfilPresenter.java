@@ -20,4 +20,19 @@ public class CreerProfilPresenter extends ActivityPresenter {
         //remplir ici
     }
 
+    public CreerProfil getCreateProfilView() {
+        return createProfilView;
+    }
+
+    public void setCreateProfilView(CreerProfil createProfilView) {
+        this.createProfilView = createProfilView;
+    }
+
+    public CreerProfilModel getCreateProfilModel() {
+        return createProfilModel;
+    }
+
+    public void setCreateProfilModel(CreerProfilModel createProfilModel) {
+        this.createProfilModel = createProfilModel;
+    }
 }
