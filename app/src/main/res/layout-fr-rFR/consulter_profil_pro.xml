@@ -30,7 +30,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/nom"
+            android:id="@+id/consulter_nom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -50,7 +50,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/prenom"
+            android:id="@+id/consulter_prenom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -70,7 +70,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/nom_societe"
+            android:id="@+id/consulter_nom_societe"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -90,7 +90,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/siret"
+            android:id="@+id/consulter_siret"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -110,7 +110,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/decennale"
+            android:id="@+id/consulter_decennale"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -130,7 +130,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/competence"
+            android:id="@+id/consulter_competence"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -161,7 +161,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/telephone"
+            android:id="@+id/consulter_telephone"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -181,7 +181,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/mail"
+            android:id="@+id/consulter_mail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -201,7 +201,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/adresse"
+            android:id="@+id/consulter_adresse"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -221,7 +221,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/ville"
+            android:id="@+id/consulter_ville"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -241,7 +241,7 @@
         <TextView
             android:paddingBottom="20dp"
             android:paddingTop="4dp"
-            android:id="@+id/code_postal"
+            android:id="@+id/consulter_code_postal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -249,6 +249,7 @@
     </TableRow>
     <TableRow>
         <Button
+            android:id="@+id/supprimer_profil_pro"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

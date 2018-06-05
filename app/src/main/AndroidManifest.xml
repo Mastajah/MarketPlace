@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".client.MVPPattern.Activity" />
         <activity android:name=".client.annonce.creer_annonce.CreerAnnonce" />
+        <activity android:name=".client.ProfilPro.ModifierProfil.ModifierProfil" />
 
     </application>
 
