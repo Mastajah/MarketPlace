@@ -51,6 +51,7 @@ public class CreerProfil extends Activity{
         adresse = findViewById(R.id.creer_adresse);
         ville = findViewById(R.id.creer_ville);
         codePostal = findViewById(R.id.creer_code_postal);
+        validerProfilPro = findViewById(R.id.valider_creer_profil_pro);
         validerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

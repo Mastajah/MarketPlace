@@ -51,6 +51,7 @@ public class ModifierProfil extends Activity {
         adresse = findViewById(R.id.modifier_adresse);
         ville = findViewById(R.id.modifier_ville);
         codePostal = findViewById(R.id.modifier_code_postal);
+        validerProfilPro = findViewById(R.id.valider_modifier_profil_pro);
         validerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
