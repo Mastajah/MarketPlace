@@ -1,5 +1,6 @@
 package fr.projeti1.marketplace.client.annonce.consulterAnnonce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -34,7 +35,9 @@ public class ConsulterAnnonce extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.consulter_annonce);
 
-        this.mPresenter = new ConsulterAnnoncePresenter(this);
+        //on récupère l'intent pour récupérer les données qu'on s'est fait passé
+        Intent intent = getIntent();
+        this.mPresenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("titreAnnonce"));
         bind();
     }
 
@@ -64,7 +67,8 @@ public class ConsulterAnnonce extends Activity {
         //On set les éléments IHM
         numAnnonceConsult.setText(String.valueOf(annonceDTO.getNumeroAnnonce()));
         numClientConsult.setText(String.valueOf(clientDTO.getNumeroClient()));
-        nomClientConsult.setText(clientDTO.getNomClient());
+        //Plus tard alimenté par le DTO, ici c'est un exemple
+        nomClientConsult.setText(mPresenter.getNomClient());
         prenomClientConsult.setText(clientDTO.getPrenomClient());
         numTelConsult.setText(String.valueOf(clientDTO.getNumeroTelephone()));
         titreAnnonceConsult.setText(annonceDTO.getTitre());

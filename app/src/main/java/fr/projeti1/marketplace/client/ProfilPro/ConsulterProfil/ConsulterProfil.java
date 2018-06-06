@@ -35,7 +35,9 @@ public class ConsulterProfil extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modifier_profil_pro);
 
-        consultProfilPresenter = new ConsulterProfilPresenter(this);
+        //Ici on récupère l'id du Profil en le récupérant dans l'intent
+        Long exemple = 123l;
+        consultProfilPresenter = new ConsulterProfilPresenter(this,exemple);
     }
 
     @Override
@@ -56,7 +58,7 @@ public class ConsulterProfil extends Activity{
         supprimerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                consultProfilPresenter.onClick(v);
+                consultProfilPresenter.supprimerProfilPro();
             }
         });
     }
@@ -78,6 +80,10 @@ public class ConsulterProfil extends Activity{
         adresse.setText(profilproDTO.getAdresse());
         ville.setText(profilproDTO.getVille());
         codePostal.setText(String.valueOf(profilproDTO.getCodePostal()));
+    }
+
+    public void flush(){
+        //Pas appellé ici
     }
 
 }

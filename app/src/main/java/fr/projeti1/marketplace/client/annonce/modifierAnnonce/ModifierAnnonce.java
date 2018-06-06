@@ -41,6 +41,7 @@ public class ModifierAnnonce extends Activity{
         setContentView(R.layout.creer_modifier_annonce);
 
         mPresenter = new ModifierAnnoncePresenter(this);
+        //Ici on affiche direct car consultation, et on a déja alimenté le model
         bind();
     }
 
@@ -107,9 +108,16 @@ public class ModifierAnnonce extends Activity{
 
     public void goToConsulter(String titreAnnonce){
         //Affichage dans consultation annonce
+
+        //On déclare un intent pour aller sur une autre activité: ici consultation annonce
         Intent modifierToConsulter = new Intent(ModifierAnnonce.this, ConsulterAnnonce.class);
+
+        //On met un paramètre qui se met dans l'extra du intent
+        //De base, que les types de base de java, On peut faire passer un objet sérialisable => Cours La communication entre composants d'OpenClassRoom
         modifierToConsulter.putExtra("titreAnnonce",titreAnnonce);
+        //On la lance(ConsulterAnnonce)
         startActivity(modifierToConsulter);
+        //On ferme celle la (ModifierAnnonce)
         finish();
     }
 }

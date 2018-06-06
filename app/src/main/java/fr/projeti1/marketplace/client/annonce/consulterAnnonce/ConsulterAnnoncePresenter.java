@@ -11,10 +11,15 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter{
     private ConsulterAnnonce mView;
     private ConsulterAnnonceModel mModel;
 
-    public ConsulterAnnoncePresenter(ConsulterAnnonce view) {
+    //Maintenant nom client en exemple, plus tard idAnnonce
+    private String nomClient;
+
+    //On construisant la classe, on alimente direct l'idAnnonce plus tard, maintenant nomClient
+    public ConsulterAnnoncePresenter(ConsulterAnnonce view,String nomClient) {
         super(view);
         // En attendant que le pattern soit mieux
         this.mView = view;
+        this.nomClient = nomClient;
         initPresenter();
     }
 
@@ -43,5 +48,13 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter{
 
     public ConsulterAnnonceModel getModel() {
         return this.mModel;
+    }
+
+    public String getNomClient() {
+        return nomClient;
+    }
+
+    public void setNomClient(String nomClient) {
+        this.nomClient = nomClient;
     }
 }
