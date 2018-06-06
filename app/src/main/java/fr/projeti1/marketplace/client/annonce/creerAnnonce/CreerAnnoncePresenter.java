@@ -12,6 +12,8 @@ public class CreerAnnoncePresenter extends ActivityPresenter {
 
     public CreerAnnoncePresenter(CreerAnnonce view) {
         super(view);
+        // En attendant que le pattern soit mieux
+        this.mView = view;
         initPresenter();
     }
 

@@ -1,5 +1,7 @@
 package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
+import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
@@ -38,6 +41,7 @@ public class ModifierAnnonce extends Activity{
         setContentView(R.layout.creer_modifier_annonce);
 
         mPresenter = new ModifierAnnoncePresenter(this);
+        bind();
     }
 
     /**
@@ -99,6 +103,13 @@ public class ModifierAnnonce extends Activity{
 
         //On alimente le model
         mPresenter.getModel().setAnnonceDTO(annonceDTO);
+    }
 
+    public void goToConsulter(String titreAnnonce){
+        //Affichage dans consultation annonce
+        Intent modifierToConsulter = new Intent(ModifierAnnonce.this, ConsulterAnnonce.class);
+        modifierToConsulter.putExtra("titreAnnonce",titreAnnonce);
+        startActivity(modifierToConsulter);
+        finish();
     }
 }

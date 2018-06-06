@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
+import fr.projeti1.marketplace.client.annonce.modifierAnnonce.ModifierAnnonce;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), ConsulterAnnonce.class);
+                Intent connection = new Intent(getApplicationContext(), ModifierAnnonce.class);
                 startActivity(connection);
                 finish();
             }
