@@ -9,6 +9,8 @@ public class ModifierProfilPresenter extends ActivityPresenter {
 
     public ModifierProfilPresenter (ModifierProfil vue){
         super(vue);
+        // En attendant que le pattern soit mieux
+        this.modifyProfilView = vue;
         initPresenter();
     }
 

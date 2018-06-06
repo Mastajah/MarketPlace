@@ -8,6 +8,7 @@ public class ConsulterProfilPresenter extends ActivityPresenter {
     protected ConsulterProfil consultProfilView;
     protected ConsulterProfilModel consultProfilModel;
 
+    //Pareil pour Modifier Profil
     //On garde en mémoire l'id du profil pour l'avoir partout - il sera set dans le onCreate de ConsulterProfil
     //Id du Profil Professionnel
     private Long idProfilPro;

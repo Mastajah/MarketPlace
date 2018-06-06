@@ -8,6 +8,8 @@ public class CreerProfilPresenter extends ActivityPresenter {
 
     public CreerProfilPresenter (CreerProfil vue){
         super(vue);
+        // En attendant que le pattern soit mieux
+        this.createProfilView = vue;
         initPresenter();
     }
 

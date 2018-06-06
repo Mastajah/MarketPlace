@@ -60,6 +60,10 @@ public class CreerProfil extends Activity{
         });
     }
 
+    public void bind(){
+        //Pas appelé ici
+    }
+
     public void flush(){
         //On instancie le DTO
         ProfilProDTO profilProDTO = new ProfilProDTO();
