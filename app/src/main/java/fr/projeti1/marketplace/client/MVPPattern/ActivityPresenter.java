@@ -29,11 +29,6 @@ public abstract class ActivityPresenter<M extends ActivityModel, V extends Activ
         view.initView();
     }
 
-    @Override
-    public void onClick(android.view.View view){
-
-    }
-
     public M getModel() {
         return model;
     }

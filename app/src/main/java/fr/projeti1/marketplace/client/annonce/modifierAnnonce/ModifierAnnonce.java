@@ -1,4 +1,4 @@
-package fr.projeti1.marketplace.client.annonce.creer_annonce;
+package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,21 +6,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
+import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
 /**
- * Vue de la création d'annonce
+ * Vue de la modification d'annonce
  */
-public class CreerAnnonce extends Activity {
+public class ModifierAnnonce extends Activity{
 
-    protected CreerAnnoncePresenter mPresenter;
+    protected ModifierAnnoncePresenter mPresenter;
 
     /**
      * Elements IHM que l'on va custom
      */
+    private TextView titreView;
     private EditText textfieldNomClient;
     private EditText textfieldPrenomClient;
     private EditText textfieldNumTel;
@@ -34,9 +35,9 @@ public class CreerAnnonce extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creer_annonce);
+        setContentView(R.layout.creer_modifier_annonce);
 
-        mPresenter = new CreerAnnoncePresenter(this);
+        mPresenter = new ModifierAnnoncePresenter(this);
     }
 
     /**
@@ -45,6 +46,8 @@ public class CreerAnnonce extends Activity {
     @Override
     public void initView() {
         super.initView();
+        titreView = findViewById(R.id.libelleTitre);
+        titreView.setText("Modifier une annonce");
         textfieldNomClient = findViewById(R.id.textfieldNomClient);
         textfieldPrenomClient = findViewById(R.id.textfieldPrenomClient);
         textfieldNumTel = findViewById(R.id.textfieldNumTel);
@@ -57,9 +60,7 @@ public class CreerAnnonce extends Activity {
         buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flush();
-                AnnonceDTO aDTO = mPresenter.getModel().getAnnonceDTO();
-                mPresenter.doValider(aDTO);
+                mPresenter.doModifier();
             }
         });
     }
@@ -67,7 +68,7 @@ public class CreerAnnonce extends Activity {
     public void bind(){
         //On récupère les données de notre Model
         AnnonceDTO annonceDTO = mPresenter.getModel().getAnnonceDTO();
-        ClientDTO clientDTO = mPresenter.getModel().getClientDTO();
+        ClientDTO clientDTO = annonceDTO.getClientDTO();
 
         //On set les éléments IHM
         textfieldNomClient.setText(clientDTO.getNomClient());
@@ -94,10 +95,10 @@ public class CreerAnnonce extends Activity {
         clientDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
+        annonceDTO.setClientDTO(clientDTO);
 
         //On alimente le model
         mPresenter.getModel().setAnnonceDTO(annonceDTO);
-        mPresenter.getModel().setClientDTO(clientDTO);
 
     }
 }

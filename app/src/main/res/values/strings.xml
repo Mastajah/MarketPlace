@@ -2,6 +2,7 @@
     <string name="app_name">MarketPlace</string>
     <string name="msg_welcome">Bienvenue !</string>
 
+    <!--- ANNONCE -->
     <!--- Creer Annonce -->
     <string name="titre_creer_annonce">Creer une annonce</string>
     <string name="libelle_num_client_creer_annonce">Client N°</string>
@@ -15,6 +16,8 @@
     <string name="libelle_ville_client_creer_annonce">Ville :</string>
     <string name="libelle_codePostal_client_creer_annonce">Code Postal :</string>
     <string name="libelle_button_valider_creer_annonce">Valider</string>
+    <!--- Consulter Annonce -->
+    <string name="titre_consulter_annonce">Détail de l'annonce n°</string>
 
     <!--- PROFIL PROFESSIONNEL - START-->
     <!--- Creer Profil -->

@@ -16,7 +16,5 @@ public interface ActivityContract {
     interface PresenterCallBack<M extends ActivityModel> {
 
         M getModel();
-
-        void onClick(android.view.View view);
     }
 }

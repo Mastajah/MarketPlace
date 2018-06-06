@@ -4,6 +4,7 @@ public class AnnonceDTO {
     private Long numeroAnnonce;
     private String titre;
     private String description;
+    private ClientDTO clientDTO;
 
     public Long getNumeroAnnonce() {
         return numeroAnnonce;
@@ -27,5 +28,13 @@ public class AnnonceDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ClientDTO getClientDTO() {
+        return clientDTO;
+    }
+
+    public void setClientDTO(ClientDTO clientDTO) {
+        this.clientDTO = clientDTO;
     }
 }

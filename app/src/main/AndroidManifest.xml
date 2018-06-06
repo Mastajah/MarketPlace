@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".client.MVPPattern.Activity" />
-        <activity android:name=".client.annonce.creer_annonce.CreerAnnonce" />
+        <activity android:name=".client.annonce.creerAnnonce.CreerAnnonce" />
+        <activity android:name=".client.annonce.consulterAnnonce.ConsulterAnnonce" />
+        <activity android:name=".client.annonce.modifierAnnonce.ModifierAnnonce" />
         <activity android:name=".client.ProfilPro.ModifierProfil.ModifierProfil" />
 
     </application>
