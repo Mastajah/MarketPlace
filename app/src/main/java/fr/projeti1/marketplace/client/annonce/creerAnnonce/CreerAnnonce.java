@@ -1,5 +1,6 @@
 package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
+import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
@@ -33,6 +35,7 @@ public class CreerAnnonce extends Activity {
     private EditText textfieldVille;
     private EditText textfieldCodepostal;
     private Button buttonValider;
+    private Button menuTmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,15 @@ public class CreerAnnonce extends Activity {
             @Override
             public void onClick(View v) {
                 mPresenter.doValider();
+            }
+        });
+        menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
+        menuTmp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent connection = new Intent(getApplicationContext(), MenuTmpActivity.class);
+                startActivity(connection);
+                finish();
             }
         });
     }

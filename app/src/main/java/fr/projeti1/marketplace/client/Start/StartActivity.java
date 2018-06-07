@@ -26,7 +26,7 @@ public class StartActivity extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent connection = new Intent(getApplicationContext(), MenuTmpActivity.class);
                 startActivity(connection);
                 finish();
             }

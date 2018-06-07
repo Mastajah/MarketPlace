@@ -70,4 +70,14 @@
     <string name="title_activity_maps">Map</string>
     <string name="goole_map_api_key">AIzaSyBH_lMKVJTJSogMQvIdRhxC6y2QJkYjing</string>
     <!--- MAP - END-->
+
+    <!--- TMP MENU -->
+    <string name="tmp_menu">Menu</string>
+    <string name="tmp_menu_consulterAnnonce">Consulter Annnonce</string>
+    <string name="tmp_menu_creerAnnonce">Creer Annnonce</string>
+    <string name="tmp_menu_modifierAnnonce">Modifier Annnonce</string>
+    <string name="tmp_menu_Map">Naviguer Map</string>
+    <string name="tmp_menu_consulterProfil">Consulter Profil Pro</string>
+    <string name="tmp_menu_ModifierProfil">Modifier Profil Pro</string>
+    <string name="tmp_menu_CreerProfil">Creer Profil Pro</string>
 </resources>

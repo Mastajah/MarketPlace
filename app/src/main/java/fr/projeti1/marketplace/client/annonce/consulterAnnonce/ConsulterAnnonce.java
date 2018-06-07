@@ -2,10 +2,13 @@ package fr.projeti1.marketplace.client.annonce.consulterAnnonce;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
+import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
@@ -29,6 +32,7 @@ public class ConsulterAnnonce extends Activity {
     private TextView adresseConsult;
     private TextView villeConsult;
     private TextView codePostalConsult;
+    private Button menuTmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,15 @@ public class ConsulterAnnonce extends Activity {
         adresseConsult = findViewById(R.id.adresseConsult);
         villeConsult = findViewById(R.id.villeConsult);
         codePostalConsult = findViewById(R.id.codePostalConsult);
+        menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
+        menuTmp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent connection = new Intent(getApplicationContext(), MenuTmpActivity.class);
+                startActivity(connection);
+                finish();
+            }
+        });
     }
 
     public void bind(){

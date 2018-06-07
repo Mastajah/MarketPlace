@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
+import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
+import fr.projeti1.marketplace.client.annonce.creerAnnonce.CreerAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
@@ -34,6 +36,7 @@ public class ModifierAnnonce extends Activity{
     private EditText textfieldVille;
     private EditText textfieldCodepostal;
     private Button buttonValider;
+    private Button menuTmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,15 @@ public class ModifierAnnonce extends Activity{
             @Override
             public void onClick(View v) {
                 mPresenter.doModifier();
+            }
+        });
+        menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
+        menuTmp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent connection = new Intent(getApplicationContext(), MenuTmpActivity.class);
+                startActivity(connection);
+                finish();
             }
         });
     }
