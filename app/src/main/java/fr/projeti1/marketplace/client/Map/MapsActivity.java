@@ -96,6 +96,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mSearchText =(EditText) findViewById(R.id.input_search);
         getLocationPermission();
 
+    }
+
+    public void initMap(){
+        Log.d(TAG,"initMap : Initialisation de la Map");
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
+    private void init(){
+        Log.d(TAG, "init: initialisation de l'outil de recherche sur map");
+
         //Création d'annonce fictive pour affichage des marqueur suite à la recherche:
         AnnonceDTO annonceDTO1 = new AnnonceDTO();
         annonceDTO1.setNumeroAnnonce(1L);
@@ -115,19 +129,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         annonceDTO2.setCodePostale("31000");
         annonceDTO2.setVille("Toulouse");
 
-    }
-
-    public void initMap(){
-        Log.d(TAG,"initMap : Initialisation de la Map");
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-    }
-
-    private void init(){
-        Log.d(TAG, "init: initialisation de l'outil de recherche sur map");
+        final List<AnnonceDTO> listAnnonce = new ArrayList<AnnonceDTO>();
+        listAnnonce.add(annonceDTO1);
+        listAnnonce.add(annonceDTO2);
 
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -139,20 +143,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER){
 
                     //execute la methode de recherche
-                    geoLocate();
+                    geoLocate(listAnnonce);
                 }
-
+                fermeClavierSaisie();
                 return false;
             }
         });
-        fermeClavierSaisie();
+
     }
 
     /**
      * Methode de géolocalisation d'une saisie de recherche
      * entré dans la barre de recherche mSearchText
      */
-    private void geoLocate(){
+    private void geoLocate(List<AnnonceDTO> listAnnonce){
 
         //RechercherAnnonce rechercherAnnonce = new RechercherAnnonce();
 
@@ -164,8 +168,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         List<Address> list = new ArrayList<>();
 
-        List<AnnonceDTO> listAnnonce = new ArrayList<AnnonceDTO>();
-
         try{
             list = geocoder.getFromLocationName(searchString, 1);
         }catch (IOException e){
@@ -176,8 +178,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(list.size() > 0){
             Address address = list.get(0);
             for(AnnonceDTO annonceDTO : listAnnonce){
+                Log.d(TAG,"Ville de l'annonce n°"+annonceDTO.getNumeroAnnonce() + " : "
+                + annonceDTO.getVille());
                 // compare le code postale de l'adresse trouvée avec le code postal des annonces enregistrées
-                if (address.getPostalCode().equals(annonceDTO.getCodePostale())){
+                if ((address.getLocality()).equals(annonceDTO.getVille())){
                     //place un marqueur sur toutes les annonces ayant le même
                     //code postal que le l'adresse saisie
 
@@ -188,6 +192,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 .position(new LatLng(adresseAnnonce.getLatitude(), adresseAnnonce.getLongitude()))
                                 .title("Annonce n°" + annonceDTO.getNumeroAnnonce());
                         mMap.addMarker(options);
+                        Log.d(TAG,"Ajout d'un marqueur à l'adresse" + address);
                     }
 
                 }
@@ -216,6 +221,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         if(list.size()>0){
             Address address = list.get(0);
+            Log.d(TAG,"convertStringToAdresse: le texte "+strAdresse
+                    +"a bien été converti en Adresse " + address);
             return address;
         }
         else return null;
@@ -308,7 +315,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
     private void fermeClavierSaisie(){
+        //this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        Log.d(TAG, "fermeClavierSaisie: Fermeture du clavier effective");
     }
 
 }
