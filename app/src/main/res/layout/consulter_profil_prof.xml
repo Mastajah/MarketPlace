@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".client.annonce.consulterAnnonce.ConsulterAnnonce">
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -11,7 +6,7 @@
 
     <TableRow>
         <TextView
-            android:id="@+id/depanneur_num"
+            android:id="@+id/depanneur_num1"
             android:text="Dépanneur professionnel N° "
             android:textStyle="bold"
             android:textSize="18dp"
@@ -35,7 +30,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_nom"
+            android:id="@+id/consulter_nom1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -55,7 +50,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_prenom"
+            android:id="@+id/consulter_prenom1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -75,7 +70,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_nom_societe"
+            android:id="@+id/consulter_nom_societe1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -95,7 +90,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_siret"
+            android:id="@+id/consulter_siret1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -115,7 +110,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_decennale"
+            android:id="@+id/consulter_decennale1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -135,7 +130,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_competence"
+            android:id="@+id/consulter_competence1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -166,7 +161,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_telephone"
+            android:id="@+id/consulter_telephone1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -186,7 +181,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_mail"
+            android:id="@+id/consulter_mail1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -206,7 +201,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_adresse"
+            android:id="@+id/consulter_adresse1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -226,7 +221,7 @@
         <TextView
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_ville"
+            android:id="@+id/consulter_ville1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_span="2"
@@ -246,7 +241,7 @@
         <TextView
             android:paddingBottom="20dp"
             android:paddingTop="4dp"
-            android:id="@+id/consulter_code_postal"
+            android:id="@+id/consulter_code_postal1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14dp"
@@ -254,7 +249,7 @@
     </TableRow>
     <TableRow>
         <Button
-            android:id="@+id/supprimer_profil_pro"
+            android:id="@+id/supprimer_profil_pro1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -262,5 +257,14 @@
             android:layout_span="3"
             />
     </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/retour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/tmp_menu"
+            android:layout_span="3"
+            />
+    </TableRow>
 </TableLayout>
-</android.support.constraint.ConstraintLayout>

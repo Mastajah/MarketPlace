@@ -61,7 +61,7 @@ public class ConsulterAnnonce extends Activity {
         adresseConsult = findViewById(R.id.adresseConsult);
         villeConsult = findViewById(R.id.villeConsult);
         codePostalConsult = findViewById(R.id.codePostalConsult);
-        menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
+        menuTmp = findViewById(R.id.menu_tmp_button_Consult);
         menuTmp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,7 @@
 package fr.projeti1.marketplace.client.ProfilPro.ConsulterProfil;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
+import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
 
@@ -29,36 +31,47 @@ public class ConsulterProfil extends Activity{
     private TextView ville;
     private TextView codePostal;
     private Button supprimerProfilPro;
+    private Button menuTmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modifier_profil_pro);
+        setContentView(R.layout.consulter_profil_prof);
 
         //Ici on récupère l'id du Profil en le récupérant dans l'intent
-        Long exemple = 123l;
-        consultProfilPresenter = new ConsulterProfilPresenter(this,exemple);
+
+        consultProfilPresenter = new ConsulterProfilPresenter(this);
+        bind();
     }
 
     @Override
     public void initView() {
         super.initView();
-        nomPro = findViewById(R.id.consulter_nom);
-        prenomPro = findViewById(R.id.consulter_prenom);
-        nomSociete = findViewById(R.id.consulter_nom_societe);
-        numSiret= findViewById(R.id.consulter_siret);
-        numDecennale = findViewById(R.id.consulter_decennale);
-        competences = findViewById(R.id.consulter_competence);
-        numTel = findViewById(R.id.consulter_telephone);
-        mail = findViewById(R.id.consulter_mail);
-        adresse = findViewById(R.id.consulter_adresse);
-        ville = findViewById(R.id.consulter_ville);
-        codePostal = findViewById(R.id.consulter_code_postal);
-        supprimerProfilPro = findViewById(R.id.supprimer_profil_pro);
+        nomPro = findViewById(R.id.consulter_nom1);
+        prenomPro = findViewById(R.id.consulter_prenom1);
+        nomSociete = findViewById(R.id.consulter_nom_societe1);
+        numSiret= findViewById(R.id.consulter_siret1);
+        numDecennale = findViewById(R.id.consulter_decennale1);
+        competences = findViewById(R.id.consulter_competence1);
+        numTel = findViewById(R.id.consulter_telephone1);
+        mail = findViewById(R.id.consulter_mail1);
+        adresse = findViewById(R.id.consulter_adresse1);
+        ville = findViewById(R.id.consulter_ville1);
+        codePostal = findViewById(R.id.consulter_code_postal1);
+        supprimerProfilPro = findViewById(R.id.supprimer_profil_pro1);
         supprimerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 consultProfilPresenter.supprimerProfilPro();
+            }
+        });
+        menuTmp = findViewById(R.id.retour);
+        menuTmp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent connection = new Intent(getApplicationContext(), MenuTmpActivity.class);
+                startActivity(connection);
+                finish();
             }
         });
     }
@@ -68,7 +81,6 @@ public class ConsulterProfil extends Activity{
         ProfilProDTO profilproDTO = consultProfilPresenter.getConsultProfilModel().getConsultProfilProDTO();
 
         //insertion des données dans la vue
-        numDepanneur.setText(String.valueOf(profilproDTO.getNumeroPro()));
         nomPro.setText(profilproDTO.getNomPro());
         prenomPro.setText(profilproDTO.getPrenomPro());
         nomSociete.setText(profilproDTO.getNomSociete());

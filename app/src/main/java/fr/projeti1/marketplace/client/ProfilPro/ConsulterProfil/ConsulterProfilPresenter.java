@@ -13,16 +13,31 @@ public class ConsulterProfilPresenter extends ActivityPresenter {
     //Id du Profil Professionnel
     private Long idProfilPro;
 
-    public ConsulterProfilPresenter(ConsulterProfil vue,Long idProfilPro) {
+    public ConsulterProfilPresenter(ConsulterProfil vue) {
         super(vue);
         // En attendant que le pattern soit mieux
         this.consultProfilView = vue;
-        this.idProfilPro = idProfilPro;
         initPresenter();
     }
 
      private void initPresenter(){
         consultProfilModel = new ConsulterProfilModel();
+
+        ProfilProDTO dto = new ProfilProDTO();
+        dto.setNumeroPro(12L);
+        dto.setNomPro("BENSOMBES");
+        dto.setPrenomPro("Richard");
+        dto.setNomSociete("BESSELAM");
+        dto.setSiretSociete(4584598L);
+        dto.setNumDecennale("AE457F");
+        dto.setNumeroTelephone(0654545454l);
+        dto.setMail("richard.bensombes@yahou.fr");
+        dto.setAdresse("75 rue des champs");
+        dto.setVille("Toulouse");
+        dto.setCodePostal(31000L);
+
+        consultProfilModel.setConsultProfilProDTO(dto);
+
         consultProfilView.initView();
     }
 
