@@ -73,7 +73,7 @@ public class MenuTmpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent connection = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(connection);
-                finish();
+                //finish();
             }
         });
         buttonConsulterProfil.setOnClickListener(new View.OnClickListener() {

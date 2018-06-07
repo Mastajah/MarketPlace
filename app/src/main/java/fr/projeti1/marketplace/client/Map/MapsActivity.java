@@ -2,6 +2,7 @@ package fr.projeti1.marketplace.client.Map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,21 +27,24 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import fr.projeti1.marketplace.R;
+import fr.projeti1.marketplace.client.annonce.listeAnnonce.RechercherAnnonce;
+import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-
-
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 123;
     private static final String TAG = "MapActivity";
+    private static final float DEFAULT_ZOOM = 15f; // Zoom map utilisé par défault
 
     //Variables:
     private FusedLocationProviderClient mFusedLocationProviderClient;
@@ -47,7 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean isLocationPermissionGranted = false;
 
     //Widgets
-    private EditText mSearchText;
+    private EditText mSearchText; //Texte saisie dans la barre de recherche
 
 
     /**
@@ -88,7 +93,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
+        mSearchText =(EditText) findViewById(R.id.input_search);
         getLocationPermission();
+
+        //Création d'annonce fictive pour affichage des marqueur suite à la recherche:
+        AnnonceDTO annonceDTO1 = new AnnonceDTO();
+        annonceDTO1.setNumeroAnnonce(1L);
+        annonceDTO1.setTitre("Compteur en rade");
+        annonceDTO1.setDescription("Le compteur marche plus");
+        annonceDTO1.setNumVoie(20);
+        annonceDTO1.setRue("Quai de Tounis");
+        annonceDTO1.setCodePostale("31000");
+        annonceDTO1.setVille("Toulouse");
+
+        AnnonceDTO annonceDTO2 = new AnnonceDTO();
+        annonceDTO2.setNumeroAnnonce(2L);
+        annonceDTO2.setTitre("Radiateur en rade");
+        annonceDTO2.setDescription("Le Radiateur ne marche plus");
+        annonceDTO2.setNumVoie(1);
+        annonceDTO2.setRue("Rue de Metz");
+        annonceDTO2.setCodePostale("31000");
+        annonceDTO2.setVille("Toulouse");
+
     }
 
     public void initMap(){
@@ -106,6 +132,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                //Gere la possibilité d'appuyer sur enter ou le retour pour lancer la recherche
                 if(actionId == EditorInfo.IME_ACTION_SEARCH
                         || actionId == EditorInfo.IME_ACTION_DONE
                         || keyEvent.getAction() == KeyEvent.ACTION_DOWN
@@ -118,19 +145,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return false;
             }
         });
+        fermeClavierSaisie();
     }
 
     /**
      * Methode de géolocalisation d'une saisie de recherche
+     * entré dans la barre de recherche mSearchText
      */
     private void geoLocate(){
-        Log.d(TAG, "geoLocate: geolocalisation");
 
+        //RechercherAnnonce rechercherAnnonce = new RechercherAnnonce();
+
+        Log.d(TAG, "geoLocate: geolocalisation");
+        // Recupère le String saisie dans la barre de recherche
         String searchString = mSearchText.getText().toString();
 
         Geocoder geocoder = new Geocoder(MapsActivity.this);
 
         List<Address> list = new ArrayList<>();
+
+        List<AnnonceDTO> listAnnonce = new ArrayList<AnnonceDTO>();
 
         try{
             list = geocoder.getFromLocationName(searchString, 1);
@@ -138,18 +172,59 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.e(TAG, "geoLocate: IOException: " + e.getMessage() );
         }
 
+        //Si la recherche resulte sur un liste avec des résultats
         if(list.size() > 0){
             Address address = list.get(0);
+            for(AnnonceDTO annonceDTO : listAnnonce){
+                // compare le code postale de l'adresse trouvée avec le code postal des annonces enregistrées
+                if (address.getPostalCode().equals(annonceDTO.getCodePostale())){
+                    //place un marqueur sur toutes les annonces ayant le même
+                    //code postal que le l'adresse saisie
+
+                    Address adresseAnnonce = convertStringToAdresse(annonceDTO.adressToString());
+
+                    if (adresseAnnonce != null){
+                        MarkerOptions options = new MarkerOptions()
+                                .position(new LatLng(adresseAnnonce.getLatitude(), adresseAnnonce.getLongitude()))
+                                .title("Annonce n°" + annonceDTO.getNumeroAnnonce());
+                        mMap.addMarker(options);
+                    }
+
+                }
+            // on recupère l'adresse stockée dans la liste à la position 0
+                Log.d(TAG,"geoLocate: l'adresse match avec celle d'une annonce");
+
+            }
 
             Log.d(TAG, "geoLocate: found a location: " + address.toString());
+            //Utilliser la ligne en dessous pour afficher les info de l'adresse directement sur l'appli
             //Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
-
+            moveCamera(new LatLng(address.getLatitude(),address.getLongitude()),
+                    DEFAULT_ZOOM, address.getAddressLine(0));
         }
-    }
 
+    }
+    private Address convertStringToAdresse(String strAdresse){
+
+        Geocoder geocoder = new Geocoder(MapsActivity.this);
+        List<Address> list = new ArrayList<>();
+
+        try {
+            list = geocoder.getFromLocationName(strAdresse, 1);
+        } catch (IOException e) {
+            Log.e(TAG,"convertStringToAdresse: IOException: "+e.getMessage());
+        }
+        if(list.size()>0){
+            Address address = list.get(0);
+            return address;
+        }
+        else return null;
+    }
     private void getDeviceLocation(){
+
         Log.d(TAG,"getDeviceLocation : recupere la location de l'appareil");
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
         try{
             Task location = mFusedLocationProviderClient.getLastLocation();
             location.addOnCompleteListener(new OnCompleteListener() {
@@ -158,7 +233,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     if (task.isSuccessful()) {
                         Log.d(TAG, "onComplete: Localisation Trouvée");
                         Location currentLocation = (Location) task.getResult();
-                        moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),15f);
+                        moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+                                DEFAULT_ZOOM, "Ma Position");
                     } else {
                         Log.d(TAG, "onComplete: location actuelle is vide");
                         Toast.makeText(MapsActivity.this, "Localisation introuvable", Toast.LENGTH_SHORT).show();
@@ -170,12 +246,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void moveCamera(LatLng latLng, float zoom){
-        Log.d(TAG, "moveCamera: moving the camera to lat: "+latLng.latitude + ", lng: "+ latLng.longitude);
+    private void moveCamera(LatLng latLng, float zoom, String title){
+        Log.d(TAG, "moveCamera: deplace l'ecran vers la latitude: "+latLng.latitude + ", longitude: "+ latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+        /*
+        if(!title.equals("Ma Position")){
+            //Ajoute le curseur sur le position trouvée
+            MarkerOptions options = new MarkerOptions()
+                    .position(latLng)
+                    .title(title);
+            mMap.addMarker(options);
+        }
+        */
+        fermeClavierSaisie();
+
     }
-
-
 
 
     @Override
@@ -222,6 +307,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LOCATION_PERMISSION_REQUEST_CODE);
         }
     }
-
+    private void fermeClavierSaisie(){
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
 
 }

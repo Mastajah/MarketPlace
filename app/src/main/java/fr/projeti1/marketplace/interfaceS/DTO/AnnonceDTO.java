@@ -5,6 +5,10 @@ public class AnnonceDTO{
     private String titre;
     private String description;
     private ClientDTO clientDTO;
+    private String ville;
+    private String rue;
+    private int numVoie;
+    private String codePostale;
 
     public Long getNumeroAnnonce() {
         return numeroAnnonce;
@@ -36,5 +40,25 @@ public class AnnonceDTO{
 
     public void setClientDTO(ClientDTO clientDTO) {
         this.clientDTO = clientDTO;
+    }
+
+    public String getRue() { return rue; }
+
+    public int getNumVoie() { return numVoie; }
+
+    public String getVille() { return ville; }
+
+    public void setVille(String ville) { this.ville = ville; }
+
+    public void setRue(String rue) { this.rue = rue; }
+
+    public void setNumVoie(int numVoie) { this.numVoie = numVoie; }
+
+    public String getCodePostale() {return codePostale; }
+
+    public void setCodePostale(String codePostale) {this.codePostale = codePostale; }
+
+    public String adressToString(){
+        return getNumVoie() + " " + getNumVoie() + " " + getVille() + " " + getCodePostale();
     }
 }

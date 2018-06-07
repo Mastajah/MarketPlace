@@ -42,7 +42,6 @@
             android:hint="Entrez une addresse, une ville ou un code postal"
             android:imeOptions="actionSearch"/>
 
-
     </RelativeLayout>
 
 </RelativeLayout>
