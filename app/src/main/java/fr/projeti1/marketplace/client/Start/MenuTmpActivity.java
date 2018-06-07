@@ -55,7 +55,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonCreerAnnonce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), CreerAnnonce.class);
+                Intent connection = new Intent(MenuTmpActivity.this, CreerAnnonce.class);
                 startActivity(connection);
                 finish();
             }
@@ -63,7 +63,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonModifierAnnonce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), ModifierAnnonce.class);
+                Intent connection = new Intent(MenuTmpActivity.this, ModifierAnnonce.class);
                 startActivity(connection);
                 finish();
             }
@@ -71,7 +71,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), MapsActivity.class);
+                Intent connection = new Intent(MenuTmpActivity.this, MapsActivity.class);
                 startActivity(connection);
                 //finish();
             }
@@ -79,7 +79,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonConsulterProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), ConsulterProfil.class);
+                Intent connection = new Intent(MenuTmpActivity.this, ConsulterProfil.class);
                 startActivity(connection);
                 finish();
             }
@@ -87,7 +87,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonModifierProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), ModifierProfil.class);
+                Intent connection = new Intent(MenuTmpActivity.this, ModifierProfil.class);
                 startActivity(connection);
                 finish();
             }
@@ -95,7 +95,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonCreerProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent connection = new Intent(getApplicationContext(), CreerProfil.class);
+                Intent connection = new Intent(MenuTmpActivity.this, CreerProfil.class);
                 startActivity(connection);
                 finish();
             }

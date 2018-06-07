@@ -14,7 +14,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            multiDexEnabled true
         }
     }
 }
@@ -49,8 +48,4 @@ dependencies {
 
     // Test helpers
     testImplementation "android.arch.persistence.room:testing:$room_version"
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
 }
