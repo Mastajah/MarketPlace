@@ -106,7 +106,7 @@ public class ModifierAnnonce extends Activity{
         mPresenter.getModel().setAnnonceDTO(annonceDTO);
     }
 
-    public void goToConsulter(String titreAnnonce){
+    public void goToConsulter(String nomClient){
         //Affichage dans consultation annonce
 
         //On déclare un intent pour aller sur une autre activité: ici consultation annonce
@@ -114,7 +114,7 @@ public class ModifierAnnonce extends Activity{
 
         //On met un paramètre qui se met dans l'extra du intent
         //De base, que les types de base de java, On peut faire passer un objet sérialisable => Cours La communication entre composants d'OpenClassRoom
-        modifierToConsulter.putExtra("titreAnnonce",titreAnnonce);
+        modifierToConsulter.putExtra("nomClient",nomClient);
         //On la lance(ConsulterAnnonce)
         startActivity(modifierToConsulter);
         //On ferme celle la (ModifierAnnonce)

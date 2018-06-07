@@ -66,4 +66,8 @@
     <string name="libelle_button_valider_depanneur_consulter_profil">Valider</string>
     <!--- PROFIL PROFESSIONNEL - END-->
 
+    <!--- Recherche sur MAP -->
+    <string name="title_activity_maps">Map</string>
+    <string name="goole_map_api_key">AIzaSyBH_lMKVJTJSogMQvIdRhxC6y2QJkYjing</string>
+    <!--- MAP - END-->
 </resources>

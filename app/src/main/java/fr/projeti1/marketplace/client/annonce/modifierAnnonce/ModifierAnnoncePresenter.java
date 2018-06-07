@@ -47,8 +47,8 @@ public class ModifierAnnoncePresenter extends ActivityPresenter {
     public void doModifier(){
         mView.flush();
         AnnonceDTO inputDTO = mModel.getAnnonceDTO();
-        // AnnonoceService.modifierAnnonce(inputDTO);
-        mView.goToConsulter(inputDTO.getTitre());
+        // AnnonceService.modifierAnnonce(inputDTO);
+        mView.goToConsulter(inputDTO.getClientDTO().getNomClient());
     }
 
     public ModifierAnnonceModel getModel() {

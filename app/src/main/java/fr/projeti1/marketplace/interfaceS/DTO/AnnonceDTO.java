@@ -1,6 +1,6 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-public class AnnonceDTO {
+public class AnnonceDTO{
     private Long numeroAnnonce;
     private String titre;
     private String description;

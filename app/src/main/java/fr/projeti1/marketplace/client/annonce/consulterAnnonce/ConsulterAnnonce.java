@@ -37,7 +37,7 @@ public class ConsulterAnnonce extends Activity {
 
         //on récupère l'intent pour récupérer les données qu'on s'est fait passé
         Intent intent = getIntent();
-        this.mPresenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("titreAnnonce"));
+        this.mPresenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("nomClient"));
         bind();
     }
 
