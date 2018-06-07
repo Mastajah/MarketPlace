@@ -59,6 +59,6 @@ public class AnnonceDTO{
     public void setCodePostale(String codePostale) {this.codePostale = codePostale; }
 
     public String adressToString(){
-        return getNumVoie() + " " + getNumVoie() + " " + getVille() + " " + getCodePostale();
+        return getNumVoie() + " " + getRue() + " " + getVille() + " " + getCodePostale();
     }
 }
