@@ -22,7 +22,7 @@ public class ConsulterAnnonce extends Activity {
     /**
      * Elements IHM que l'on va custom
      */
-    private TextView numAnnonceConsult;
+    private TextView libelleTitreConsult;
     private TextView numClientConsult;
     private TextView nomClientConsult;
     private TextView prenomClientConsult;
@@ -51,7 +51,7 @@ public class ConsulterAnnonce extends Activity {
     @Override
     public void initView() {
         super.initView();
-        numAnnonceConsult = findViewById(R.id.numAnnonceConsult);
+        libelleTitreConsult = findViewById(R.id.libelleTitreConsult);
         numClientConsult = findViewById(R.id.numClientConsult);
         nomClientConsult = findViewById(R.id.nomClientConsult);
         prenomClientConsult = findViewById(R.id.prenomClientConsult);
@@ -78,7 +78,7 @@ public class ConsulterAnnonce extends Activity {
         ClientDTO clientDTO = annonceDTO.getClientDTO();
 
         //On set les éléments IHM
-        numAnnonceConsult.setText(String.valueOf(annonceDTO.getNumeroAnnonce()));
+        libelleTitreConsult.setText("Detail de l\'annonce n°" + String.valueOf(annonceDTO.getNumeroAnnonce()));
         numClientConsult.setText(String.valueOf(clientDTO.getNumeroClient()));
         //Plus tard alimenté par le DTO, ici c'est un exemple
         nomClientConsult.setText(mPresenter.getNomClient());

@@ -31,7 +31,7 @@ public class CreerProfil extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creer_profil_pro);
+        setContentView(R.layout.creer_profil_prof);
 
         createProfilPresenter = new CreerProfilPresenter(this);
     }

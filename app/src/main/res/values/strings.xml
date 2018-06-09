@@ -8,7 +8,7 @@
     <string name="libelle_num_client_creer_annonce">Client N°</string>
     <string name="libelle_nom_client_creer_annonce">Nom :</string>
     <string name="libelle_prenom_client_creer_annonce">Prénom :</string>
-    <string name="libelle_num_tel_client_creer_annonce">Numéro Tel.</string>
+    <string name="libelle_num_tel_client_creer_annonce">Numéro Tel :</string>
     <string name="libelle_titre_annonce_creer_annonce">Titre de l\'annonce :</string>
     <string name="libelle_description_annonce_creer_annonce">Description :</string>
     <string name="libelle_competences_annonce_creer_annonce">Compétences :</string>
@@ -17,7 +17,7 @@
     <string name="libelle_codePostal_client_creer_annonce">Code Postal :</string>
     <string name="libelle_button_valider_creer_annonce">Valider</string>
     <!--- Consulter Annonce -->
-    <string name="titre_consulter_annonce">Détail de l'annonce n°</string>
+    <string name="titre_consulter_annonce">Détail de l\'annonce n°</string>
 
     <!--- PROFIL PROFESSIONNEL - START-->
     <!--- Creer Profil -->

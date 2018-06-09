@@ -32,7 +32,7 @@ public class ModifierProfil extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.modifier_profil_pro);
+        setContentView(R.layout.modifier_profil_prof);
 
         modifyProfilPresenter = new ModifierProfilPresenter(this);
     }

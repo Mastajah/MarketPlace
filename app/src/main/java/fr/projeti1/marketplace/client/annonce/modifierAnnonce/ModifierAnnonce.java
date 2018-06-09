@@ -26,7 +26,8 @@ public class ModifierAnnonce extends Activity{
     /**
      * Elements IHM que l'on va custom
      */
-    private TextView titreView;
+    private TextView libelleTitreCreerModifAnnonce;
+    private TextView numClientCreaModif;
     private EditText textfieldNomClient;
     private EditText textfieldPrenomClient;
     private EditText textfieldNumTel;
@@ -54,8 +55,9 @@ public class ModifierAnnonce extends Activity{
     @Override
     public void initView() {
         super.initView();
-        titreView = findViewById(R.id.libelleTitre);
-        titreView.setText("Modifier une annonce");
+        libelleTitreCreerModifAnnonce = findViewById(R.id.libelleTitreCreerModifAnnonce);
+        libelleTitreCreerModifAnnonce.setText("Modifier une annonce");
+        numClientCreaModif = findViewById(R.id.numClientCreaModif);
         textfieldNomClient = findViewById(R.id.textfieldNomClient);
         textfieldPrenomClient = findViewById(R.id.textfieldPrenomClient);
         textfieldNumTel = findViewById(R.id.textfieldNumTel);
@@ -88,6 +90,7 @@ public class ModifierAnnonce extends Activity{
         ClientDTO clientDTO = annonceDTO.getClientDTO();
 
         //On set les éléments IHM
+        numClientCreaModif.setText(String.valueOf(clientDTO.getNumeroClient()));
         textfieldNomClient.setText(clientDTO.getNomClient());
         textfieldPrenomClient.setText(clientDTO.getPrenomClient());
         textfieldNumTel.setText(String.valueOf(clientDTO.getNumeroTelephone()));

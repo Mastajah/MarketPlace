@@ -25,7 +25,9 @@ public class CreerAnnonce extends Activity {
     /**
      * Elements IHM que l'on va custom
      */
-    private TextView titreView;
+    private TextView libelleTitreCreerModifAnnonce;
+    private TextView libelleNumClientCreaModif;
+    private TextView numClientCreaModif;
     private EditText textfieldNomClient;
     private EditText textfieldPrenomClient;
     private EditText textfieldNumTel;
@@ -51,8 +53,12 @@ public class CreerAnnonce extends Activity {
     @Override
     public void initView() {
         super.initView();
-        titreView = findViewById(R.id.libelleTitre);
-        titreView.setText("Creer une annonce");
+        libelleTitreCreerModifAnnonce = findViewById(R.id.libelleTitreCreerModifAnnonce);
+        libelleTitreCreerModifAnnonce.setText("Creer une annonce");
+        libelleNumClientCreaModif = findViewById(R.id.libelleNumClientCreaModif);
+        libelleNumClientCreaModif.setEnabled(false);
+        numClientCreaModif = findViewById(R.id.numClientCreaModif);
+        numClientCreaModif.setEnabled(false);
         textfieldNomClient = findViewById(R.id.textfieldNomClient);
         textfieldPrenomClient = findViewById(R.id.textfieldPrenomClient);
         textfieldNumTel = findViewById(R.id.textfieldNumTel);
