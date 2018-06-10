@@ -81,7 +81,8 @@ public class CreerProfil extends Activity{
         profilProDTO.setVille(ville.getText().toString());
         profilProDTO.setCodePostal(Long.parseLong(codePostal.getText().toString()));
 
-        // finir avec l'envoi du DTO au modèle
+        // on alimente le model
+        createProfilPresenter.getCreateProfilModel().setCreateProfilProDTO(profilProDTO);
     }
 
 }
