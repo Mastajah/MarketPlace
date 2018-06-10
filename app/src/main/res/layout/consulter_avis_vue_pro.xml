@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">.
+
+
+    <TableRow>
+        <TextView
+            android:id="@+id/consulter_avis_num"
+            android:text="Avis N° "
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#5693EF"
+            android:gravity="center"
+            android:layout_span="3"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Professionnel Concerné "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_nom_pro"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Nom de la société "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_nom_societe"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Nom client "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_nom_client"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Prénom client "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_prenom_client"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="N° annonce référence "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_num_annonce"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Résumé intervention "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+        <TextView
+            android:id="@+id/consulter_avis_client_resume"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Description avis "
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+
+        <TextView
+            android:id="@+id/consulter_avis_client_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            />
+    </TableRow>
+
+</TableLayout>

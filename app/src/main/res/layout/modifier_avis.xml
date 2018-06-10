@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">.
+
+
+    <TableRow>
+        <TextView
+            android:layout_span="3"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:text="Modifier Avis"
+            android:textColor="#5693EF"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:gravity="right"
+            android:text="Avis N° "
+            android:textColor="#5693EF"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/modifier_num_avis"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="#5693EF"
+            android:gravity="left"
+            android:paddingRight="15dp"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Professionnel Concerné "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_nom_pro"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom du professionnel"
+            android:textSize="14dp"
+            android:inputType="textPersonName"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Nom de la société "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_nom_societe"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Libellé de la société"
+            android:textSize="14dp"
+            android:inputType="text"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Nom client "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_nom_client"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom du client"
+            android:textSize="14dp"
+            android:inputType="textPersonName"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Prénom client "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_prenom_client"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prénom du client"
+            android:textSize="14dp"
+            android:inputType="text"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="N° annonce référence "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_num_annonce"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numéro annonce"
+            android:textSize="14dp"
+            android:inputType="number"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Résumé intervention "
+            android:textSize="14dp" />
+        <EditText
+            android:id="@+id/modifier_avis_resume"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Résumé de l'intervention"
+            android:textSize="14dp"
+            android:inputType="textLongMessage"
+            android:maxLength="100"
+            />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Description avis "
+            android:textSize="14dp"
+            />
+
+        <EditText
+            android:id="@+id/modifier_avis_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Corps de l'avis"
+            android:inputType="textLongMessage"
+            android:textSize="14dp"
+            android:maxLength="250"
+            />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/valider_modifier_avis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_span="3"
+            android:text="Valider"
+            />
+    </TableRow>
+</TableLayout>
