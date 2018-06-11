@@ -6,9 +6,9 @@ package fr.projeti1.marketplace.client.MVPPattern;
  * @param <M>
  *      le modele que le presenter retourne
  * @param <V>
- *      l'interface {@link fr.projeti1.marketplace.client.MVPPattern.ActivityContract.View} associée au présenter
+ *      l'interface {@link fr.projeti1.marketplace.client.MVPPattern.ActivityContract.Display} associée au présenter
  */
-public abstract class ActivityPresenter<M extends ActivityModel, V extends ActivityContract.View<? extends ActivityContract.PresenterCallBack<M>>> implements ActivityContract.PresenterCallBack<M>{
+public abstract class ActivityPresenter<M extends ActivityModel, V extends ActivityContract.Display<? extends ActivityContract.PresenterCallBack<M>>> implements ActivityContract.PresenterCallBack<M>{
 
     /**
      * Le modèle sur lequel le présenteur agit.

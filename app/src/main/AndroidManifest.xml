@@ -12,6 +12,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,6 +36,7 @@
         <activity android:name=".client.annonce.modifierAnnonce.ModifierAnnonce" />
         <activity android:name=".client.ProfilPro.ModifierProfil.ModifierProfil" />
         <activity android:name=".client.ProfilPro.ConsulterProfil.ConsulterProfil" />
+        <activity android:name=".client.ProfilPro.CreerProfil.CreerProfil" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,7 +52,8 @@
         <activity
             android:name=".client.Map.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".client.Start.MenuTmpActivity"></activity>
+        <activity android:name=".client.Start.menu.MenuTmpActivity" />
+        <activity android:name=".client.Start.compte.AuthActivity"></activity>
     </application>
 
 </manifest>

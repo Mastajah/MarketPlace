@@ -4,27 +4,25 @@ import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
-public class ConsulterAnnoncePresenter extends ActivityPresenter{
+public class ConsulterAnnoncePresenter extends ActivityPresenter<ConsulterAnnonceModel, ConsulterAnnonceDisplay> implements ConsulterAnnoncePresenterCallback{
 
     //private AnnonceService annonceService;
 
-    private ConsulterAnnonce mView;
-    private ConsulterAnnonceModel mModel;
-
     //Maintenant nom client en exemple, plus tard idAnnonce
     private String nomClient;
+    private Long idAnnonce;
 
     //On construisant la classe, on alimente direct l'idAnnonce plus tard, maintenant nomClient
     public ConsulterAnnoncePresenter(ConsulterAnnonce view,String nomClient) {
         super(view);
         // En attendant que le pattern soit mieux
-        this.mView = view;
+        this.view = view;
         this.nomClient = nomClient;
         initPresenter();
     }
 
     private void initPresenter(){
-        this.mModel = new ConsulterAnnonceModel();
+        this.model = new ConsulterAnnonceModel();
 
         //Normalement Appel serveur lors de l'init en consultation
         //Pour test, on alimente le DTO
@@ -41,17 +39,24 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter{
         clientDTO.setVille("Toulouse");
         clientDTO.setCodePostal(31000L);
         annonceDTO.setClientDTO(clientDTO);
-        mModel.setAnnonceDTO(annonceDTO);
+        model.setAnnonceDTO(annonceDTO);
 
-        mView.initView();
+        view.initView();
     }
 
     public ConsulterAnnonceModel getModel() {
-        return this.mModel;
+        return this.model;
     }
 
+    @Override
+    public Long getIdAnnonce() {
+        return this.idAnnonce;
+    }
+
+    //En attendant
+    @Override
     public String getNomClient() {
-        return nomClient;
+        return this.nomClient;
     }
 
     public void setNomClient(String nomClient) {

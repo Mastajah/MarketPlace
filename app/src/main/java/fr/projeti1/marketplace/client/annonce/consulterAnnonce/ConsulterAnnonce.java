@@ -8,16 +8,14 @@ import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
-import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
+import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
 /**
  * Vue de la consultation d'annonce
  */
-public class ConsulterAnnonce extends Activity {
-
-    private ConsulterAnnoncePresenter mPresenter;
+public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback> implements ConsulterAnnonceDisplay {
 
     /**
      * Elements IHM que l'on va custom
@@ -41,7 +39,7 @@ public class ConsulterAnnonce extends Activity {
 
         //on récupère l'intent pour récupérer les données qu'on s'est fait passé
         Intent intent = getIntent();
-        this.mPresenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("nomClient"));
+        presenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("nomClient"));
         bind();
     }
 
@@ -74,14 +72,14 @@ public class ConsulterAnnonce extends Activity {
 
     public void bind(){
         //On récupère les données de notre Model
-        AnnonceDTO annonceDTO = this.mPresenter.getModel().getAnnonceDTO();
+        AnnonceDTO annonceDTO = this.presenter.getModel().getAnnonceDTO();
         ClientDTO clientDTO = annonceDTO.getClientDTO();
 
         //On set les éléments IHM
         libelleTitreConsult.setText("Detail de l\'annonce n°" + String.valueOf(annonceDTO.getNumeroAnnonce()));
         numClientConsult.setText(String.valueOf(clientDTO.getNumeroClient()));
         //Plus tard alimenté par le DTO, ici c'est un exemple
-        nomClientConsult.setText(mPresenter.getNomClient());
+        nomClientConsult.setText(presenter.getNomClient());
         prenomClientConsult.setText(clientDTO.getPrenomClient());
         numTelConsult.setText(String.valueOf(clientDTO.getNumeroTelephone()));
         titreAnnonceConsult.setText(annonceDTO.getTitre());

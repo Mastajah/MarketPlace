@@ -2,6 +2,33 @@
     <string name="app_name">MarketPlace</string>
     <string name="msg_welcome">Bienvenue !</string>
 
+    <!--- TMP MENU -->
+    <string name="tmp_menu">Menu</string>
+    <string name="tmp_menu_consulterAnnonce">Consulter Annnonce</string>
+    <string name="tmp_menu_creerAnnonce">Creer Annnonce</string>
+    <string name="tmp_menu_modifierAnnonce">Modifier Annnonce</string>
+    <string name="tmp_menu_Map">Naviguer Map</string>
+    <string name="tmp_menu_consulterProfil">Consulter Profil Pro</string>
+    <string name="tmp_menu_ModifierProfil">Modifier Profil Pro</string>
+    <string name="tmp_menu_CreerProfil">Creer Profil Pro</string>
+    <string name="title_activity_login">Login</string>
+
+    <!--- AUTHENTIFICATION -->
+    <string name="emailpassword_status_fmt">Mail : %1$s (verified: %2$b)</string>
+    <string name="emailpassword_title_text">Mail et Mot de passe</string>
+    <string name="signed_out">Déconnecté</string>
+    <string name="hint_email">Mail</string>
+    <string name="hint_password">Mot de passe</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="create_account">Créer un compte</string>
+    <string name="sign_out">Se déconnecter</string>
+    <string name="verify_email">Vérifier l\'adresse mail</string>
+    <string name="auth_failed">Authentification échouée</string>
+    <string name="loading">Chargement…</string>
+    <string name="firebase_status_fmt">Firebase User: %s</string>
+
+
+
     <!--- ANNONCE -->
     <!--- Creer Annonce -->
     <string name="titre_creer_annonce">Creer une annonce</string>
@@ -70,14 +97,4 @@
     <string name="title_activity_maps">Map</string>
     <string name="goole_map_api_key">AIzaSyBH_lMKVJTJSogMQvIdRhxC6y2QJkYjing</string>
     <!--- MAP - END-->
-
-    <!--- TMP MENU -->
-    <string name="tmp_menu">Menu</string>
-    <string name="tmp_menu_consulterAnnonce">Consulter Annnonce</string>
-    <string name="tmp_menu_creerAnnonce">Creer Annnonce</string>
-    <string name="tmp_menu_modifierAnnonce">Modifier Annnonce</string>
-    <string name="tmp_menu_Map">Naviguer Map</string>
-    <string name="tmp_menu_consulterProfil">Consulter Profil Pro</string>
-    <string name="tmp_menu_ModifierProfil">Modifier Profil Pro</string>
-    <string name="tmp_menu_CreerProfil">Creer Profil Pro</string>
 </resources>

@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
-import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
-import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
-import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
+import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 

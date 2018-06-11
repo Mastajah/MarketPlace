@@ -2,14 +2,11 @@ package fr.projeti1.marketplace.client.MVPPattern;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
-import fr.projeti1.marketplace.client.MVPPattern.ActivityContract.View;
+import fr.projeti1.marketplace.client.MVPPattern.ActivityContract.Display;
 
-public abstract class Activity<P extends ActivityContract.PresenterCallBack<? extends ActivityModel>> extends AppCompatActivity implements View<P>{
+public abstract class Activity<P extends ActivityContract.PresenterCallBack<? extends ActivityModel>> extends AppCompatActivity implements Display<P> {
 
     protected P presenter;
 

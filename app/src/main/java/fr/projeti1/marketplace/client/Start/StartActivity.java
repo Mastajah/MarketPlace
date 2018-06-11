@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
-import fr.projeti1.marketplace.client.Map.MapsActivity;
-import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
-import fr.projeti1.marketplace.client.annonce.modifierAnnonce.ModifierAnnonce;
+import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 
 public class StartActivity extends AppCompatActivity {
 

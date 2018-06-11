@@ -1,4 +1,4 @@
-package fr.projeti1.marketplace.client.Start;
+package fr.projeti1.marketplace.client.Start.menu;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import fr.projeti1.marketplace.client.Map.MapsActivity;
 import fr.projeti1.marketplace.client.ProfilPro.ConsulterProfil.ConsulterProfil;
 import fr.projeti1.marketplace.client.ProfilPro.CreerProfil.CreerProfil;
 import fr.projeti1.marketplace.client.ProfilPro.ModifierProfil.ModifierProfil;
+import fr.projeti1.marketplace.client.Start.compte.AuthActivity;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.client.annonce.creerAnnonce.CreerAnnonce;
 import fr.projeti1.marketplace.client.annonce.modifierAnnonce.ModifierAnnonce;
@@ -24,6 +25,7 @@ public class MenuTmpActivity extends AppCompatActivity {
     private Button buttonConsulterProfil;
     private Button buttonModifierProfil;
     private Button buttonCreerProfil;
+    private Button comptetest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonConsulterProfil = findViewById(R.id.button6);
         buttonModifierProfil = findViewById(R.id.button8);
         buttonCreerProfil = findViewById(R.id.button7);
+        comptetest = findViewById(R.id.button9);
 
         buttonConsulterAnnonce.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +101,14 @@ public class MenuTmpActivity extends AppCompatActivity {
                 Intent connection = new Intent(MenuTmpActivity.this, CreerProfil.class);
                 startActivity(connection);
                 finish();
+            }
+        });
+        comptetest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent connection = new Intent(MenuTmpActivity.this, AuthActivity.class);
+                //startActivity(connection);
+                //finish();
             }
         });
     }

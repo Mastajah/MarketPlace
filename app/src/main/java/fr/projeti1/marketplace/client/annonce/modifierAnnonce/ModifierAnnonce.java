@@ -1,6 +1,5 @@
 package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +9,8 @@ import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
-import fr.projeti1.marketplace.client.Start.MenuTmpActivity;
+import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
-import fr.projeti1.marketplace.client.annonce.creerAnnonce.CreerAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 

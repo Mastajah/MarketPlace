@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client.Start.MenuTmpActivity">
+    tools:context=".client.Start.menu.MenuTmpActivity">
 
     <Button
         android:id="@+id/button8"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="160dp"
         android:text="@string/tmp_menu_ModifierProfil"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -21,10 +21,10 @@
         android:id="@+id/button7"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="220dp"
         android:text="@string/tmp_menu_CreerProfil"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -32,10 +32,10 @@
         android:id="@+id/button6"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginBottom="220dp"
         android:text="@string/tmp_menu_consulterProfil"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -43,10 +43,10 @@
         android:id="@+id/button5"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="292dp"
         android:text="@string/tmp_menu_Map"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -54,10 +54,10 @@
         android:id="@+id/button4"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="368dp"
         android:text="@string/tmp_menu_creerAnnonce"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -65,10 +65,10 @@
         android:id="@+id/button3"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="444dp"
+        android:layout_marginBottom="432dp"
         android:text="@string/tmp_menu_consulterAnnonce"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -76,10 +76,21 @@
         android:id="@+id/button2"
         android:layout_width="169dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginBottom="432dp"
         android:text="@string/tmp_menu_modifierAnnonce"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="169dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="92dp"
+        android:text="Compte test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
