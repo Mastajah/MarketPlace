@@ -7,22 +7,19 @@ import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
-public class ModifierAnnoncePresenter extends ActivityPresenter {
+public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceModel, ModifierAnnonceDisplay> implements ModifierAnnoncePresenterCallback {
 
     //private AnnonceService annonceService;
-
-    protected ModifierAnnonce mView;
-    protected ModifierAnnonceModel mModel;
 
     public ModifierAnnoncePresenter(ModifierAnnonce view) {
         super(view);
         // En attendant que le pattern soit mieux
-        this.mView = view;
+        this.view = view;
         initPresenter();
     }
 
     private void initPresenter(){
-        mModel = new ModifierAnnonceModel();
+        model = new ModifierAnnonceModel();
 
         //Normalement Appel serveur lors de l'init en consultation
         //Pour test, on alimente le DTO
@@ -39,19 +36,20 @@ public class ModifierAnnoncePresenter extends ActivityPresenter {
         clientDTO.setVille("Toulouse");
         clientDTO.setCodePostal(31000L);
         annonceDTO.setClientDTO(clientDTO);
-        mModel.setAnnonceDTO(annonceDTO);
+        model.setAnnonceDTO(annonceDTO);
 
-        mView.initView();
+        view.initView();
     }
 
+    @Override
     public void doModifier(){
-        mView.flush();
-        AnnonceDTO inputDTO = mModel.getAnnonceDTO();
+        view.flush();
+        AnnonceDTO inputDTO = model.getAnnonceDTO();
         // AnnonceService.modifierAnnonce(inputDTO);
-        mView.goToConsulter(inputDTO.getClientDTO().getNomClient());
+        view.goToConsulter(inputDTO.getClientDTO().getNomClient());
     }
 
     public ModifierAnnonceModel getModel() {
-        return mModel;
+        return model;
     }
 }

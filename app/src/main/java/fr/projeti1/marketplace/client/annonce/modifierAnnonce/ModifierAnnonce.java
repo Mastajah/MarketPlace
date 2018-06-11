@@ -17,9 +17,7 @@ import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 /**
  * Vue de la modification d'annonce
  */
-public class ModifierAnnonce extends Activity{
-
-    protected ModifierAnnoncePresenter mPresenter;
+public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> implements ModifierAnnonceDisplay{
 
     /**
      * Elements IHM que l'on va custom
@@ -42,7 +40,7 @@ public class ModifierAnnonce extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creer_modifier_annonce);
 
-        mPresenter = new ModifierAnnoncePresenter(this);
+        presenter = new ModifierAnnoncePresenter(this);
         //Ici on affiche direct car consultation, et on a déja alimenté le model
         bind();
     }
@@ -68,7 +66,7 @@ public class ModifierAnnonce extends Activity{
         buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.doModifier();
+                presenter.doModifier();
             }
         });
         menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
@@ -84,7 +82,7 @@ public class ModifierAnnonce extends Activity{
 
     public void bind(){
         //On récupère les données de notre Model
-        AnnonceDTO annonceDTO = mPresenter.getModel().getAnnonceDTO();
+        AnnonceDTO annonceDTO = presenter.getModel().getAnnonceDTO();
         ClientDTO clientDTO = annonceDTO.getClientDTO();
 
         //On set les éléments IHM
@@ -116,7 +114,7 @@ public class ModifierAnnonce extends Activity{
         annonceDTO.setClientDTO(clientDTO);
 
         //On alimente le model
-        mPresenter.getModel().setAnnonceDTO(annonceDTO);
+        presenter.getModel().setAnnonceDTO(annonceDTO);
     }
 
     public void goToConsulter(String nomClient){

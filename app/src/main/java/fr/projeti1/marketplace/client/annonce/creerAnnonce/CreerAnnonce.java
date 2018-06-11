@@ -16,9 +16,7 @@ import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 /**
  * Vue de la création d'annonce
  */
-public class CreerAnnonce extends Activity {
-
-    protected CreerAnnoncePresenter mPresenter;
+public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implements CreerAnnonceDisplay {
 
     /**
      * Elements IHM que l'on va custom
@@ -42,7 +40,7 @@ public class CreerAnnonce extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creer_modifier_annonce);
 
-        mPresenter = new CreerAnnoncePresenter(this);
+        presenter = new CreerAnnoncePresenter(this);
     }
 
     /**
@@ -69,7 +67,7 @@ public class CreerAnnonce extends Activity {
         buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.doValider();
+                presenter.doValider();
             }
         });
         menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);
@@ -104,7 +102,7 @@ public class CreerAnnonce extends Activity {
         annonceDTO.setClientDTO(clientDTO);
 
         //On alimente le model
-        mPresenter.getModel().setAnnonceDTO(annonceDTO);
+        presenter.getModel().setAnnonceDTO(annonceDTO);
 
     }
 }

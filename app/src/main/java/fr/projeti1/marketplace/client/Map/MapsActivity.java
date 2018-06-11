@@ -37,7 +37,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import fr.projeti1.marketplace.R;
-import fr.projeti1.marketplace.client.annonce.listeAnnonce.RechercherAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {

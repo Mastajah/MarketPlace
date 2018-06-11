@@ -18,7 +18,6 @@ public abstract class Activity<P extends ActivityContract.PresenterCallBack<? ex
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity);
     }
 
     @Override
