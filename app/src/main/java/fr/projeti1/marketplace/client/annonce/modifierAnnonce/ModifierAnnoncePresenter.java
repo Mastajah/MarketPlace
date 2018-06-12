@@ -13,8 +13,7 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
 
     public ModifierAnnoncePresenter(ModifierAnnonce view) {
         super(view);
-        // En attendant que le pattern soit mieux
-        this.view = view;
+        view.setPresenter(this);
         initPresenter();
     }
 
@@ -46,7 +45,7 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
         view.flush();
         AnnonceDTO inputDTO = model.getAnnonceDTO();
         // AnnonceService.modifierAnnonce(inputDTO);
-        view.goToConsulter(inputDTO.getClientDTO().getNomClient());
+        view.goToConsulter(inputDTO.getId());
     }
 
     public ModifierAnnonceModel getModel() {

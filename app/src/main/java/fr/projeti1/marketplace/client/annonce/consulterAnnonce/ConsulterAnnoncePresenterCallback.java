@@ -12,6 +12,4 @@ public interface ConsulterAnnoncePresenterCallback extends ActivityContract.Pres
     ConsulterAnnonceModel getModel();
 
     Long getIdAnnonce();
-    //En attendant
-    String getNomClient();
 }

@@ -8,16 +8,15 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter<ConsulterAnnonc
 
     //private AnnonceService annonceService;
 
-    //Maintenant nom client en exemple, plus tard idAnnonce
-    private String nomClient;
+    /**
+     * Id de l'annonce
+     */
     private Long idAnnonce;
 
-    //On construisant la classe, on alimente direct l'idAnnonce plus tard, maintenant nomClient
-    public ConsulterAnnoncePresenter(ConsulterAnnonce view,String nomClient) {
+    public ConsulterAnnoncePresenter(ConsulterAnnonce view,Long idAnnonce) {
         super(view);
-        // En attendant que le pattern soit mieux
-        this.view = view;
-        this.nomClient = nomClient;
+        view.setPresenter(this);
+        this.idAnnonce = idAnnonce;
         initPresenter();
     }
 
@@ -51,15 +50,5 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter<ConsulterAnnonc
     @Override
     public Long getIdAnnonce() {
         return this.idAnnonce;
-    }
-
-    //En attendant
-    @Override
-    public String getNomClient() {
-        return this.nomClient;
-    }
-
-    public void setNomClient(String nomClient) {
-        this.nomClient = nomClient;
     }
 }

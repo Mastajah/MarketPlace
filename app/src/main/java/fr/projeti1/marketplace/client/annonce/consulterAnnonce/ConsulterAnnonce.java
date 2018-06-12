@@ -39,7 +39,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
 
         //on récupère l'intent pour récupérer les données qu'on s'est fait passé
         Intent intent = getIntent();
-        presenter = new ConsulterAnnoncePresenter(this,intent.getStringExtra("nomClient"));
+        presenter = new ConsulterAnnoncePresenter(this,intent.getLongExtra("idAnnonce",0l));
         bind();
     }
 
@@ -70,6 +70,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
         });
     }
 
+    @Override
     public void bind(){
         //On récupère les données de notre Model
         AnnonceDTO annonceDTO = this.presenter.getModel().getAnnonceDTO();
@@ -78,8 +79,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
         //On set les éléments IHM
         libelleTitreConsult.setText("Detail de l\'annonce n°" + String.valueOf(annonceDTO.getNumeroAnnonce()));
         numClientConsult.setText(String.valueOf(clientDTO.getNumeroClient()));
-        //Plus tard alimenté par le DTO, ici c'est un exemple
-        nomClientConsult.setText(presenter.getNomClient());
+        nomClientConsult.setText(clientDTO.getNomClient());
         prenomClientConsult.setText(clientDTO.getPrenomClient());
         numTelConsult.setText(String.valueOf(clientDTO.getNumeroTelephone()));
         titreAnnonceConsult.setText(annonceDTO.getTitre());
@@ -89,6 +89,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
         codePostalConsult.setText(String.valueOf(clientDTO.getCodePostal()));
     }
 
+    @Override
     public void flush(){
         //Pas appellé ici
     }

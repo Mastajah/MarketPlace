@@ -2,6 +2,7 @@ package fr.projeti1.marketplace.interfaceS.DTO;
 
 public class ClientDTO {
 
+    private Long id;
     private Long numeroClient;
     private String nomClient;
     private String prenomClient;
@@ -9,6 +10,14 @@ public class ClientDTO {
     private String Adresse;
     private String Ville;
     private Long codePostal;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getNumeroClient() {
         return numeroClient;

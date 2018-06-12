@@ -28,7 +28,6 @@
     <string name="firebase_status_fmt">Firebase User: %s</string>
 
 
-
     <!--- ANNONCE -->
     <!--- Creer Annonce -->
     <string name="titre_creer_annonce">Creer une annonce</string>

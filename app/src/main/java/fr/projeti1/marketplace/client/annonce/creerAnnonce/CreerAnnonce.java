@@ -10,6 +10,7 @@ import android.widget.TextView;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
+import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
@@ -104,5 +105,21 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
         //On alimente le model
         presenter.getModel().setAnnonceDTO(annonceDTO);
 
+    }
+
+    @Override
+    public void goToConsulter(Long idAnnonce) {
+        //Affichage dans consultation annonce
+
+        //On déclare un intent pour aller sur une autre activité: ici consultation annonce
+        Intent creerToConsulter = new Intent(CreerAnnonce.this, ConsulterAnnonce.class);
+
+        //On met un paramètre qui se met dans l'extra du intent
+        //De base, que les types de base de java, On peut faire passer un objet sérialisable => Cours La communication entre composants d'OpenClassRoom
+        creerToConsulter.putExtra("idAnnonce",idAnnonce);
+        //On la lance(ConsulterAnnonce)
+        startActivity(creerToConsulter);
+        //On ferme celle la (ModifierAnnonce)
+        finish();
     }
 }

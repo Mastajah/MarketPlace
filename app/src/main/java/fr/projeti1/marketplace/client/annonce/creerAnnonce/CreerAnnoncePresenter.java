@@ -10,8 +10,7 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
 
     public CreerAnnoncePresenter(CreerAnnonce view) {
         super(view);
-        // En attendant que le pattern soit mieux
-        this.view = view;
+        view.setPresenter(this);
         initPresenter();
     }
 
@@ -24,7 +23,8 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
     public void doValider(){
         view.flush();
         AnnonceDTO inputDTO = model.getAnnonceDTO();
-        // AnnonoceService.creerAnnonce(inputDTO);
+        // AnnonceService.creerAnnonce(inputDTO);
+        view.goToConsulter(inputDTO.getId());
     }
 
     public CreerAnnonceModel getModel() {

@@ -53,7 +53,8 @@
             android:name=".client.Map.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".client.Start.menu.MenuTmpActivity" />
-        <activity android:name=".client.Start.compte.AuthActivity"></activity>
+        <activity android:name=".client.Start.compte.AuthActivity" />
+        <activity android:name=".client.ProfilPro.rechercherProfil.RechercherProfilPro"></activity>
     </application>
 
 </manifest>

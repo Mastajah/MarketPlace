@@ -1,6 +1,8 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
 public class AnnonceDTO{
+
+    private Long id;
     private Long numeroAnnonce;
     private String titre;
     private String description;
@@ -9,6 +11,14 @@ public class AnnonceDTO{
     private String rue;
     private int numVoie;
     private String codePostale;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getNumeroAnnonce() {
         return numeroAnnonce;

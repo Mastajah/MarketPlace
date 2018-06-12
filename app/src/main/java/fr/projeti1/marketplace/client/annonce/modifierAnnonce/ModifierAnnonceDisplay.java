@@ -4,5 +4,5 @@ import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
 
 public interface ModifierAnnonceDisplay extends ActivityContract.Display<ModifierAnnoncePresenterCallback> {
 
-    void goToConsulter(String nomClient);
+    void goToConsulter(Long idAnnonce);
 }
