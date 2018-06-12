@@ -24,7 +24,7 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
         view.flush();
         AnnonceDTO inputDTO = model.getAnnonceDTO();
         // AnnonceService.creerAnnonce(inputDTO);
-        view.goToConsulter(inputDTO.getId());
+        view.goToConsulter(inputDTO.getNumeroAnnonce());
     }
 
     public CreerAnnonceModel getModel() {
