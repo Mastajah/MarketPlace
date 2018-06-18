@@ -9,9 +9,7 @@ import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.interfaceS.DTO.AvisDTO;
 
-public class CreerAvis extends Activity {
-
-    protected CreerAvisPresenter createAvisPresenter;
+public class CreerAvis extends Activity<CreerAvisPresenterCallBack> implements CreerAvisDisplay {
 
     //protected TextView numAvis;
     protected EditText nomPro;
@@ -28,7 +26,7 @@ public class CreerAvis extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creer_avis);
 
-        createAvisPresenter = new CreerAvisPresenter(this);
+        presenter = new CreerAvisPresenter(this);
     }
 
     @Override
@@ -45,7 +43,7 @@ public class CreerAvis extends Activity {
         validerCreerAvis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createAvisPresenter.onClick(v);
+                presenter.onClickValider();
             }
         });
     }
@@ -68,6 +66,12 @@ public class CreerAvis extends Activity {
         avisDTO.setDescriptionAvis(descriptionAvis.getText().toString());
 
         // on alimente le model
-        createAvisPresenter.getCreateAvisModel().setCreateAvisDTO(avisDTO);
+        presenter.getModel().setCreateAvisDTO(avisDTO);
+    }
+
+
+    @Override
+    public void consult(Long idAvis){
+
     }
 }

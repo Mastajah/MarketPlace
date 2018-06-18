@@ -1,41 +1,32 @@
 package fr.projeti1.marketplace.client.Avis.CreerAvis;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
+import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
+import fr.projeti1.marketplace.interfaceS.DTO.AvisDTO;
 
-public class CreerAvisPresenter extends ActivityPresenter {
+public class CreerAvisPresenter extends ActivityPresenter <CreerAvisModel,CreerAvisDisplay> implements CreerAvisPresenterCallBack {
 
-    protected CreerAvis createAvisView;
-    protected CreerAvisModel createAvisModel;
 
-    public CreerAvisPresenter (CreerAvis vue){
-        super(vue);
-        // En attendant que le pattern soit mieux
-        this.createAvisView = vue;
+    public CreerAvisPresenter(CreerAvis view) {
+        super(view);
+        view.setPresenter(this);
         initPresenter();
     }
 
-    private void initPresenter(){
-        createAvisModel = new CreerAvisModel();
-        createAvisView.initView();
+    private void initPresenter() {
+        model = new CreerAvisModel();
+        view.initView();
     }
 
-    public void onClick(android.view.View view){
+    @Override
+    public void onClickValider() {
         //remplir ici
     }
 
-    public CreerAvis getCreateAvisView() {
-        return createAvisView;
-    }
-
-    public void setCreateAvisView(CreerAvis createAvisView) {
-        this.createAvisView = createAvisView;
-    }
-
-    public CreerAvisModel getCreateAvisModel() {
-        return createAvisModel;
-    }
-
-    public void setCreateAvisModel(CreerAvisModel createAvisModel) {
-        this.createAvisModel = createAvisModel;
+    @Override
+    public CreerAvisModel getModel() {
+        return model ;
     }
 }
+
+
