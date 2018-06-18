@@ -2,39 +2,26 @@ package fr.projeti1.marketplace.client.ProfilPro.CreerProfil;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 
-public class CreerProfilPresenter extends ActivityPresenter {
-    protected CreerProfil createProfilView;
-    protected CreerProfilModel createProfilModel;
+public class CreerProfilPresenter extends ActivityPresenter<CreerProfilModel,CreerProfilDisplay> implements CreerProfilPresenterCallBack {
 
-    public CreerProfilPresenter (CreerProfil vue){
+    public CreerProfilPresenter(CreerProfil vue) {
         super(vue);
-        // En attendant que le pattern soit mieux
-        this.createProfilView = vue;
+        vue.setPresenter(this);
         initPresenter();
     }
 
-    private void initPresenter(){
-        createProfilModel = new CreerProfilModel();
-        createProfilView.initView();
+    private void initPresenter() {
+        model = new CreerProfilModel();
+        view.initView();
     }
 
-    public void onClick(android.view.View view){
+    @Override
+    public void onClickValider() {
         //remplir ici
     }
 
-    public CreerProfil getCreateProfilView() {
-        return createProfilView;
-    }
-
-    public void setCreateProfilView(CreerProfil createProfilView) {
-        this.createProfilView = createProfilView;
-    }
-
-    public CreerProfilModel getCreateProfilModel() {
-        return createProfilModel;
-    }
-
-    public void setCreateProfilModel(CreerProfilModel createProfilModel) {
-        this.createProfilModel = createProfilModel;
+    @Override
+    public CreerProfilModel getModel(){
+        return model;
     }
 }

@@ -8,7 +8,7 @@
 
     <TableRow>
         <TextView
-            android:id="@+id/consulter_avis_num"
+            android:id="@+id/consulter_avis_client_num"
             android:text="Avis N° "
             android:textStyle="bold"
             android:textSize="18dp"

@@ -10,9 +10,7 @@ import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
-public class CreerProfil extends Activity{
-
-    protected CreerProfilPresenter createProfilPresenter;
+public class CreerProfil extends Activity<CreerProfilPresenterCallBack> implements CreerProfilDisplay{
 
     private TextView numDepanneur;
     private EditText nomPro;
@@ -33,7 +31,7 @@ public class CreerProfil extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creer_profil_prof);
 
-        createProfilPresenter = new CreerProfilPresenter(this);
+        presenter = new CreerProfilPresenter(this);
     }
 
     @Override
@@ -55,7 +53,7 @@ public class CreerProfil extends Activity{
         validerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createProfilPresenter.onClick(v);
+                presenter.onClickValider();
             }
         });
     }
@@ -82,7 +80,11 @@ public class CreerProfil extends Activity{
         profilProDTO.setCodePostal(Long.parseLong(codePostal.getText().toString()));
 
         // on alimente le model
-        createProfilPresenter.getCreateProfilModel().setCreateProfilProDTO(profilProDTO);
+        presenter.getModel().setCreateProfilProDTO(profilProDTO);
     }
 
+    @Override
+    public void consult(Long idAvis){
+
+    }
 }
