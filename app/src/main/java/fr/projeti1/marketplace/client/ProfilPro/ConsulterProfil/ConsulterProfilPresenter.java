@@ -4,24 +4,19 @@ import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
-public class ConsulterProfilPresenter extends ActivityPresenter {
-    protected ConsulterProfil consultProfilView;
-    protected ConsulterProfilModel consultProfilModel;
+public class ConsulterProfilPresenter extends ActivityPresenter <ConsulterProfilModel,ConsulterProfilDisplay> implements ConsulterProfilPresenterCallBack {
 
-    //Pareil pour Modifier Profil
-    //On garde en mémoire l'id du profil pour l'avoir partout - il sera set dans le onCreate de ConsulterProfil
-    //Id du Profil Professionnel
     private Long idProfilPro;
 
     public ConsulterProfilPresenter(ConsulterProfil vue) {
         super(vue);
         // En attendant que le pattern soit mieux
-        this.consultProfilView = vue;
+        vue.setPresenter(this);
         initPresenter();
     }
 
      private void initPresenter(){
-        consultProfilModel = new ConsulterProfilModel();
+        model = new ConsulterProfilModel();
 
         ProfilProDTO dto = new ProfilProDTO();
         dto.setNumeroPro(12L);
@@ -36,37 +31,24 @@ public class ConsulterProfilPresenter extends ActivityPresenter {
         dto.setVille("Toulouse");
         dto.setCodePostal(31000L);
 
-        consultProfilModel.setConsultProfilProDTO(dto);
+        model.setConsultProfilProDTO(dto);
 
-        consultProfilView.initView();
+        view.initView();
     }
 
+    @Override
     public void supprimerProfilPro(){
         //Appel service en passant l'id du profil
         //remplir ici
     }
 
-    public ConsulterProfil getConsultProfilView() {
-        return consultProfilView;
+    @Override
+    public ConsulterProfilModel getModel(){
+        return model;
     }
 
-    public void setConsultProfilView(ConsulterProfil consultProfilView) {
-        this.consultProfilView = consultProfilView;
-    }
-
-    public ConsulterProfilModel getConsultProfilModel() {
-        return consultProfilModel;
-    }
-
-    public void setConsultProfilModel(ConsulterProfilModel consultProfilModel) {
-        this.consultProfilModel = consultProfilModel;
-    }
-
+    @Override
     public Long getIdProfilPro() {
-        return idProfilPro;
-    }
-
-    public void setIdProfilPro(Long idProfilPro) {
-        this.idProfilPro = idProfilPro;
+        return this.idProfilPro;
     }
 }

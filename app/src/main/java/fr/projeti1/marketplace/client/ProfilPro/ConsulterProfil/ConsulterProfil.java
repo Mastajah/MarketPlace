@@ -12,9 +12,7 @@ import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
 
-public class ConsulterProfil extends Activity{
-
-    protected ConsulterProfilPresenter consultProfilPresenter;
+public class ConsulterProfil extends Activity<ConsulterProfilPresenterCallBack> implements ConsulterProfilDisplay{
 
     private TextView numDepanneur;
     private TextView nomPro;
@@ -38,7 +36,7 @@ public class ConsulterProfil extends Activity{
 
         //Ici on récupère l'id du Profil en le récupérant dans l'intent
 
-        consultProfilPresenter = new ConsulterProfilPresenter(this);
+        presenter = new ConsulterProfilPresenter(this);
         bind();
     }
 
@@ -60,7 +58,7 @@ public class ConsulterProfil extends Activity{
         supprimerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                consultProfilPresenter.supprimerProfilPro();
+                presenter.supprimerProfilPro();
             }
         });
         menuTmp = findViewById(R.id.retour);
@@ -76,7 +74,7 @@ public class ConsulterProfil extends Activity{
 
     public void bind(){
         // récupération des données du modèle
-        ProfilProDTO profilproDTO = consultProfilPresenter.getConsultProfilModel().getConsultProfilProDTO();
+        ProfilProDTO profilproDTO = presenter.getModel().getConsultProfilProDTO();
 
         //insertion des données dans la vue
         nomPro.setText(profilproDTO.getNomPro());

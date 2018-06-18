@@ -3,39 +3,25 @@ package fr.projeti1.marketplace.client.ProfilPro.ModifierProfil;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 
 
-public class ModifierProfilPresenter extends ActivityPresenter {
-    protected ModifierProfil modifyProfilView;
-    protected ModifierProfilModel modifyProfilModel;
+public class ModifierProfilPresenter extends ActivityPresenter<ModifierProfilModel,ModifierProfilDisplay> implements ModifierProfilPresenterCallBack {
 
     public ModifierProfilPresenter (ModifierProfil vue){
         super(vue);
-        // En attendant que le pattern soit mieux
-        this.modifyProfilView = vue;
+        vue.setPresenter(this);
         initPresenter();
     }
 
     private void initPresenter(){
-        modifyProfilModel = new ModifierProfilModel();
-        modifyProfilView.initView();
+        model= new ModifierProfilModel();
+        view.initView();
     }
 
-    public void onClick(android.view.View view){
+    public void onClickValiderModif(){
         //remplir ici
     }
 
-    public ModifierProfil getModifyProfilView() {
-        return modifyProfilView;
-    }
-
-    public void setModifyProfilView(ModifierProfil modifyProfilView) {
-        this.modifyProfilView = modifyProfilView;
-    }
-
-    public ModifierProfilModel getModifyProfilModel() {
-        return modifyProfilModel;
-    }
-
-    public void setModifyProfilModel(ModifierProfilModel modifyProfilModel) {
-        this.modifyProfilModel = modifyProfilModel;
+    @Override
+    public ModifierProfilModel getModel(){
+        return this.model;
     }
 }

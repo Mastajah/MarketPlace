@@ -3,7 +3,7 @@ package fr.projeti1.marketplace.client.ProfilPro.ConsulterProfil;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityModel;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
-public class ConsulterProfilModel {
+public class ConsulterProfilModel extends ActivityModel {
 
     private ProfilProDTO consultProfilProDTO;
 

@@ -11,9 +11,7 @@ import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
 
-public class ModifierProfil extends Activity {
-
-    protected ModifierProfilPresenter modifyProfilPresenter;
+public class ModifierProfil extends Activity<ModifierProfilPresenterCallBack> implements ModifierProfilDisplay {
 
     private TextView numDepanneur;
     private EditText nomPro;
@@ -33,8 +31,7 @@ public class ModifierProfil extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modifier_profil_prof);
-
-        modifyProfilPresenter = new ModifierProfilPresenter(this);
+        presenter = new ModifierProfilPresenter(this);
     }
 
     @Override
@@ -55,14 +52,14 @@ public class ModifierProfil extends Activity {
         validerProfilPro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                modifyProfilPresenter.onClick(v);
+                presenter.onClickValiderModif();
             }
         });
     }
 
     public void bind(){
         // récupération des données du modèle
-        ProfilProDTO profilproDTO = modifyProfilPresenter.getModifyProfilModel().getModifyProfilProDTO();
+        ProfilProDTO profilproDTO = presenter.getModel().getModifyProfilProDTO();
 
         //insertion des données dans la vue
         numDepanneur.setText(String.valueOf(profilproDTO.getNumeroPro()));
@@ -96,6 +93,12 @@ public class ModifierProfil extends Activity {
         profilProDTO.setVille(ville.getText().toString());
         profilProDTO.setCodePostal(Long.parseLong(codePostal.getText().toString()));
 
-        // finir avec l'envoi du DTO au modèle
+        presenter.getModel().setModifyProfilProDTO(profilProDTO);
     }
+
+    @Override
+    public void consult (Long idProfilPro){
+
+    }
+
 }

@@ -12,7 +12,6 @@ import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 
 public class CreerProfil extends Activity<CreerProfilPresenterCallBack> implements CreerProfilDisplay{
 
-
     private TextView numDepanneur;
     private EditText nomPro;
     private EditText prenomPro;
