@@ -12,6 +12,7 @@ public class AnnonceDTO{
     private int numVoie;
     private String codePostale;
 
+
     public Long getId() {
         return id;
     }

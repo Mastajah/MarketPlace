@@ -2,13 +2,14 @@ package fr.projeti1.marketplace.server.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "ANNONCE")
 public class Annonce {
 
     @PrimaryKey(autoGenerate = true)
-    private Long idAnnonoce;
+    private Long idAnnonce;
 
     @ColumnInfo(name = "ANN_NUM_ANN")
     private Long numeroAnnonce;
@@ -43,12 +44,16 @@ public class Annonce {
     @ColumnInfo(name = "ANN_STAT_ANN")
     private String statut;
 
-    public Long getIdAnnonoce() {
-        return idAnnonoce;
+    //Objets fils
+
+    //Object père
+
+    public Long getIdAnnonce() {
+        return idAnnonce;
     }
 
-    public void setIdAnnonoce(Long idAnnonoce) {
-        this.idAnnonoce = idAnnonoce;
+    public void setIdAnnonce(Long idAnnonoce) {
+        this.idAnnonce = idAnnonoce;
     }
 
     public Long getNumeroAnnonce() {
