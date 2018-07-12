@@ -12,7 +12,7 @@ import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
+import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
 
 /**
  * Vue de la modification d'annonce
@@ -83,35 +83,35 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
     public void bind(){
         //On récupère les données de notre Model
         AnnonceDTO annonceDTO = presenter.getModel().getAnnonceDTO();
-        ClientDTO clientDTO = annonceDTO.getClientDTO();
+        ParticulierDTO particulierDTO = annonceDTO.getParticulierDTO();
 
         //On set les éléments IHM
-        numClientCreaModif.setText(String.valueOf(clientDTO.getNumeroClient()));
-        textfieldNomClient.setText(clientDTO.getNomClient());
-        textfieldPrenomClient.setText(clientDTO.getPrenomClient());
-        textfieldNumTel.setText(String.valueOf(clientDTO.getNumeroTelephone()));
+        numClientCreaModif.setText(String.valueOf(particulierDTO.getNumeroClient()));
+        textfieldNomClient.setText(particulierDTO.getNomClient());
+        textfieldPrenomClient.setText(particulierDTO.getPrenomClient());
+        textfieldNumTel.setText(String.valueOf(particulierDTO.getNumeroTelephone()));
         textfieldTitreAnnonce.setText(annonceDTO.getTitre());
         textfieldDescrption.setText(annonceDTO.getDescription());
-        textfieldAdresse.setText(clientDTO.getAdresse());
-        textfieldVille.setText(clientDTO.getVille());
-        textfieldCodepostal.setText(String.valueOf(clientDTO.getCodePostal()));
+        textfieldAdresse.setText(particulierDTO.getAdresse());
+        textfieldVille.setText(particulierDTO.getVille());
+        textfieldCodepostal.setText(String.valueOf(particulierDTO.getCodePostal()));
     }
 
     public void flush(){
         //On instancie les DTO
         AnnonceDTO annonceDTO = new AnnonceDTO();
-        ClientDTO clientDTO = new ClientDTO();
+        ParticulierDTO particulierDTO = new ParticulierDTO();
 
         //On récupère les informations de la vue en remplissant les DTO
-        clientDTO.setNomClient(textfieldNomClient.getText().toString());
-        clientDTO.setPrenomClient(textfieldPrenomClient.getText().toString());
-        clientDTO.setNumeroTelephone(Long.parseLong(textfieldNumTel.getText().toString()));
-        clientDTO.setAdresse(textfieldAdresse.getText().toString());
-        clientDTO.setVille(textfieldVille.getText().toString());
-        clientDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
+        particulierDTO.setNomClient(textfieldNomClient.getText().toString());
+        particulierDTO.setPrenomClient(textfieldPrenomClient.getText().toString());
+        particulierDTO.setNumeroTelephone(Long.parseLong(textfieldNumTel.getText().toString()));
+        particulierDTO.setAdresse(textfieldAdresse.getText().toString());
+        particulierDTO.setVille(textfieldVille.getText().toString());
+        particulierDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
-        annonceDTO.setClientDTO(clientDTO);
+        annonceDTO.setParticulierDTO(particulierDTO);
 
         //On alimente le model
         presenter.getModel().setAnnonceDTO(annonceDTO);

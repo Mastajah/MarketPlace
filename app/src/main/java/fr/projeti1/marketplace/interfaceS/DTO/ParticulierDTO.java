@@ -1,6 +1,8 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-public class ClientDTO {
+import java.io.Serializable;
+
+public class ParticulierDTO implements Serializable {
 
     private Long id;
     private Long numeroClient;

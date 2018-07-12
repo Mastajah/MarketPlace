@@ -1,14 +1,19 @@
 package fr.projeti1.marketplace.server.entity;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
 
-@Entity(tableName = "ANNONCE")
+import java.util.List;
+
+@Entity(tableName = "ANNONCE", foreignKeys = @ForeignKey(entity = Particulier.class,parentColumns = "id",childColumns = "particulier"))
 public class Annonce {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "ANN_SEQ")
     private Long idAnnonce;
 
     @ColumnInfo(name = "ANN_NUM_ANN")
@@ -44,9 +49,12 @@ public class Annonce {
     @ColumnInfo(name = "ANN_STAT_ANN")
     private String statut;
 
-    //Objets fils
+    @Embedded
+    @ColumnInfo(name = "ANN_PAR_SEQ")
+    private Particulier particulier;
 
-    //Object père
+    @Embedded
+    private List<Competence> competence;
 
     public Long getIdAnnonce() {
         return idAnnonce;
@@ -142,5 +150,21 @@ public class Annonce {
 
     public void setStatut(String statut) {
         this.statut = statut;
+    }
+
+    public Particulier getParticulier() {
+        return particulier;
+    }
+
+    public void setParticulier(Particulier particulier) {
+        this.particulier = particulier;
+    }
+
+    public List<Competence> getCompetence() {
+        return competence;
+    }
+
+    public void setCompetence(List<Competence> competence) {
+        this.competence = competence;
     }
 }

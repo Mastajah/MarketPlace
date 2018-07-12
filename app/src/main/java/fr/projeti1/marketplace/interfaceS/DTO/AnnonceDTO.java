@@ -1,12 +1,14 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-public class AnnonceDTO{
+import java.io.Serializable;
+
+public class AnnonceDTO implements Serializable{
 
     private Long id;
     private Long numeroAnnonce;
     private String titre;
     private String description;
-    private ClientDTO clientDTO;
+    private ParticulierDTO particulierDTO;
     private String ville;
     private String rue;
     private int numVoie;
@@ -45,12 +47,12 @@ public class AnnonceDTO{
         this.description = description;
     }
 
-    public ClientDTO getClientDTO() {
-        return clientDTO;
+    public ParticulierDTO getParticulierDTO() {
+        return particulierDTO;
     }
 
-    public void setClientDTO(ClientDTO clientDTO) {
-        this.clientDTO = clientDTO;
+    public void setParticulierDTO(ParticulierDTO particulierDTO) {
+        this.particulierDTO = particulierDTO;
     }
 
     public String getRue() { return rue; }

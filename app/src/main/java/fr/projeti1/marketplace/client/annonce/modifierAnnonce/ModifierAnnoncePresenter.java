@@ -1,11 +1,8 @@
 package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
-import android.content.Intent;
-
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
-import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
+import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
 
 public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceModel, ModifierAnnonceDisplay> implements ModifierAnnoncePresenterCallback {
 
@@ -26,15 +23,15 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
         annonceDTO.setNumeroAnnonce(12L);
         annonceDTO.setTitre("Compteur en rade");
         annonceDTO.setDescription("Le compteur marche plus");
-        ClientDTO clientDTO = new ClientDTO();
-        clientDTO.setNumeroClient(15L);
-        clientDTO.setNomClient("ESPADES");
-        clientDTO.setPrenomClient("Richard");
-        clientDTO.setNumeroTelephone(0615151515L);
-        clientDTO.setAdresse("45 rue du champ");
-        clientDTO.setVille("Toulouse");
-        clientDTO.setCodePostal(31000L);
-        annonceDTO.setClientDTO(clientDTO);
+        ParticulierDTO particulierDTO = new ParticulierDTO();
+        particulierDTO.setNumeroClient(15L);
+        particulierDTO.setNomClient("ESPADES");
+        particulierDTO.setPrenomClient("Richard");
+        particulierDTO.setNumeroTelephone(0615151515L);
+        particulierDTO.setAdresse("45 rue du champ");
+        particulierDTO.setVille("Toulouse");
+        particulierDTO.setCodePostal(31000L);
+        annonceDTO.setParticulierDTO(particulierDTO);
         model.setAnnonceDTO(annonceDTO);
 
         view.initView();

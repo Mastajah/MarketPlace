@@ -10,4 +10,14 @@ public interface ProfilProDAO {
 
     @Query("SELECT * FROM PROFILPRO")
     public List<ProfilPro> getProfilPro();
+
+    //findById(Long id)
+
+    //findAll()
+
+    //create(ProfilPro prop)
+
+    //update()
+
+    //delete()
 }

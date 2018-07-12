@@ -1,5 +1,6 @@
 package fr.projeti1.marketplace.client.Start;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 
 import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
+import fr.projeti1.marketplace.server.database.AppDataBase;
 
 public class StartActivity extends AppCompatActivity {
 

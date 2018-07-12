@@ -1,5 +1,7 @@
 package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,8 @@ import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.client.annonce.consulterAnnonce.ConsulterAnnonce;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
+import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
+import fr.projeti1.marketplace.server.service.AnnonceService;
 
 /**
  * Vue de la création d'annonce
@@ -89,18 +92,18 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
     public void flush(){
         //On instancie les DTO
         AnnonceDTO annonceDTO = new AnnonceDTO();
-        ClientDTO clientDTO = new ClientDTO();
+        ParticulierDTO particulierDTO = new ParticulierDTO();
 
         //On récupère les informations de la vue en remplissant les DTO
-        clientDTO.setNomClient(textfieldNomClient.getText().toString());
-        clientDTO.setPrenomClient(textfieldPrenomClient.getText().toString());
-        clientDTO.setNumeroTelephone(Long.parseLong(textfieldNumTel.getText().toString()));
-        clientDTO.setAdresse(textfieldAdresse.getText().toString());
-        clientDTO.setVille(textfieldVille.getText().toString());
-        clientDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
+        particulierDTO.setNomClient(textfieldNomClient.getText().toString());
+        particulierDTO.setPrenomClient(textfieldPrenomClient.getText().toString());
+        particulierDTO.setNumeroTelephone(Long.parseLong(textfieldNumTel.getText().toString()));
+        particulierDTO.setAdresse(textfieldAdresse.getText().toString());
+        particulierDTO.setVille(textfieldVille.getText().toString());
+        particulierDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
-        annonceDTO.setClientDTO(clientDTO);
+        annonceDTO.setParticulierDTO(particulierDTO);
 
         //On alimente le model
         presenter.getModel().setAnnonceDTO(annonceDTO);
@@ -121,5 +124,20 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
         startActivity(creerToConsulter);
         //On ferme celle la (ModifierAnnonce)
         finish();
+    }
+
+    // Besoin du oontext dans le presenter
+    public Context getContext(){
+        return this.getApplicationContext();
+    }
+
+    // L'activité est ici, et seule l'activité a la main sur la fonction startService() donc aussi définie dans le display
+    public void startIntentService(Intent intentService){
+        startService(intentService);
+    }
+
+    // L'activité est ici, et seule l'activité a la main sur la fonction startService() donc aussi définit dans le display
+    public void registerListener(BroadcastReceiver receiver){
+        registerListener(receiver);
     }
 }

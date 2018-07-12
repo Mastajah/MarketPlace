@@ -10,7 +10,7 @@ import fr.projeti1.marketplace.R;
 import fr.projeti1.marketplace.client.MVPPattern.Activity;
 import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
+import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
 
 /**
  * Vue de la consultation d'annonce
@@ -74,19 +74,19 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
     public void bind(){
         //On récupère les données de notre Model
         AnnonceDTO annonceDTO = this.presenter.getModel().getAnnonceDTO();
-        ClientDTO clientDTO = annonceDTO.getClientDTO();
+        ParticulierDTO particulierDTO = annonceDTO.getParticulierDTO();
 
         //On set les éléments IHM
         libelleTitreConsult.setText("Detail de l\'annonce n°" + String.valueOf(annonceDTO.getNumeroAnnonce()));
-        numClientConsult.setText(String.valueOf(clientDTO.getNumeroClient()));
-        nomClientConsult.setText(clientDTO.getNomClient());
-        prenomClientConsult.setText(clientDTO.getPrenomClient());
-        numTelConsult.setText(String.valueOf(clientDTO.getNumeroTelephone()));
+        numClientConsult.setText(String.valueOf(particulierDTO.getNumeroClient()));
+        nomClientConsult.setText(particulierDTO.getNomClient());
+        prenomClientConsult.setText(particulierDTO.getPrenomClient());
+        numTelConsult.setText(String.valueOf(particulierDTO.getNumeroTelephone()));
         titreAnnonceConsult.setText(annonceDTO.getTitre());
         descriptionConsult.setText(annonceDTO.getDescription());
-        adresseConsult.setText(clientDTO.getAdresse());
-        villeConsult.setText(clientDTO.getVille());
-        codePostalConsult.setText(String.valueOf(clientDTO.getCodePostal()));
+        adresseConsult.setText(particulierDTO.getAdresse());
+        villeConsult.setText(particulierDTO.getVille());
+        codePostalConsult.setText(String.valueOf(particulierDTO.getCodePostal()));
     }
 
     @Override

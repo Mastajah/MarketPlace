@@ -7,17 +7,19 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "PROFILPRO")
 public class ProfilPro {
+
     @PrimaryKey(autoGenerate = true)
-    private Long idProfilPro;
+    @ColumnInfo(name = "PROP_SEQ")
+    private Long id;
 
     @ColumnInfo(name = "PROP_NUM_PRO")
-    private Long numeroPro;
+    private Long numero;
 
     @ColumnInfo(name = "PROP_NOM_PRO")
-    private String nomPro;
+    private String nom;
 
     @ColumnInfo(name = "PROP_PREN_PRO")
-    private String prenomPro;
+    private String prenom;
 
     @ColumnInfo(name = "PROP_NOM_SOC")
     private String nomSociete;
@@ -28,10 +30,8 @@ public class ProfilPro {
     @ColumnInfo(name = "PROP_DEC")
     private String numDecennale;
 
-    // Insérer ici le fragment compétence ?
-
     @ColumnInfo(name = "PROP_NUM_TEL")
-    private Long numeroTelephone;
+    private Long numeroTel;
 
     @ColumnInfo(name = "PROP_ADR_MAIL")
     private String mail;
@@ -45,36 +45,36 @@ public class ProfilPro {
     @ColumnInfo(name = "PROP_CP")
     private Long codePostal;
 
-    public Long getIdProfilPro() {
-        return idProfilPro;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdProfilPro(Long idProfilPro) {
-        this.idProfilPro = idProfilPro;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Long getNumeroPro() {
-        return numeroPro;
+    public Long getNumero() {
+        return numero;
     }
 
-    public void setNumeroPro(Long numeroPro) {
-        this.numeroPro = numeroPro;
+    public void setNumero(Long numero) {
+        this.numero = numero;
     }
 
-    public String getNomPro() {
-        return nomPro;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNomPro(String nomPro) {
-        this.nomPro = nomPro;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getPrenomPro() {
-        return prenomPro;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setPrenomPro(String prenomPro) {
-        this.prenomPro = prenomPro;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getNomSociete() {
@@ -101,12 +101,12 @@ public class ProfilPro {
         this.numDecennale = numDecennale;
     }
 
-    public Long getNumeroTelephone() {
-        return numeroTelephone;
+    public Long getNumeroTel() {
+        return numeroTel;
     }
 
-    public void setNumeroTelephone(Long numeroTelephone) {
-        this.numeroTelephone = numeroTelephone;
+    public void setNumeroTel(Long numeroTel) {
+        this.numeroTel = numeroTel;
     }
 
     public String getMail() {

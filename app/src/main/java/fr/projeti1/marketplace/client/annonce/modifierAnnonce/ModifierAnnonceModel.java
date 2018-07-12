@@ -2,11 +2,11 @@ package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityModel;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
+import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
 
 public class ModifierAnnonceModel extends ActivityModel {
     private AnnonceDTO annonceDTO;
-    private ClientDTO clientDTO;
+    private ParticulierDTO particulierDTO;
 
     public AnnonceDTO getAnnonceDTO() {
         return annonceDTO;
@@ -16,11 +16,11 @@ public class ModifierAnnonceModel extends ActivityModel {
         this.annonceDTO = annonceDTO;
     }
 
-    public ClientDTO getClientDTO() {
-        return clientDTO;
+    public ParticulierDTO getParticulierDTO() {
+        return particulierDTO;
     }
 
-    public void setClientDTO(ClientDTO clientDTO) {
-        this.clientDTO = clientDTO;
+    public void setParticulierDTO(ParticulierDTO particulierDTO) {
+        this.particulierDTO = particulierDTO;
     }
 }

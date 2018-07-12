@@ -2,7 +2,6 @@ package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityModel;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
-import fr.projeti1.marketplace.interfaceS.DTO.ClientDTO;
 
 public class CreerAnnonceModel extends ActivityModel{
 
