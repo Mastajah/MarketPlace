@@ -51,7 +51,7 @@ public class AnnonceService extends IntentService {
     /*
      *  Permet de convertir une Annonce DTO en entité Annonce
      */
-    private Annonce entityFromDTO(AnnonceDTO dto){
+    public Annonce entityFromDTO(AnnonceDTO dto){
         Annonce annonce = new Annonce();
 
         annonce.setNumeroAnnonce(dto.getNumeroAnnonce());
@@ -63,7 +63,7 @@ public class AnnonceService extends IntentService {
 
         // Long + lat + les autres
         // Il faut convertir le DTO
-        //annonce.setParticulier(dto.getParticulierDTO());
+        //annonce.setParticulier(ParticulierService.entityFromDTO(dto.getParticulierDTO()));
 
         return annonce;
     }
