@@ -1,6 +1,8 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-public class AvisDTO {
+import java.io.Serializable;
+
+public class AvisDTO implements Serializable{
 
     protected Long numAvis;
     protected String nomPro;

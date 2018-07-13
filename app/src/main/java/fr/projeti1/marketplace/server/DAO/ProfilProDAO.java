@@ -1,6 +1,7 @@
 package fr.projeti1.marketplace.server.DAO;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import java.util.List;
 import fr.projeti1.marketplace.server.entity.ProfilPro;
@@ -16,7 +17,8 @@ public interface ProfilProDAO {
     //findAll()
 
     //create(ProfilPro prop)
-
+    @Insert
+    public void insertProfilPro (ProfilPro profilPro);
     //update()
 
     //delete()

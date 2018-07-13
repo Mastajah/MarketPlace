@@ -1,6 +1,8 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-public class ProfilProDTO {
+import java.io.Serializable;
+
+public class ProfilProDTO implements Serializable{
 
     private Long numeroPro;
     private String nomPro;

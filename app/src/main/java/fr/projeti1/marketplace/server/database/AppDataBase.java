@@ -6,6 +6,8 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import fr.projeti1.marketplace.server.DAO.AnnonceDAO;
+import fr.projeti1.marketplace.server.DAO.AvisDAO;
+import fr.projeti1.marketplace.server.DAO.ProfilProDAO;
 import fr.projeti1.marketplace.server.entity.Annonce;
 import fr.projeti1.marketplace.server.entity.Particulier;
 
@@ -14,6 +16,8 @@ public abstract class AppDataBase extends RoomDatabase{
 
     //Liste des DAO
     public abstract AnnonceDAO getAnnonceDAO();
+    public abstract AvisDAO getAvisDAO();
+    public abstract ProfilProDAO getProfilProDAO();
 
     private static AppDataBase INSTANCE;
 
