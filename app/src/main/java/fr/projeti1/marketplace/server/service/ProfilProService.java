@@ -39,8 +39,8 @@ public class ProfilProService extends IntentService{
     public ProfilPro entityFromDTO(ProfilProDTO dto){
         ProfilPro profilPro = new ProfilPro();
         profilPro.setNumero(dto.getNumeroPro());
-        profilPro.setNom(dto.getNomPro());
-        profilPro.setPrenom(dto.getPrenomPro());
+        profilPro.setNomPro(dto.getNomPro());
+        profilPro.setPrenomPro(dto.getPrenomPro());
         profilPro.setNomSociete(dto.getNomSociete());
         profilPro.setSiretSociete(dto.getSiretSociete());
         profilPro.setNumDecennale(dto.getNumDecennale());

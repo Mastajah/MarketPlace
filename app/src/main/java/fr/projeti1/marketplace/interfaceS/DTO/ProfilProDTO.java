@@ -20,6 +20,10 @@ public class ProfilProDTO implements Parcelable{
     private String Ville;
     private Long codePostal;
 
+    public ProfilProDTO(){
+
+    }
+
     protected ProfilProDTO(Parcel in) {
         if (in.readByte() == 0) {
             numeroPro = null;

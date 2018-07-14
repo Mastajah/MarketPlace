@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
 
 import java.util.Date;
 import java.util.List;
@@ -39,11 +40,15 @@ public class Particulier {
     @ColumnInfo(name = "PAR_COD_POS")
     private Long codePostal;
 
-    @ColumnInfo(name = "PROP_PREN_PRO")
+    @ColumnInfo(name = "PAR_VILLE")
     private String ville;
 
     @Embedded(prefix = "par_")
     private List<Annonce> annonces;
+
+    public Particulier(){
+
+    }
 
     public Long getId() {
         return id;
@@ -93,12 +98,12 @@ public class Particulier {
         this.numeroTel = numeroTel;
     }
 
-    public String getEmail() {
+    public String getMail() {
         return mail;
     }
 
-    public void setEmail(String email) {
-        this.mail = email;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getAdresse() {

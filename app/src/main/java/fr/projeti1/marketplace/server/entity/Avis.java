@@ -6,7 +6,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "AVIS",foreignKeys = {@ForeignKey(entity = Particulier.class, parentColumns = "id",childColumns = "particulier"), @ForeignKey(entity = Particulier.class, parentColumns = "id",childColumns = "profilPro")})
+@Entity(tableName = "AVIS")
 public class Avis {
 
     @PrimaryKey(autoGenerate = true)
@@ -29,12 +29,14 @@ public class Avis {
     private String descriptionAvis;
 
     @Embedded
-    @ColumnInfo(name = "PROP_PAR_SEQ")
     private Particulier particulier;
 
     @Embedded
-    @ColumnInfo(name = "PROP_PAR_SEQ")
     private ProfilPro profilPro;
+
+    public Avis(){
+
+    }
 
     public Long getIdAvis() {
         return idAvis;

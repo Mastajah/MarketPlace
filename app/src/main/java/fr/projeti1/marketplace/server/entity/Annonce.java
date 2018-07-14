@@ -9,7 +9,7 @@ import android.arch.persistence.room.TypeConverter;
 
 import java.util.List;
 
-@Entity(tableName = "ANNONCE", foreignKeys = @ForeignKey(entity = Particulier.class,parentColumns = "id",childColumns = "particulier"))
+@Entity(tableName = "ANNONCE")
 public class Annonce {
 
     @PrimaryKey(autoGenerate = true)
@@ -50,11 +50,14 @@ public class Annonce {
     private String statut;
 
     @Embedded
-    @ColumnInfo(name = "ANN_PAR_SEQ")
     private Particulier particulier;
 
     @Embedded
     private List<Competence> competence;
+
+    public Annonce(){
+
+    }
 
     public Long getIdAnnonce() {
         return idAnnonce;

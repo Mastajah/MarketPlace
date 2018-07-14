@@ -15,10 +15,10 @@ public class ProfilPro {
     private Long numero;
 
     @ColumnInfo(name = "PROP_NOM_PRO")
-    private String nom;
+    private String nomPro;
 
     @ColumnInfo(name = "PROP_PREN_PRO")
-    private String prenom;
+    private String prenomPro;
 
     @ColumnInfo(name = "PROP_NOM_SOC")
     private String nomSociete;
@@ -44,6 +44,10 @@ public class ProfilPro {
     @ColumnInfo(name = "PROP_CP")
     private Long codePostal;
 
+    public ProfilPro(){
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,20 +64,20 @@ public class ProfilPro {
         this.numero = numero;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomPro() {
+        return nomPro;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomPro(String nom) {
+        this.nomPro = nom;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getPrenomPro() {
+        return prenomPro;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setPrenomPro(String prenom) {
+        this.prenomPro = prenom;
     }
 
     public String getNomSociete() {

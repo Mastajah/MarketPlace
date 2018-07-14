@@ -17,6 +17,10 @@ public class Competence {
     @ColumnInfo(name = "COM_DESC_COM")
     private String description;
 
+    public Competence(){
+
+    }
+
     public Long getIdComp() {
         return idComp;
     }
