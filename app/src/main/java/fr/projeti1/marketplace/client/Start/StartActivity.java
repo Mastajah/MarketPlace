@@ -20,6 +20,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_activity);
 
+        AppDataBase.getAppDatabase(getApplicationContext());
+
         this.play = (ImageView) findViewById(R.id.play);
 
         play.setOnClickListener(new View.OnClickListener() {

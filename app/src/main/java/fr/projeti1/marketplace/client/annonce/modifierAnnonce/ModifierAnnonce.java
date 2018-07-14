@@ -1,5 +1,7 @@
 package fr.projeti1.marketplace.client.annonce.modifierAnnonce;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -130,5 +132,20 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
         startActivity(modifierToConsulter);
         //On ferme celle la (ModifierAnnonce)
         finish();
+    }
+
+    // Besoin du oontext dans le presenter
+    public Context getContext(){
+        return this.getApplicationContext();
+    }
+
+    // L'activité est ici, et seule l'activité a la main sur la fonction startService() donc aussi définie dans le display
+    public void startIntentService(Intent intentService){
+        startService(intentService);
+    }
+
+    // L'activité est ici, et seule l'activité a la main sur la fonction startService() donc aussi définit dans le display
+    public void registerListener(BroadcastReceiver receiver){
+        registerListener(receiver);
     }
 }
