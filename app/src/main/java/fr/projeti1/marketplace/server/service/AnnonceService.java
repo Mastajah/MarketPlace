@@ -88,6 +88,9 @@ public class AnnonceService extends IntentService {
         return annonce;
     }
 
+    /*
+     *  Permet de convertir une entité Annonce en AnnonceDTO
+     */
     public AnnonceDTO DTOFromEntity(Annonce annonce){
 
         AnnonceDTO annonceDTO = new AnnonceDTO();

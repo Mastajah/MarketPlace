@@ -14,6 +14,29 @@ public class AvisDTO implements Parcelable{
     protected String resumeIntervention;
     protected String descriptionAvis;
 
+    public AvisDTO(){
+
+    }
+
+    protected AvisDTO(Parcel in) {
+        if (in.readByte() == 0) {
+            numAvis = null;
+        } else {
+            numAvis = in.readLong();
+        }
+        nomPro = in.readString();
+        nomSociete = in.readString();
+        nomClient = in.readString();
+        prenomClient = in.readString();
+        if (in.readByte() == 0) {
+            numAnnonce = null;
+        } else {
+            numAnnonce = in.readLong();
+        }
+        resumeIntervention = in.readString();
+        descriptionAvis = in.readString();
+    }
+
     public Long getNumAvis() {
         return numAvis;
     }
@@ -79,45 +102,41 @@ public class AvisDTO implements Parcelable{
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(numAvis);
+        if (numAvis == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(numAvis);
+        }
         dest.writeString(nomPro);
         dest.writeString(nomSociete);
         dest.writeString(nomClient);
         dest.writeString(prenomClient);
-        dest.writeLong(numAnnonce);
+        if (numAnnonce == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(numAnnonce);
+        }
         dest.writeString(resumeIntervention);
         dest.writeString(descriptionAvis);
     }
 
-    public static final Parcelable.Creator<AvisDTO> CREATOR = new Parcelable.Creator<AvisDTO>()
-    {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<AvisDTO> CREATOR = new Creator<AvisDTO>() {
         @Override
-        public AvisDTO createFromParcel(Parcel source)
-        {
-            return new AvisDTO(source);
+        public AvisDTO createFromParcel(Parcel in) {
+            return new AvisDTO(in);
         }
 
         @Override
-        public AvisDTO[] newArray(int size)
-        {
+        public AvisDTO[] newArray(int size) {
             return new AvisDTO[size];
         }
     };
-
-    public AvisDTO(Parcel in) {
-        this.numAvis = in.readLong();
-        this.nomPro = in.readString();
-        this.nomSociete = in.readString();
-        this.nomClient = in.readString();
-        this.prenomClient = in.readString();
-        this.numAnnonce = in.readLong();
-        this.resumeIntervention = in.readString();
-        this.descriptionAvis = in.readString();
-    }
 }

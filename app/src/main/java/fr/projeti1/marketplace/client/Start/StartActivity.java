@@ -20,7 +20,11 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_activity);
 
+        // Instanciation de la BDD
         AppDataBase.getAppDatabase(getApplicationContext());
+
+        // Initialisation d'un compte particulier et d'un profil pro
+
 
         this.play = (ImageView) findViewById(R.id.play);
 

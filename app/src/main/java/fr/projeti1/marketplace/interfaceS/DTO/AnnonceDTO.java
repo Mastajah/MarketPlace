@@ -20,6 +20,27 @@ public class AnnonceDTO implements Parcelable{
 
     }
 
+    protected AnnonceDTO(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        if (in.readByte() == 0) {
+            numeroAnnonce = null;
+        } else {
+            numeroAnnonce = in.readLong();
+        }
+        titre = in.readString();
+        description = in.readString();
+        particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
+        ville = in.readString();
+        adresse = in.readString();
+        codePostale = in.readString();
+        dateCreation = in.readString();
+        dateCloture = in.readString();
+    }
+
     public String getAdresse() {
         return adresse;
     }
@@ -93,51 +114,44 @@ public class AnnonceDTO implements Parcelable{
 
     public void setCodePostale(String codePostale) {this.codePostale = codePostale; }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        if (numeroAnnonce == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(numeroAnnonce);
+        }
+        dest.writeString(titre);
+        dest.writeString(description);
+        dest.writeParcelable(particulierDTO, flags);
+        dest.writeString(ville);
+        dest.writeString(adresse);
+        dest.writeString(codePostale);
+        dest.writeString(dateCreation);
+        dest.writeString(dateCloture);
+    }
 
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(id);
-        dest.writeLong(numeroAnnonce);
-        dest.writeString(adresse);
-        dest.writeString(codePostale);
-        dest.writeString(ville);
-        dest.writeString(dateCloture);
-        dest.writeString(dateCreation);
-        dest.writeString(description);
-        dest.writeParcelable(particulierDTO,flags);
-        dest.writeString(titre);
-    }
-
-    public static final Parcelable.Creator<AnnonceDTO> CREATOR = new Parcelable.Creator<AnnonceDTO>()
-    {
+    public static final Creator<AnnonceDTO> CREATOR = new Creator<AnnonceDTO>() {
         @Override
-        public AnnonceDTO createFromParcel(Parcel source)
-        {
-            return new AnnonceDTO(source);
+        public AnnonceDTO createFromParcel(Parcel in) {
+            return new AnnonceDTO(in);
         }
 
         @Override
-        public AnnonceDTO[] newArray(int size)
-        {
+        public AnnonceDTO[] newArray(int size) {
             return new AnnonceDTO[size];
         }
     };
-
-    public AnnonceDTO(Parcel in) {
-        this.id = in.readLong();
-        this.numeroAnnonce = in.readLong();
-        this.adresse = in.readString();
-        this.codePostale = in.readString();
-        this.ville = in.readString();
-        this.dateCloture = in.readString();
-        this.dateCreation = in.readString();
-        this.titre = in.readString();
-        this.description = in.readString();
-        this.particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
-    }
 }

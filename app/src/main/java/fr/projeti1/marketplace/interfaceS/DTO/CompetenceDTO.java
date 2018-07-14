@@ -11,6 +11,20 @@ public class CompetenceDTO implements Parcelable{
 
     private String description;
 
+    public CompetenceDTO(){
+
+    }
+
+    protected CompetenceDTO(Parcel in) {
+        if (in.readByte() == 0) {
+            idComp = null;
+        } else {
+            idComp = in.readLong();
+        }
+        libelle = in.readString();
+        description = in.readString();
+    }
+
     public Long getIdComp() {
         return idComp;
     }
@@ -36,35 +50,31 @@ public class CompetenceDTO implements Parcelable{
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(idComp);
+        if (idComp == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(idComp);
+        }
         dest.writeString(libelle);
         dest.writeString(description);
     }
 
-    public static final Parcelable.Creator<CompetenceDTO> CREATOR = new Parcelable.Creator<CompetenceDTO>()
-    {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CompetenceDTO> CREATOR = new Creator<CompetenceDTO>() {
         @Override
-        public CompetenceDTO createFromParcel(Parcel source)
-        {
-            return new CompetenceDTO(source);
+        public CompetenceDTO createFromParcel(Parcel in) {
+            return new CompetenceDTO(in);
         }
 
         @Override
-        public CompetenceDTO[] newArray(int size)
-        {
+        public CompetenceDTO[] newArray(int size) {
             return new CompetenceDTO[size];
         }
     };
-
-    public CompetenceDTO(Parcel in) {
-        this.idComp = in.readLong();
-        this.libelle = in.readString();
-        this.description = in.readString();
-    }
 }
