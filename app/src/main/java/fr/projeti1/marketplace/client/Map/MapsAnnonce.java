@@ -38,6 +38,7 @@ public class MapsAnnonce extends MapsActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        presenter = new MapsAnnoncePresenter(this);
     }
 
     public void initView() {
@@ -109,7 +110,7 @@ public class MapsAnnonce extends MapsActivity {
                     //place un marqueur sur toutes les annonces ayant le même
                     //code postal que le l'adresse saisie
 
-                    Address adresseAnnonce = convertStringToAdresse(annonceDTO.adressToString());
+                    Address adresseAnnonce = convertStringToAdresse(annonceDTO.getAdresse());
 
                     if (adresseAnnonce != null){
                         MarkerOptions options = new MarkerOptions()

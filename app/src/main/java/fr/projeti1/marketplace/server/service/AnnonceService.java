@@ -77,7 +77,7 @@ public class AnnonceService extends IntentService {
         annonce.setNumeroAnnonce(dto.getNumeroAnnonce());
         annonce.setTitre(dto.getTitre());
         annonce.setDescription(dto.getDescription());
-        annonce.setAdresse(String.valueOf(dto.getNumVoie()) + dto.getRue());
+        annonce.setAdresse(dto.getAdresse());
         annonce.setCodePostal(dto.getCodePostale());
         annonce.setVille(dto.getVille());
 

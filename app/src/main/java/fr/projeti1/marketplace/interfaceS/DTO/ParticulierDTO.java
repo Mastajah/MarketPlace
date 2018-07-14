@@ -17,6 +17,7 @@ public class ParticulierDTO implements Parcelable {
     public ParticulierDTO(){
 
     }
+
     public ParticulierDTO(Parcel in) {
         if (in.readByte() == 0) {
             id = null;

@@ -61,7 +61,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_maps);
-        mSearchText =(EditText) findViewById(R.id.input_search);
         getLocationPermission();
     }
 
@@ -110,6 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     protected void init(){
         Log.d(TAG, "init: initialisation de l'outil de recherche sur map");
+        mSearchText = findViewById(R.id.input_search);
         /*
         //Création d'annonce fictive pour affichage des marqueur suite à la recherche:
         AnnonceDTO annonceDTO1 = new AnnonceDTO();

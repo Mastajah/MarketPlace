@@ -16,21 +16,17 @@ public class MapsAnnoncePresenter{
     protected MapsAnnonceModel model;
     protected MapsAnnonce view;
 
-    public MapsAnnoncePresenter(MapsAnnonce view, List<AnnonceDTO> annonceDTOList){
+    public MapsAnnoncePresenter(MapsAnnonce view){
         view.setPresenter(this);
         initPresenter();
     }
 
     private void initPresenter(){
         this.model = new MapsAnnonceModel();
-        ArrayList<AnnonceDTO> annonceDTOs = new ArrayList<AnnonceDTO>();
-
-        //Ici appel serveur
-        model.setAnnonceDTOs(annonceDTOs);
-        view.initView();
+        doRechercherAnnonce();
     }
 
-    public void doValider(){
+    public void doRechercherAnnonce(){
         view.flush();
         ArrayList<AnnonceDTO> inputListDTO = model.getAnnonceDTOs();
 
@@ -54,6 +50,7 @@ public class MapsAnnoncePresenter{
         @Override
         public void onReceive(Context context, Intent intent){
             ArrayList<AnnonceDTO> listAnnonceDTOs = intent.getParcelableArrayListExtra("ArrayList<AnnonceDTLO>");
+            model.setAnnonceDTOs(listAnnonceDTOs);
             view.initView();
         }
     }
