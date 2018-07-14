@@ -3,8 +3,6 @@ package fr.projeti1.marketplace.interfaceS.DTO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 public class ParticulierDTO implements Parcelable {
 
     private Long id;
@@ -15,6 +13,45 @@ public class ParticulierDTO implements Parcelable {
     private String Adresse;
     private String Ville;
     private Long codePostal;
+
+    protected ParticulierDTO(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+        if (in.readByte() == 0) {
+            numeroClient = null;
+        } else {
+            numeroClient = in.readLong();
+        }
+        nomClient = in.readString();
+        prenomClient = in.readString();
+        if (in.readByte() == 0) {
+            numeroTelephone = null;
+        } else {
+            numeroTelephone = in.readLong();
+        }
+        Adresse = in.readString();
+        Ville = in.readString();
+        if (in.readByte() == 0) {
+            codePostal = null;
+        } else {
+            codePostal = in.readLong();
+        }
+    }
+
+    public static final Creator<ParticulierDTO> CREATOR = new Creator<ParticulierDTO>() {
+        @Override
+        public ParticulierDTO createFromParcel(Parcel in) {
+            return new ParticulierDTO(in);
+        }
+
+        @Override
+        public ParticulierDTO[] newArray(int size) {
+            return new ParticulierDTO[size];
+        }
+    };
 
     public Long getId() {
         return id;
@@ -87,39 +124,33 @@ public class ParticulierDTO implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(id);
-        dest.writeLong(numeroClient);
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        if (numeroClient == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(numeroClient);
+        }
         dest.writeString(nomClient);
         dest.writeString(prenomClient);
-        dest.writeLong(numeroTelephone);
+        if (numeroTelephone == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(numeroTelephone);
+        }
         dest.writeString(Adresse);
         dest.writeString(Ville);
-        dest.writeLong(codePostal);
-    }
-
-    public static final Parcelable.Creator<ParticulierDTO> CREATOR = new Parcelable.Creator<ParticulierDTO>()
-    {
-        @Override
-        public ParticulierDTO createFromParcel(Parcel source)
-        {
-            return new ParticulierDTO(source);
+        if (codePostal == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(codePostal);
         }
-
-        @Override
-        public ParticulierDTO[] newArray(int size)
-        {
-            return new ParticulierDTO[size];
-        }
-    };
-
-    public ParticulierDTO(Parcel in) {
-        this.id = in.readLong();
-        this.numeroClient = in.readLong();
-        this.nomClient = in.readString();
-        this.prenomClient = in.readString();
-        this.numeroTelephone = in.readLong();
-        this.Adresse = in.readString();
-        this.Ville = in.readString();
-        this.codePostal = in.readLong();
     }
 }
