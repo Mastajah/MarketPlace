@@ -1,8 +1,11 @@
 package fr.projeti1.marketplace.server.entity;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+
+import java.util.List;
 
 @Entity(tableName = "PROFILPRO")
 public class ProfilPro {
@@ -43,6 +46,9 @@ public class ProfilPro {
 
     @ColumnInfo(name = "PROP_CP")
     private Long codePostal;
+
+    @Embedded
+    private List<Avis> avisList;
 
     public ProfilPro(){
 
@@ -142,5 +148,13 @@ public class ProfilPro {
 
     public void setCodePostal(Long codePostal) {
         this.codePostal = codePostal;
+    }
+
+    public List<Avis> getAvisList() {
+        return avisList;
+    }
+
+    public void setAvisList(List<Avis> avisList) {
+        this.avisList = avisList;
     }
 }
