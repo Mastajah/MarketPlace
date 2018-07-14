@@ -1,8 +1,9 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class AvisDTO implements Serializable{
+public class AvisDTO implements Parcelable{
 
     protected Long numAvis;
     protected String nomPro;
@@ -12,10 +13,6 @@ public class AvisDTO implements Serializable{
     protected Long numAnnonce;
     protected String resumeIntervention;
     protected String descriptionAvis;
-
-    public AvisDTO(){
-
-    }
 
     public Long getNumAvis() {
         return numAvis;
@@ -79,5 +76,48 @@ public class AvisDTO implements Serializable{
 
     public void setDescriptionAvis(String descriptionAvis) {
         this.descriptionAvis = descriptionAvis;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(numAvis);
+        dest.writeString(nomPro);
+        dest.writeString(nomSociete);
+        dest.writeString(nomClient);
+        dest.writeString(prenomClient);
+        dest.writeLong(numAnnonce);
+        dest.writeString(resumeIntervention);
+        dest.writeString(descriptionAvis);
+    }
+
+    public static final Parcelable.Creator<AvisDTO> CREATOR = new Parcelable.Creator<AvisDTO>()
+    {
+        @Override
+        public AvisDTO createFromParcel(Parcel source)
+        {
+            return new AvisDTO(source);
+        }
+
+        @Override
+        public AvisDTO[] newArray(int size)
+        {
+            return new AvisDTO[size];
+        }
+    };
+
+    public AvisDTO(Parcel in) {
+        this.numAvis = in.readLong();
+        this.nomPro = in.readString();
+        this.nomSociete = in.readString();
+        this.nomClient = in.readString();
+        this.prenomClient = in.readString();
+        this.numAnnonce = in.readLong();
+        this.resumeIntervention = in.readString();
+        this.descriptionAvis = in.readString();
     }
 }

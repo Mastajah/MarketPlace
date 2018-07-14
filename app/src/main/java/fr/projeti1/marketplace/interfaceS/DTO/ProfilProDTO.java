@@ -1,8 +1,11 @@
 package fr.projeti1.marketplace.interfaceS.DTO;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class ProfilProDTO implements Serializable{
+public class ProfilProDTO implements Parcelable{
 
     private Long numeroPro;
     private String nomPro;
@@ -16,9 +19,6 @@ public class ProfilProDTO implements Serializable{
     private String Adresse;
     private String Ville;
     private Long codePostal;
-
-    public ProfilProDTO() {
-    }
 
     public Long getNumeroPro() {
         return numeroPro;
@@ -114,5 +114,56 @@ public class ProfilProDTO implements Serializable{
 
     public void setCodePostal(Long codePostal) {
         this.codePostal = codePostal;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(numeroPro);
+        dest.writeString(nomPro);
+        dest.writeString(prenomPro);
+        dest.writeString(nomSociete);
+        dest.writeLong(siretSociete);
+        dest.writeString(numDecennale);
+        dest.writeString(competence);
+        dest.writeLong(numeroTelephone);
+        dest.writeString(mail);
+        dest.writeString(Adresse);
+        dest.writeString(Ville);
+        dest.writeLong(codePostal);
+    }
+
+    public static final Parcelable.Creator<ProfilProDTO> CREATOR = new Parcelable.Creator<ProfilProDTO>()
+    {
+        @Override
+        public ProfilProDTO createFromParcel(Parcel source)
+        {
+            return new ProfilProDTO(source);
+        }
+
+        @Override
+        public ProfilProDTO[] newArray(int size)
+        {
+            return new ProfilProDTO[size];
+        }
+    };
+
+    public ProfilProDTO(Parcel in) {
+        this.numeroPro = in.readLong();
+        this.nomPro = in.readString();
+        this.prenomPro = in.readString();
+        this.nomSociete = in.readString();
+        this.siretSociete = in.readLong();
+        this.numDecennale = in.readString();
+        this.competence = in.readString();
+        this.numeroTelephone = in.readLong();
+        this.mail = in.readString();
+        this.Adresse = in.readString();
+        this.Ville = in.readString();
+        this.codePostal = in.readLong();
     }
 }
