@@ -14,7 +14,10 @@ public class ParticulierDTO implements Parcelable {
     private String Ville;
     private Long codePostal;
 
-    protected ParticulierDTO(Parcel in) {
+    public ParticulierDTO(){
+
+    }
+    public ParticulierDTO(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
         } else {

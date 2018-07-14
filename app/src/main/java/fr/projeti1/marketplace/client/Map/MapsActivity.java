@@ -13,9 +13,12 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +56,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Widgets
     private EditText mSearchText; //Texte saisie dans la barre de recherche
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Retrieve the content view that renders the map.
+        setContentView(R.layout.activity_maps);
+        mSearchText =(EditText) findViewById(R.id.input_search);
+        getLocationPermission();
+    }
 
     /**
      * Manipule la Map une fois disponible.
@@ -87,15 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_maps);
-        mSearchText =(EditText) findViewById(R.id.input_search);
-        getLocationPermission();
-
-    }
 
     public void initMap(){
         Log.d(TAG,"initMap : Initialisation de la Map");
@@ -106,9 +108,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-    private void init(){
+    protected void init(){
         Log.d(TAG, "init: initialisation de l'outil de recherche sur map");
-
+        /*
         //Création d'annonce fictive pour affichage des marqueur suite à la recherche:
         AnnonceDTO annonceDTO1 = new AnnonceDTO();
         annonceDTO1.setNumeroAnnonce(1L);
@@ -145,17 +147,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     geoLocate(listAnnonce);
                 }
                 fermeClavierSaisie();
+
                 return false;
             }
         });
+        */
 
     }
 
     /**
      * Methode de géolocalisation d'une saisie de recherche
      * entré dans la barre de recherche mSearchText
-     */
-    private void geoLocate(List<AnnonceDTO> listAnnonce){
+
+    protected void geoLocate(List<AnnonceDTO> listAnnonce){
 
         //RechercherAnnonce rechercherAnnonce = new RechercherAnnonce();
 
@@ -226,7 +230,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         else return null;
     }
-    private void getDeviceLocation(){
+     */
+    protected void getDeviceLocation(){
 
         Log.d(TAG,"getDeviceLocation : recupere la location de l'appareil");
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
@@ -252,7 +257,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void moveCamera(LatLng latLng, float zoom, String title){
+    protected void moveCamera(LatLng latLng, float zoom, String title){
         Log.d(TAG, "moveCamera: deplace l'ecran vers la latitude: "+latLng.latitude + ", longitude: "+ latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
         /*
@@ -267,7 +272,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         fermeClavierSaisie();
 
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -292,7 +296,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void getLocationPermission(){
+    protected void getLocationPermission(){
         Log.d(TAG, "getLocationPermission : recupère les permissions");
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
 
@@ -313,7 +317,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LOCATION_PERMISSION_REQUEST_CODE);
         }
     }
-    private void fermeClavierSaisie(){
+
+    protected void fermeClavierSaisie(){
         //this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         Log.d(TAG, "fermeClavierSaisie: Fermeture du clavier effective");

@@ -2,6 +2,10 @@ package fr.projeti1.marketplace.server.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.server.DAO.AnnonceDAO;
@@ -29,7 +33,10 @@ public class AnnonceService extends IntentService {
             case "creerAnnonce":
                 AnnonceDTO annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
                 creerAnnonce(annonceDTO);
+            case "findAllAnnonces":
+                findAllAnnonces();
         }
+
     }
 
     public void creerAnnonce (AnnonceDTO annonceDTO){
@@ -46,6 +53,19 @@ public class AnnonceService extends IntentService {
 
     public void modifierAnnonce(){
 
+    }
+
+    public void findAllAnnonces(){
+        dao = AppDataBase.getAppDatabase(getApplicationContext()).getAnnonceDAO();
+        ArrayList<AnnonceDTO> annonceDTOList = new ArrayList<AnnonceDTO>();
+
+        for (Annonce annonce : dao.getAnnonces()){
+            annonceDTOList.add(DTOFromEntity(annonce));
+        }
+        // Retour de l'id au presenter grace à l'intent
+        Intent reponseIntent = new Intent();
+        reponseIntent.putParcelableArrayListExtra("annonceList", annonceDTOList);
+        sendBroadcast(reponseIntent);
     }
 
     /*
@@ -68,5 +88,21 @@ public class AnnonceService extends IntentService {
         return annonce;
     }
 
+    public AnnonceDTO DTOFromEntity(Annonce annonce){
+
+        AnnonceDTO annonceDTO = new AnnonceDTO();
+
+        annonceDTO.setAdresse(annonce.getAdresse());
+        annonceDTO.setVille(annonce.getVille());
+        annonceDTO.setCodePostale(annonce.getCodePostal());
+        annonceDTO.setDateCloture(annonce.getDateCloture());
+        annonceDTO.setDateCreation(annonce.getDateCreation());
+        annonceDTO.setDescription(annonce.getDescription());
+        annonceDTO.setId(annonce.getIdAnnonce());
+        annonceDTO.setNumeroAnnonce(annonce.getNumeroAnnonce());
+        //annonceDTO.setParticulierDTO(annonce.getParticulier());
+
+         return annonceDTO;
+    }
 
 }
