@@ -38,6 +38,9 @@ public class ProfilPro {
     @ColumnInfo(name = "PROP_ADR_MAIL")
     private String mail;
 
+    @ColumnInfo(name = "PROP_MT_PAS")
+    private String motDePasse;
+
     @ColumnInfo(name = "PROP_ADR")
     private String Adresse;
 
@@ -124,6 +127,14 @@ public class ProfilPro {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getAdresse() {

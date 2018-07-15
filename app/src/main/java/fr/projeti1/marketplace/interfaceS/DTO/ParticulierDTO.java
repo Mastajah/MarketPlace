@@ -3,13 +3,18 @@ package fr.projeti1.marketplace.interfaceS.DTO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Date;
+
 public class ParticulierDTO implements Parcelable {
 
     private Long id;
     private Long numeroClient;
     private String nomClient;
     private String prenomClient;
+    private Date dateNaissance;
     private Long numeroTelephone;
+    private String mail;
+    private String motDePasse;
     private String Adresse;
     private String Ville;
     private Long codePostal;
@@ -18,7 +23,8 @@ public class ParticulierDTO implements Parcelable {
 
     }
 
-    public ParticulierDTO(Parcel in) {
+
+    protected ParticulierDTO(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
         } else {
@@ -36,6 +42,8 @@ public class ParticulierDTO implements Parcelable {
         } else {
             numeroTelephone = in.readLong();
         }
+        mail = in.readString();
+        motDePasse = in.readString();
         Adresse = in.readString();
         Ville = in.readString();
         if (in.readByte() == 0) {
@@ -44,18 +52,6 @@ public class ParticulierDTO implements Parcelable {
             codePostal = in.readLong();
         }
     }
-
-    public static final Creator<ParticulierDTO> CREATOR = new Creator<ParticulierDTO>() {
-        @Override
-        public ParticulierDTO createFromParcel(Parcel in) {
-            return new ParticulierDTO(in);
-        }
-
-        @Override
-        public ParticulierDTO[] newArray(int size) {
-            return new ParticulierDTO[size];
-        }
-    };
 
     public Long getId() {
         return id;
@@ -89,12 +85,36 @@ public class ParticulierDTO implements Parcelable {
         this.prenomClient = prenomClient;
     }
 
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
     public Long getNumeroTelephone() {
         return numeroTelephone;
     }
 
     public void setNumeroTelephone(Long numeroTelephone) {
         this.numeroTelephone = numeroTelephone;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getAdresse() {
@@ -122,11 +142,6 @@ public class ParticulierDTO implements Parcelable {
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
     public void writeToParcel(Parcel dest, int flags) {
         if (id == null) {
             dest.writeByte((byte) 0);
@@ -148,6 +163,8 @@ public class ParticulierDTO implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeLong(numeroTelephone);
         }
+        dest.writeString(mail);
+        dest.writeString(motDePasse);
         dest.writeString(Adresse);
         dest.writeString(Ville);
         if (codePostal == null) {
@@ -157,4 +174,21 @@ public class ParticulierDTO implements Parcelable {
             dest.writeLong(codePostal);
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<ParticulierDTO> CREATOR = new Creator<ParticulierDTO>() {
+        @Override
+        public ParticulierDTO createFromParcel(Parcel in) {
+            return new ParticulierDTO(in);
+        }
+
+        @Override
+        public ParticulierDTO[] newArray(int size) {
+            return new ParticulierDTO[size];
+        }
+    };
 }

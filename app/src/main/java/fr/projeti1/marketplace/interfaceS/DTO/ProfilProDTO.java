@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ProfilProDTO implements Parcelable{
 
@@ -13,9 +14,10 @@ public class ProfilProDTO implements Parcelable{
     private String nomSociete;
     private Long siretSociete;
     private String numDecennale;
-    private String competence; // modifier pour correspondre au fragment compétence
+    private List<CompetenceDTO> competences;
     private Long numeroTelephone;
     private String mail;
+    private String motDePasse;
     private String Adresse;
     private String Ville;
     private Long codePostal;
@@ -39,13 +41,14 @@ public class ProfilProDTO implements Parcelable{
             siretSociete = in.readLong();
         }
         numDecennale = in.readString();
-        competence = in.readString();
+        competences = in.createTypedArrayList(CompetenceDTO.CREATOR);
         if (in.readByte() == 0) {
             numeroTelephone = null;
         } else {
             numeroTelephone = in.readLong();
         }
         mail = in.readString();
+        motDePasse = in.readString();
         Adresse = in.readString();
         Ville = in.readString();
         if (in.readByte() == 0) {
@@ -103,12 +106,12 @@ public class ProfilProDTO implements Parcelable{
         this.numDecennale = numDecennale;
     }
 
-    public String getCompetence() {
-        return competence;
+    public List<CompetenceDTO> getCompetences() {
+        return competences;
     }
 
-    public void setCompetence(String competence) {
-        this.competence = competence;
+    public void setCompetences(List<CompetenceDTO> competences) {
+        this.competences = competences;
     }
 
     public Long getNumeroTelephone() {
@@ -125,6 +128,14 @@ public class ProfilProDTO implements Parcelable{
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getAdresse() {
@@ -169,7 +180,7 @@ public class ProfilProDTO implements Parcelable{
             dest.writeLong(siretSociete);
         }
         dest.writeString(numDecennale);
-        dest.writeString(competence);
+        dest.writeTypedList(competences);
         if (numeroTelephone == null) {
             dest.writeByte((byte) 0);
         } else {
@@ -177,6 +188,7 @@ public class ProfilProDTO implements Parcelable{
             dest.writeLong(numeroTelephone);
         }
         dest.writeString(mail);
+        dest.writeString(motDePasse);
         dest.writeString(Adresse);
         dest.writeString(Ville);
         if (codePostal == null) {

@@ -8,6 +8,8 @@ import android.content.Context;
 
 import fr.projeti1.marketplace.server.DAO.AnnonceDAO;
 import fr.projeti1.marketplace.server.DAO.AvisDAO;
+import fr.projeti1.marketplace.server.DAO.CompetenceDAO;
+import fr.projeti1.marketplace.server.DAO.ParticulierDAO;
 import fr.projeti1.marketplace.server.DAO.ProfilProDAO;
 import fr.projeti1.marketplace.server.entity.Annonce;
 import fr.projeti1.marketplace.server.entity.Avis;
@@ -24,6 +26,8 @@ public abstract class AppDataBase extends RoomDatabase{
     public abstract AnnonceDAO getAnnonceDAO();
     public abstract AvisDAO getAvisDAO();
     public abstract ProfilProDAO getProfilProDAO();
+    public abstract ParticulierDAO getParticulierDAO();
+    public abstract CompetenceDAO getCompetenceDAO();
 
     private static AppDataBase INSTANCE;
 

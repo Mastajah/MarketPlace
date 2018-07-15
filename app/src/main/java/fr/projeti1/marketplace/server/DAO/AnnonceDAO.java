@@ -14,21 +14,21 @@ import fr.projeti1.marketplace.server.entity.Annonce;
 public interface AnnonceDAO{
 
     @Query("SELECT * FROM ANNONCE")
-    public List<Annonce> getAnnonces();
+    List<Annonce> getAnnonces();
 
     @Insert
-    public void insertAnnonce(Annonce annonce);
+    void insertAnnonce(Annonce annonce);
 
     @Update
-    public void modifierAnnonce(Annonce annonce);
+    void modifierAnnonce(Annonce annonce);
 
     @Delete
-    public void supprimerAnnonce(Annonce annonce);
+    void supprimerAnnonce(Annonce annonce);
 
     @Query("SELECT * FROM ANNONCE WHERE ANN_VIL_ANN = :ville")
-    public List<Annonce> getAnnoncesByVille(String ville);
+    List<Annonce> getAnnoncesByVille(String ville);
 
     @Query("SELECT * FROM ANNONCE WHERE ANN_STAT_ANN = :status")
-    public List<Annonce> getAnnonceByStatus(String status);
+    List<Annonce> getAnnonceByStatus(String status);
 
 }

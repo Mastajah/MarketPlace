@@ -34,6 +34,9 @@ public class Particulier {
     @ColumnInfo(name = "PAR_MAIl_PAR")
     private String mail;
 
+    @ColumnInfo(name = "PAR_MT_PAS")
+    private String motDePasse;
+
     @ColumnInfo(name = "PAR_ADR_PAR")
     private String adresse;
 
@@ -104,6 +107,14 @@ public class Particulier {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
     public String getAdresse() {
