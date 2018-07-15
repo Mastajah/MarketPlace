@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverter;
 
@@ -49,10 +50,10 @@ public class Annonce {
     @ColumnInfo(name = "ANN_STAT_ANN")
     private String statut;
 
-    @Embedded
-    private Particulier particulier;
+    @Ignore
+    private Long idParticulier;
 
-    @Embedded
+    @Ignore
     private List<Competence> competence;
 
     public Annonce(){
@@ -155,12 +156,12 @@ public class Annonce {
         this.statut = statut;
     }
 
-    public Particulier getParticulier() {
-        return particulier;
+    public Long getIdParticulier() {
+        return idParticulier;
     }
 
-    public void setParticulier(Particulier particulier) {
-        this.particulier = particulier;
+    public void setIdParticulier(Long idParticulier) {
+        this.idParticulier = idParticulier;
     }
 
     public List<Competence> getCompetence() {

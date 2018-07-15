@@ -3,22 +3,32 @@ package fr.projeti1.marketplace.interfaceS.DTO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
+import fr.projeti1.marketplace.server.entity.Competence;
+import fr.projeti1.marketplace.server.entity.Particulier;
+
 public class AnnonceDTO implements Parcelable{
 
     private Long id;
     private Long numeroAnnonce;
     private String titre;
     private String description;
-    private ParticulierDTO particulierDTO;
     private String ville;
     private String adresse;
     private String codePostale;
+    private float longitude;
+    private float latitude;
     private String dateCreation;
     private String dateCloture;
+    private String statut;
+    private ParticulierDTO particulierDTO;
+    private List<CompetenceDTO> competenceDTOs;
 
     public AnnonceDTO() {
 
     }
+
 
     protected AnnonceDTO(Parcel in) {
         if (in.readByte() == 0) {
@@ -33,13 +43,19 @@ public class AnnonceDTO implements Parcelable{
         }
         titre = in.readString();
         description = in.readString();
-        particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
         ville = in.readString();
         adresse = in.readString();
         codePostale = in.readString();
+        longitude = in.readFloat();
+        latitude = in.readFloat();
         dateCreation = in.readString();
         dateCloture = in.readString();
+        statut = in.readString();
+        particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
+        competenceDTOs = in.createTypedArrayList(CompetenceDTO.CREATOR);
     }
+
+
 
     public String getAdresse() {
         return adresse;
@@ -64,7 +80,6 @@ public class AnnonceDTO implements Parcelable{
     public void setDateCloture(String dateCloture) {
         this.dateCloture = dateCloture;
     }
-    //private CompetenceDTO competenceDTO;
 
     public Long getId() {
         return id;
@@ -114,6 +129,38 @@ public class AnnonceDTO implements Parcelable{
 
     public void setCodePostale(String codePostale) {this.codePostale = codePostale; }
 
+    public float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public List<CompetenceDTO> getCompetenceDTOs() {
+        return competenceDTOs;
+    }
+
+    public void setCompetenceDTOs(List<CompetenceDTO> competenceDTOs) {
+        this.competenceDTOs = competenceDTOs;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         if (id == null) {
@@ -130,12 +177,16 @@ public class AnnonceDTO implements Parcelable{
         }
         dest.writeString(titre);
         dest.writeString(description);
-        dest.writeParcelable(particulierDTO, flags);
         dest.writeString(ville);
         dest.writeString(adresse);
         dest.writeString(codePostale);
+        dest.writeFloat(longitude);
+        dest.writeFloat(latitude);
         dest.writeString(dateCreation);
         dest.writeString(dateCloture);
+        dest.writeString(statut);
+        dest.writeParcelable(particulierDTO, flags);
+        dest.writeTypedList(competenceDTOs);
     }
 
     @Override

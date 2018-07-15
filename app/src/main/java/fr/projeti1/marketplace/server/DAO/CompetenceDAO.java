@@ -7,10 +7,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import java.util.List;
-
-import fr.projeti1.marketplace.server.entity.Annonce;
 import fr.projeti1.marketplace.server.entity.Competence;
-import fr.projeti1.marketplace.server.entity.Particulier;
 
 @Dao
 public interface CompetenceDAO {
@@ -21,6 +18,9 @@ public interface CompetenceDAO {
     @Insert
     void insertCompentence(Competence competence);
 
+    @Insert
+    void insertAll(List<Competence> competences);
+
     @Update
     void modifierCompentence(Competence competence);
 
@@ -29,4 +29,7 @@ public interface CompetenceDAO {
 
     @Query("SELECT * FROM COMPETENCE WHERE COM_SEQ = :id")
     Competence findById(Long id);
+
+    @Query("SELECT * FROM COMPETENCE WHERE COM_ANN_SEQ =:id")
+    List<Competence> getCompetencesByAnnonce(Long id);
 }

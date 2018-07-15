@@ -17,6 +17,9 @@ public class Competence {
     @ColumnInfo(name = "COM_DESC_COM")
     private String description;
 
+    @ColumnInfo(name = "COM_ANN_SEQ")
+    private Long idAnnonce;
+
     public Competence(){
 
     }
@@ -43,5 +46,13 @@ public class Competence {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getIdAnnonce() {
+        return idAnnonce;
+    }
+
+    public void setIdAnnonce(Long idAnnonce) {
+        this.idAnnonce = idAnnonce;
     }
 }
