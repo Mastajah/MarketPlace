@@ -38,13 +38,23 @@ public class AnnonceService extends IntentService {
 
         //Appel de la fonction en fonction de l'extra
         String nomFonction = intent.getStringExtra("nomFonction");
-
+        AnnonceDTO annonceDTO = new AnnonceDTO();
         switch (nomFonction){
             case "creerAnnonce":
-                AnnonceDTO annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
+                annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
                 creerAnnonce(annonceDTO);
+            case "modifierAnnonce":
+                annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
+                modifierAnnonce(annonceDTO);
+            case "supprimerAnnonce":
+                annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
+                supprimerAnnonce(annonceDTO);
             case "findAllAnnonces":
                 findAllAnnonces();
+            case "findAllAnnoncesWithCompetences":
+                List<AnnonceDTO> annonceDTOs = new ArrayList<AnnonceDTO>();
+                findAllAnnoncesWithCompetences();
+
         }
 
     }
@@ -67,8 +77,31 @@ public class AnnonceService extends IntentService {
     /*
      * Modifie une annonce en base
      */
-    public void modifierAnnonce(){
+    public void modifierAnnonce(AnnonceDTO annonceDTO){
+        // Insertion en base
+        annonceDAO = AppDataBase.getAppDatabase(getApplicationContext()).getAnnonceDAO();
+        Annonce annonce = entityFromDTO(annonceDTO);
+        updateAnnonceWithCompetences(annonce);
 
+        // Retour de l'id au presenter grace à l'intent
+        Intent reponseIntent = new Intent();
+        reponseIntent.putExtra("idAnnonce",annonce.getIdAnnonce());
+        sendBroadcast(reponseIntent);
+    }
+
+    /*
+     * Modifie une annonce en base
+     */
+    public void supprimerAnnonce(AnnonceDTO annonceDTO){
+        // Insertion en base
+        annonceDAO = AppDataBase.getAppDatabase(getApplicationContext()).getAnnonceDAO();
+        Annonce annonce = entityFromDTO(annonceDTO);
+        deleteAnnonceWithCompetences(annonce);
+
+        // Retour de l'id au presenter grace à l'intent
+        Intent reponseIntent = new Intent();
+        reponseIntent.putExtra("idAnnonce",annonce.getIdAnnonce());
+        sendBroadcast(reponseIntent);
     }
 
     /*
@@ -89,6 +122,24 @@ public class AnnonceService extends IntentService {
     }
 
     /*
+     * Récupère toutes les annonces avec les compétences associées
+     */
+    public void findAllAnnoncesWithCompetences(){
+        annonceDAO = AppDataBase.getAppDatabase(getApplicationContext()).getAnnonceDAO();
+        ArrayList<AnnonceDTO> annonceDTOList = new ArrayList<AnnonceDTO>();
+
+        for (Annonce annonce : annonceDAO.getAnnonces()){
+            Annonce annonceWithCompetences = getAnnonceWithCompetencesById(annonce.getIdAnnonce());
+            annonceDTOList.add(DTOFromEntity(annonceWithCompetences));
+        }
+
+        // Retour de l'id au presenter grace à l'intent
+        Intent reponseIntent = new Intent();
+        reponseIntent.putParcelableArrayListExtra("annonceList", annonceDTOList);
+        sendBroadcast(reponseIntent);
+    }
+
+    /*
      * Ajoute en base une annonce en associant les compétences de l'annonce
      */
     private void insertAnnonceWithCompetences(Annonce annonce){
@@ -98,6 +149,30 @@ public class AnnonceService extends IntentService {
         }
         competenceDAO.insertAll(competences);
         annonceDAO.insertAnnonce(annonce);
+    }
+
+    /*
+     * Modifie en base une annonce en associant les compétences de l'annonce
+     */
+    private void updateAnnonceWithCompetences(Annonce annonce){
+        List<Competence> competences = annonce.getCompetence();
+        for(Competence competence : competences){
+            competence.setIdAnnonce(annonce.getIdAnnonce());
+            competenceDAO.modifierCompentence(competence);
+        }
+        annonceDAO.modifierAnnonce(annonce);
+    }
+
+    /*
+     * Supprime en base une annonce en associant les compétences de l'annonce
+     */
+    private void deleteAnnonceWithCompetences(Annonce annonce){
+        List<Competence> competences = annonce.getCompetence();
+        for(Competence competence : competences){
+            competence.setIdAnnonce(annonce.getIdAnnonce());
+            competenceDAO.supprimerCompentence(competence);
+        }
+        annonceDAO.supprimerAnnonce(annonce);
     }
 
     /*
