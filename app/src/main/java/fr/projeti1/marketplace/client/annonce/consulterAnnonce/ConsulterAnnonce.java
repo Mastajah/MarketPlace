@@ -32,6 +32,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
     private TextView adresseConsult;
     private TextView villeConsult;
     private TextView codePostalConsult;
+    private TextView statutAnnonce;
     private Button menuTmp;
 
     @Override
@@ -52,6 +53,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
     public void initView() {
         super.initView();
         libelleTitreConsult = findViewById(R.id.libelleTitreConsult);
+        statutAnnonce = findViewById(R.id.statutAnnonceConsult);
         numClientConsult = findViewById(R.id.numClientConsult);
         nomClientConsult = findViewById(R.id.nomClientConsult);
         prenomClientConsult = findViewById(R.id.prenomClientConsult);
@@ -80,6 +82,7 @@ public class ConsulterAnnonce extends Activity<ConsulterAnnoncePresenterCallback
 
         //On set les éléments IHM
         libelleTitreConsult.setText("Detail de l\'annonce n°" + String.valueOf(annonceDTO.getNumeroAnnonce()));
+        statutAnnonce.setText(annonceDTO.getStatut());
         numClientConsult.setText(String.valueOf(particulierDTO.getNumeroClient()));
         nomClientConsult.setText(particulierDTO.getNomClient());
         prenomClientConsult.setText(particulierDTO.getPrenomClient());

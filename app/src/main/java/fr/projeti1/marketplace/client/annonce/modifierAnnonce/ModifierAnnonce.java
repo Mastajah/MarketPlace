@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import fr.projeti1.marketplace.R;
@@ -34,6 +35,7 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
     private EditText textfieldAdresse;
     private EditText textfieldVille;
     private EditText textfieldCodepostal;
+    private EditText statutAnnonce;
     private Button buttonValider;
     private Button menuTmp;
 
@@ -53,6 +55,7 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
     @Override
     public void initView() {
         super.initView();
+        statutAnnonce=findViewById(R.id.statutAnnonceCreaModif);
         libelleTitreCreerModifAnnonce = findViewById(R.id.libelleTitreCreerModifAnnonce);
         libelleTitreCreerModifAnnonce.setText("Modifier une annonce");
         numClientCreaModif = findViewById(R.id.numClientCreaModif);
@@ -88,6 +91,7 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
         ParticulierDTO particulierDTO = annonceDTO.getParticulierDTO();
 
         //On set les éléments IHM
+        statutAnnonce.setText(annonceDTO.getStatut());
         numClientCreaModif.setText(String.valueOf(particulierDTO.getNumeroClient()));
         textfieldNomClient.setText(particulierDTO.getNomClient());
         textfieldPrenomClient.setText(particulierDTO.getPrenomClient());
@@ -111,6 +115,7 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
         particulierDTO.setAdresse(textfieldAdresse.getText().toString());
         particulierDTO.setVille(textfieldVille.getText().toString());
         particulierDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
+        annonceDTO.setStatut(statutAnnonce.getText().toString());
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
         annonceDTO.setParticulierDTO(particulierDTO);

@@ -18,6 +18,27 @@
 
     <TableRow>
         <TextView
+            android:id="@+id/libelleStatutAnnonce"
+            android:text="Statut"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14dp"/>
+        <EditText
+            android:id="@+id/statutAnnonceCreaModif"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:hint="à traiter / Contact en cours / traitée"
+            android:layout_span="2"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
             android:id="@+id/libelleNumClientCreaModif"
             android:text="@string/libelle_num_client_creer_annonce"
             android:paddingBottom="4dp"
