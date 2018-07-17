@@ -5,9 +5,6 @@ import android.os.Parcelable;
 
 import java.util.List;
 
-import fr.projeti1.marketplace.server.entity.Competence;
-import fr.projeti1.marketplace.server.entity.Particulier;
-
 public class AnnonceDTO implements Parcelable{
 
     private Long id;
@@ -22,6 +19,7 @@ public class AnnonceDTO implements Parcelable{
     private String dateCreation;
     private String dateCloture;
     private String statut;
+
     private ParticulierDTO particulierDTO;
     private List<CompetenceDTO> competenceDTOs;
 
@@ -51,10 +49,10 @@ public class AnnonceDTO implements Parcelable{
         dateCreation = in.readString();
         dateCloture = in.readString();
         statut = in.readString();
+
         particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
         competenceDTOs = in.createTypedArrayList(CompetenceDTO.CREATOR);
     }
-
 
 
     public String getAdresse() {

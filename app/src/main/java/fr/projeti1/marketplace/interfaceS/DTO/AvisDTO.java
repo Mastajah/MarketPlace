@@ -5,14 +5,22 @@ import android.os.Parcelable;
 
 public class AvisDTO implements Parcelable{
 
+    protected Long id;
     protected Long numAvis;
-    protected String nomPro;
-    protected String nomSociete;
-    protected String nomClient;
-    protected String prenomClient;
-    protected Long numAnnonce;
-    protected String resumeIntervention;
+    //protected String nomPro;
+    //protected String nomSociete;
+    //protected String nomClient;
+    //protected String prenomClient;
+    //protected Long numAnnonce;
+    //protected String resumeIntervention;
+
     protected String descriptionAvis;
+    protected long notePrestation;
+    protected ParticulierDTO particulierDTO;
+    protected ProfilProDTO profilProDTO;
+
+    //protected AnnonceDTO annonceDTO;
+
 
     public AvisDTO(){
 
@@ -20,11 +28,20 @@ public class AvisDTO implements Parcelable{
 
     protected AvisDTO(Parcel in) {
         if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readLong();
+        }
+
+        if (in.readByte() == 0) {
             numAvis = null;
         } else {
             numAvis = in.readLong();
         }
-        nomPro = in.readString();
+        notePrestation = in.readLong();
+        descriptionAvis = in.readString();
+
+        /*nomPro = in.readString();
         nomSociete = in.readString();
         nomClient = in.readString();
         prenomClient = in.readString();
@@ -34,7 +51,19 @@ public class AvisDTO implements Parcelable{
             numAnnonce = in.readLong();
         }
         resumeIntervention = in.readString();
-        descriptionAvis = in.readString();
+        */
+
+    }
+
+//Getters et Setters:
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getNumAvis() {
@@ -45,6 +74,21 @@ public class AvisDTO implements Parcelable{
         this.numAvis = numAvis;
     }
 
+    public String getDescriptionAvis() {
+        return descriptionAvis;
+    }
+
+    public void setDescriptionAvis(String descriptionAvis) {
+        this.descriptionAvis = descriptionAvis;
+    }
+    public long getNotePrestation() {
+        return notePrestation;
+    }
+
+    public void setNotePrestation(long notePrestation) {
+        this.notePrestation = notePrestation;
+    }
+    /*
     public String getNomPro() {
         return nomPro;
     }
@@ -92,23 +136,27 @@ public class AvisDTO implements Parcelable{
     public void setResumeIntervention(String resumeIntervention) {
         this.resumeIntervention = resumeIntervention;
     }
+*/
 
-    public String getDescriptionAvis() {
-        return descriptionAvis;
-    }
-
-    public void setDescriptionAvis(String descriptionAvis) {
-        this.descriptionAvis = descriptionAvis;
-    }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+
         if (numAvis == null) {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
             dest.writeLong(numAvis);
         }
+        dest.writeString(descriptionAvis);
+        dest.writeLong(notePrestation);
+        /*
         dest.writeString(nomPro);
         dest.writeString(nomSociete);
         dest.writeString(nomClient);
@@ -120,7 +168,8 @@ public class AvisDTO implements Parcelable{
             dest.writeLong(numAnnonce);
         }
         dest.writeString(resumeIntervention);
-        dest.writeString(descriptionAvis);
+        */
+
     }
 
     @Override

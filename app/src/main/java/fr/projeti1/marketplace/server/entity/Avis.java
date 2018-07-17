@@ -16,6 +16,11 @@ public class Avis {
     @ColumnInfo(name = "AVIS_NUM_AVIS")
     private Long numero;
 
+    @ColumnInfo(name ="AVIS_NOTE")
+    private Long notePrestation;
+
+
+/*
     @ColumnInfo(name = "AVIS_NOM_PRO")
     private String nom;
 
@@ -24,7 +29,7 @@ public class Avis {
 
     @ColumnInfo(name = "AVIS_RES_INT")
     private String resumeIntervention;
-
+*/
     @ColumnInfo(name = "AVIS_DESC_AVIS")
     private String descriptionAvis;
 
@@ -53,7 +58,7 @@ public class Avis {
     public void setNumero(Long numero) {
         this.numero = numero;
     }
-
+/*
     public String getNom() {
         return nom;
     }
@@ -77,7 +82,7 @@ public class Avis {
     public void setResumeIntervention(String resumeIntervention) {
         this.resumeIntervention = resumeIntervention;
     }
-
+*/
     public String getDescriptionAvis() {
         return descriptionAvis;
     }
@@ -100,5 +105,13 @@ public class Avis {
 
     public void setProfilPro(ProfilPro profilPro) {
         this.profilPro = profilPro;
+    }
+
+    public Long getNotePrestation() {
+        return notePrestation;
+    }
+
+    public void setNotePrestation(Long notePrestation) {
+        this.notePrestation = notePrestation;
     }
 }
