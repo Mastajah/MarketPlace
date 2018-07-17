@@ -41,7 +41,7 @@ public class AnnonceService extends IntentService {
 
         switch (nomFonction){
             case "creerAnnonce":
-                AnnonceDTO annonceDTO = (AnnonceDTO) intent.getSerializableExtra("annonceDTO");
+                AnnonceDTO annonceDTO = (AnnonceDTO) intent.getParcelableExtra("annonceDTO");
                 creerAnnonce(annonceDTO);
             case "findAllAnnonces":
                 findAllAnnonces();
@@ -52,7 +52,7 @@ public class AnnonceService extends IntentService {
     /*
      * Créer une annonce
      */
-    public void creerAnnonce (AnnonceDTO annonceDTO){
+    public void creerAnnonce(AnnonceDTO annonceDTO){
         // Insertion en base
 
         annonceDAO = AppDataBase.getAppDatabase(getApplicationContext()).getAnnonceDAO();

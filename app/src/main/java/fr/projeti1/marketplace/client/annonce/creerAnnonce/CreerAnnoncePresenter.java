@@ -11,8 +11,6 @@ import fr.projeti1.marketplace.server.service.AnnonceService;
 
 public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, CreerAnnonceDisplay> implements CreerAnnoncePresenterCallBack {
 
-    //private AnnonceService annonceService;
-
     public CreerAnnoncePresenter(CreerAnnonce view) {
         super(view);
         view.setPresenter(this);
