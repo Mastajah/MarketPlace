@@ -3,24 +3,16 @@ package fr.projeti1.marketplace.interfaceS.DTO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import fr.projeti1.marketplace.server.entity.ProfilPro;
+
 public class AvisDTO implements Parcelable{
 
     protected Long id;
     protected Long numAvis;
-    //protected String nomPro;
-    //protected String nomSociete;
-    //protected String nomClient;
-    //protected String prenomClient;
-    //protected Long numAnnonce;
-    //protected String resumeIntervention;
-
     protected String descriptionAvis;
     protected long notePrestation;
     protected ParticulierDTO particulierDTO;
     protected ProfilProDTO profilProDTO;
-
-    //protected AnnonceDTO annonceDTO;
-
 
     public AvisDTO(){
 
@@ -40,23 +32,12 @@ public class AvisDTO implements Parcelable{
         }
         notePrestation = in.readLong();
         descriptionAvis = in.readString();
-
-        /*nomPro = in.readString();
-        nomSociete = in.readString();
-        nomClient = in.readString();
-        prenomClient = in.readString();
-        if (in.readByte() == 0) {
-            numAnnonce = null;
-        } else {
-            numAnnonce = in.readLong();
-        }
-        resumeIntervention = in.readString();
-        */
+        particulierDTO = in.readParcelable(ParticulierDTO.class.getClassLoader());
+        profilProDTO = in.readParcelable(ProfilPro.class.getClassLoader());
 
     }
 
 //Getters et Setters:
-
 
     public Long getId() {
         return id;
@@ -88,56 +69,22 @@ public class AvisDTO implements Parcelable{
     public void setNotePrestation(long notePrestation) {
         this.notePrestation = notePrestation;
     }
-    /*
-    public String getNomPro() {
-        return nomPro;
+
+    public ParticulierDTO getParticulierDTO() {
+        return particulierDTO;
     }
 
-    public void setNomPro(String nomPro) {
-        this.nomPro = nomPro;
+    public void setParticulierDTO(ParticulierDTO particulierDTO) {
+        this.particulierDTO = particulierDTO;
     }
 
-    public String getNomSociete() {
-        return nomSociete;
+    public ProfilProDTO getProfilProDTO() {
+        return profilProDTO;
     }
 
-    public void setNomSociete(String nomSociete) {
-        this.nomSociete = nomSociete;
+    public void setProfilProDTO(ProfilProDTO profilProDTO) {
+        this.profilProDTO = profilProDTO;
     }
-
-    public String getNomClient() {
-        return nomClient;
-    }
-
-    public void setNomClient(String nomClient) {
-        this.nomClient = nomClient;
-    }
-
-    public String getPrenomClient() {
-        return prenomClient;
-    }
-
-    public void setPrenomClient(String prenomClient) {
-        this.prenomClient = prenomClient;
-    }
-
-    public Long getNumAnnonce() {
-        return numAnnonce;
-    }
-
-    public void setNumAnnonce(Long numAnnonce) {
-        this.numAnnonce = numAnnonce;
-    }
-
-    public String getResumeIntervention() {
-        return resumeIntervention;
-    }
-
-    public void setResumeIntervention(String resumeIntervention) {
-        this.resumeIntervention = resumeIntervention;
-    }
-*/
-
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -156,20 +103,6 @@ public class AvisDTO implements Parcelable{
         }
         dest.writeString(descriptionAvis);
         dest.writeLong(notePrestation);
-        /*
-        dest.writeString(nomPro);
-        dest.writeString(nomSociete);
-        dest.writeString(nomClient);
-        dest.writeString(prenomClient);
-        if (numAnnonce == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(numAnnonce);
-        }
-        dest.writeString(resumeIntervention);
-        */
-
     }
 
     @Override
