@@ -25,6 +25,7 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
     /**
      * Elements IHM que l'on va custom
      */
+    private EditText statutAnnonce;
     private TextView libelleTitreCreerModifAnnonce;
     private TextView libelleNumClientCreaModif;
     private TextView numClientCreaModif;
@@ -57,6 +58,7 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
         libelleTitreCreerModifAnnonce.setText("Creer une annonce");
         libelleNumClientCreaModif = findViewById(R.id.libelleNumClientCreaModif);
         libelleNumClientCreaModif.setEnabled(false);
+        statutAnnonce = findViewById(R.id.statutAnnonceCreaModif);
         numClientCreaModif = findViewById(R.id.numClientCreaModif);
         numClientCreaModif.setEnabled(false);
         textfieldNomClient = findViewById(R.id.textfieldNomClient);
@@ -101,6 +103,7 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
         particulierDTO.setAdresse(textfieldAdresse.getText().toString());
         particulierDTO.setVille(textfieldVille.getText().toString());
         particulierDTO.setCodePostal(Long.parseLong(textfieldCodepostal.getText().toString()));
+        annonceDTO.setStatut(statutAnnonce.getText().toString());
         annonceDTO.setTitre(textfieldTitreAnnonce.getText().toString());
         annonceDTO.setDescription(textfieldDescrption.getText().toString());
         annonceDTO.setParticulierDTO(particulierDTO);
