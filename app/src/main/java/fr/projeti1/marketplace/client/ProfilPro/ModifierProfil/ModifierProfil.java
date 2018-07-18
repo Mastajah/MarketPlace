@@ -86,7 +86,7 @@ public class ModifierProfil extends Activity<ModifierProfilPresenterCallBack> im
         profilProDTO.setNomSociete(nomSociete.getText().toString());
         profilProDTO.setSiretSociete(Long.parseLong(numSiret.getText().toString()));
         profilProDTO.setNumDecennale(numDecennale.getText().toString());
-        profilProDTO.setCompetence(competences.getSelectedItem().toString());
+        // profilProDTO.setCompetence(competences.getSelectedItem().toString());
         profilProDTO.setNumeroTelephone(Long.parseLong(numTel.getText().toString()));
         profilProDTO.setMail(mail.getText().toString());
         profilProDTO.setAdresse(adresse.getText().toString());
