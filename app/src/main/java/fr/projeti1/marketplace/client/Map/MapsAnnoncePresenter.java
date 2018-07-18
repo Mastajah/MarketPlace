@@ -23,7 +23,27 @@ public class MapsAnnoncePresenter{
 
     private void initPresenter(){
         this.model = new MapsAnnonceModel();
-        doRechercherAnnonce();
+        AnnonceDTO annonceDTO1 = new AnnonceDTO();
+        annonceDTO1.setNumeroAnnonce(1L);
+        annonceDTO1.setTitre("Compteur en rade");
+        annonceDTO1.setDescription("Le compteur electrique en panne");
+        annonceDTO1.setAdresse("20 quai de Tounis");
+        annonceDTO1.setCodePostale("31000");
+        annonceDTO1.setVille("Toulouse");
+
+        AnnonceDTO annonceDTO2 = new AnnonceDTO();
+        annonceDTO2.setNumeroAnnonce(2L);
+        annonceDTO2.setTitre("Radiateur en rade");
+        annonceDTO2.setDescription("Le Radiateur ne marche plus");
+        annonceDTO2.setAdresse("1 Rue de Metz");
+        annonceDTO2.setCodePostale("31000");
+        annonceDTO2.setVille("Toulouse");
+
+        ArrayList<AnnonceDTO> listAnnonce = new ArrayList<AnnonceDTO>();
+        listAnnonce.add(annonceDTO1);
+        listAnnonce.add(annonceDTO2);
+        model.setAnnonceDTOs(listAnnonce);
+        //doRechercherAnnonce();
     }
 
     public void doRechercherAnnonce(){

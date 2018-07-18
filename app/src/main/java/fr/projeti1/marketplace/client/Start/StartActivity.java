@@ -15,6 +15,7 @@ import fr.projeti1.marketplace.client.Start.menu.MenuTmpActivity;
 import fr.projeti1.marketplace.interfaceS.DTO.ParticulierDTO;
 import fr.projeti1.marketplace.interfaceS.DTO.ProfilProDTO;
 import fr.projeti1.marketplace.server.database.AppDataBase;
+import fr.projeti1.marketplace.server.service.ParticulierService;
 import fr.projeti1.marketplace.server.service.ProfilProService;
 
 public class StartActivity extends AppCompatActivity {
@@ -27,10 +28,10 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.start_activity);
 
         // Instanciation de la BDD
-        AppDataBase.getAppDatabase(getApplicationContext());
+        //AppDataBase.getAppDatabase(getApplicationContext());
 
         // Initialisation d'un compte particulier et d'un profil pro
-        initParticulierEtProfilPro();
+        //initParticulierEtProfilPro();
 
         this.play = (ImageView) findViewById(R.id.play);
 

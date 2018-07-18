@@ -29,22 +29,44 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter<ConsulterAnnonc
     private void initPresenter(){
         this.model = new ConsulterAnnonceModel();
 
+        AnnonceDTO annonceDTO = new AnnonceDTO();
+        annonceDTO.setNumeroAnnonce(1L);
+        annonceDTO.setTitre("Compteur en rade");
+        annonceDTO.setDescription("Le compteur electrique en panne");
+        annonceDTO.setStatut("A traiter");
+        annonceDTO.setAdresse("20 quai de Tounis");
+        annonceDTO.setCodePostale("31000");
+        annonceDTO.setVille("Toulouse");
+        ParticulierDTO particulierDTO = new ParticulierDTO();
+        particulierDTO.setNumeroClient(12l);
+        particulierDTO.setNomClient("DELPRATRA");
+        particulierDTO.setPrenomClient("Jack");
+        particulierDTO.setNumeroTelephone(33648842536l);
+        particulierDTO.setMail("jack.delpratra@gmali.com");
+        particulierDTO.setMotDePasse("1234");
+        particulierDTO.setAdresse("20 quai de Tounis");
+        particulierDTO.setVille("Toulouse");
+        particulierDTO.setCodePostal(31000l);
+        annonceDTO.setParticulierDTO(particulierDTO);
+
+        model.setAnnonceDTO(annonceDTO);
+
         // Déclaration de l'intent
-        Intent intentAnnonceService = new Intent(view.getContext(), AnnonceService.class);
+        //Intent intentAnnonceService = new Intent(view.getContext(), AnnonceService.class);
 
         // Mets les données dans les extras de l'intent
         // Sachant que le 1er extra, on va mettre le nom de la fonction
         // Plus les données que tu veux transferer coté Serveur
-        intentAnnonceService.putExtra("nomFonction","consulterAnnonce");
-        intentAnnonceService.putExtra("annonceDTO",idAnnonce);
+        //intentAnnonceService.putExtra("nomFonction","consulterAnnonce");
+        //intentAnnonceService.putExtra("annonceDTO",idAnnonce);
 
         // startService(nom de ton intent)
-        view.startIntentService(intentAnnonceService);
+        //view.startIntentService(intentAnnonceService);
         // Appel asynchrone, ici l'instance tourne toujours, on attends le renvoi des données du serveur
 
         //Déclaration du listener (receiver)
-        ConsulterAnnonceReceiver consulterAnnonceReceiver = new ConsulterAnnonceReceiver();
-        view.registerListener(consulterAnnonceReceiver);
+        //ConsulterAnnonceReceiver consulterAnnonceReceiver = new ConsulterAnnonceReceiver();
+        //view.registerListener(consulterAnnonceReceiver);
     }
 
     public class ConsulterAnnonceReceiver extends BroadcastReceiver {

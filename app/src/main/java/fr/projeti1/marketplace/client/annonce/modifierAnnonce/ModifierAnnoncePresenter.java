@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.Date;
+
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
 import fr.projeti1.marketplace.client.annonce.creerAnnonce.CreerAnnoncePresenter;
 import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
@@ -26,20 +28,27 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
         //Normalement Appel serveur lors de l'init en consultation
         //Pour test, on alimente le DTO
         AnnonceDTO annonceDTO = new AnnonceDTO();
-        annonceDTO.setNumeroAnnonce(12L);
+        annonceDTO.setNumeroAnnonce(1L);
         annonceDTO.setTitre("Compteur en rade");
-        annonceDTO.setDescription("Le compteur marche plus");
+        annonceDTO.setDescription("Le compteur electrique en panne");
+        annonceDTO.setStatut("A traiter");
+        annonceDTO.setAdresse("20 quai de Tounis");
+        annonceDTO.setCodePostale("31000");
+        annonceDTO.setVille("Toulouse");
+        // Compte particulier
         ParticulierDTO particulierDTO = new ParticulierDTO();
-        particulierDTO.setNumeroClient(15L);
-        particulierDTO.setNomClient("ESPADES");
-        particulierDTO.setPrenomClient("Richard");
-        particulierDTO.setNumeroTelephone(0615151515L);
-        particulierDTO.setAdresse("45 rue du champ");
+        particulierDTO.setNumeroClient(12l);
+        particulierDTO.setNomClient("DELPRATRA");
+        particulierDTO.setPrenomClient("Jack");
+        particulierDTO.setNumeroTelephone(33648842536l);
+        particulierDTO.setMail("jack.delpratra@gmali.com");
+        particulierDTO.setMotDePasse("1234");
+        particulierDTO.setAdresse("20 quai de Tounis");
         particulierDTO.setVille("Toulouse");
-        particulierDTO.setCodePostal(31000L);
+        particulierDTO.setCodePostal(31000l);
         annonceDTO.setParticulierDTO(particulierDTO);
-        model.setAnnonceDTO(annonceDTO);
 
+        model.setAnnonceDTO(annonceDTO);
         view.initView();
     }
 
