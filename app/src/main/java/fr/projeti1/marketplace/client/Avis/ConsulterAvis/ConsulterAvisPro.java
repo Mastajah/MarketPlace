@@ -10,10 +10,6 @@ import fr.projeti1.marketplace.interfaceS.DTO.AvisDTO;
 public class ConsulterAvisPro extends Activity<ConsulterAvisPresenterCallBack> implements ConsulterAvisDisplay{
 
     protected TextView numAvis;
-    protected TextView nomPro;
-    protected TextView nomSociete;
-    protected TextView nomClient;
-    protected TextView prenomClient;
     protected TextView numAnnonce;
     protected TextView resumeIntervention;
     protected TextView descriptionAvis;
@@ -32,10 +28,12 @@ public class ConsulterAvisPro extends Activity<ConsulterAvisPresenterCallBack> i
     public void initView() {
         super.initView();
         numAvis = findViewById(R.id.consulter_avis_pro_num);
+        /*
         nomPro = findViewById(R.id.consulter_avis_pro_nom_pro);
         nomSociete = findViewById(R.id.consulter_avis_pro_nom_societe);
         nomClient = findViewById(R.id.consulter_avis_pro_nom_client);
         prenomClient = findViewById(R.id.consulter_avis_pro_prenom_client);
+        */
         numAnnonce = findViewById(R.id.consulter_avis_pro_num_annonce);
         resumeIntervention = findViewById(R.id.consulter_avis_pro_resume);
         descriptionAvis = findViewById(R.id.consulter_avis_pro_description);
@@ -48,12 +46,6 @@ public class ConsulterAvisPro extends Activity<ConsulterAvisPresenterCallBack> i
 
         // on set les éléments IHM
         numAvis.setText("Avis N° "+String.valueOf(avisDTO.getNumAvis()));
-        nomPro.setText(avisDTO.getNomPro());
-        nomSociete.setText(avisDTO.getNomSociete());
-        nomClient.setText(avisDTO.getNomClient());
-        prenomClient.setText(avisDTO.getPrenomClient());
-        numAnnonce.setText(String.valueOf(avisDTO.getNumAnnonce()));
-        resumeIntervention.setText(avisDTO.getResumeIntervention());
         descriptionAvis.setText(avisDTO.getDescriptionAvis());
     }
 

@@ -12,11 +12,13 @@ import fr.projeti1.marketplace.interfaceS.DTO.AvisDTO;
 public class CreerAvis extends Activity<CreerAvisPresenterCallBack> implements CreerAvisDisplay {
 
     //protected TextView numAvis;
+    /*
     protected EditText nomPro;
     protected EditText nomSociete;
     protected EditText nomClient;
     protected EditText prenomClient;
     protected EditText numAnnonce;
+    */
     protected EditText resumeIntervention;
     protected EditText descriptionAvis;
     protected Button validerCreerAvis;
@@ -32,11 +34,13 @@ public class CreerAvis extends Activity<CreerAvisPresenterCallBack> implements C
     @Override
     public void initView() {
         super.initView();
+        /*
         nomPro = findViewById(R.id.creer_avis_nom_pro);
         nomSociete = findViewById(R.id.creer_avis_nom_societe);
         nomClient = findViewById(R.id.creer_avis_nom_client);
         prenomClient = findViewById(R.id.creer_avis_prenom_client);
         numAnnonce = findViewById(R.id.creer_avis_num_annonce);
+        */
         resumeIntervention = findViewById(R.id.creer_avis_resume);
         descriptionAvis = findViewById(R.id.creer_avis_description);
         validerCreerAvis = findViewById(R.id.valider_creer_avis);
@@ -57,12 +61,14 @@ public class CreerAvis extends Activity<CreerAvisPresenterCallBack> implements C
         AvisDTO avisDTO = new AvisDTO();
 
         //On récupère les informations de la vue en remplissant le DTO
+        /*
         avisDTO.setNomPro(nomPro.getText().toString());
         avisDTO.setNomSociete(nomSociete.getText().toString());
         avisDTO.setNomClient(nomClient.getText().toString());
         avisDTO.setPrenomClient(prenomClient.getText().toString());
         avisDTO.setNumAnnonce(Long.parseLong(numAnnonce.getText().toString()));
         avisDTO.setResumeIntervention(resumeIntervention.getText().toString());
+        */
         avisDTO.setDescriptionAvis(descriptionAvis.getText().toString());
 
         // on alimente le model
