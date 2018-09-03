@@ -71,7 +71,7 @@ public class ModifierAnnonce extends Activity<ModifierAnnoncePresenterCallback> 
         buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // presenter.doModifier();
+                presenter.doModifier();
             }
         });
         menuTmp = findViewById(R.id.menu_tmp_button_CreaModif);

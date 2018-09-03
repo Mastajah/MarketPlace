@@ -3,6 +3,7 @@ package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
 import fr.projeti1.marketplace.client.MVPPattern.ActivityPresenter;
@@ -10,6 +11,9 @@ import fr.projeti1.marketplace.interfaceS.DTO.AnnonceDTO;
 import fr.projeti1.marketplace.server.service.AnnonceService;
 
 public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, CreerAnnonceDisplay> implements CreerAnnoncePresenterCallBack {
+
+    //Receiver pour l'appel serveur
+    private  CreerAnnonceReceiver creerAnnonceReceiver;
 
     public CreerAnnoncePresenter(CreerAnnonce view) {
         super(view);
@@ -24,7 +28,7 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
 
     @Override
     public void doValider(){
-        view.flush();
+        /*view.flush();
         AnnonceDTO inputDTO = model.getAnnonceDTO();
 
         // Déclaration de l'intent
@@ -41,8 +45,11 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
         // Appel asynchrone, ici l'instance tourne toujours, on attends le renvoi des données du serveur
 
         //Déclaration du listener (receiver)
-        CreerAnnonceReceiver creerAnnonceReceiver = new CreerAnnonceReceiver();
-        view.registerListener(creerAnnonceReceiver);
+        creerAnnonceReceiver = new CreerAnnonceReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        view.registerListener(creerAnnonceReceiver, intentFilter);*/
+        //On transmet à la vue pour qu'elle lance ConsulterAnnonce
+        view.goToConsulter(99l);
     }
 
     public class CreerAnnonceReceiver extends BroadcastReceiver {
@@ -50,6 +57,9 @@ public class CreerAnnoncePresenter extends ActivityPresenter<CreerAnnonceModel, 
         // Ici, en attente de catch un intent (celui que renverra le service), des qu'il le catch, lance la méthode onReceive()
         @Override
         public void onReceive(Context context, Intent intent) {
+
+            // view.unregisterListener(creerAnnonceReceiver);
+
             //On récupère l'id de l'annonce
             Long idAnnonce = intent.getLongExtra("idAnnonce",0l);
 

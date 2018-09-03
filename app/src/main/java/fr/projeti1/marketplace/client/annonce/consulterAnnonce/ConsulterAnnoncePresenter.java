@@ -32,8 +32,8 @@ public class ConsulterAnnoncePresenter extends ActivityPresenter<ConsulterAnnonc
         AnnonceDTO annonceDTO = new AnnonceDTO();
         annonceDTO.setNumeroAnnonce(1L);
         annonceDTO.setTitre("Compteur en rade");
-        annonceDTO.setDescription("Le compteur electrique en panne");
-        annonceDTO.setStatut("A traiter");
+        annonceDTO.setDescription("Le compteur electrique est en panne");
+        annonceDTO.setStatut("Traitée");
         annonceDTO.setAdresse("20 quai de Tounis");
         annonceDTO.setCodePostale("31000");
         annonceDTO.setVille("Toulouse");

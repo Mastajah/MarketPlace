@@ -3,6 +3,7 @@ package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 
 import fr.projeti1.marketplace.client.MVPPattern.ActivityContract;
 
@@ -14,5 +15,7 @@ public interface CreerAnnonceDisplay extends ActivityContract.Display<CreerAnnon
 
     void startIntentService(Intent intentService);
 
-    void registerListener(BroadcastReceiver receiver);
+    void registerListener(BroadcastReceiver receiver, IntentFilter intent);
+
+    void unregisterListener(BroadcastReceiver receiver);
 }

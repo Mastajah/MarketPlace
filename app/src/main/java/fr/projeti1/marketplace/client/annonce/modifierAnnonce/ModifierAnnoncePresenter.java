@@ -54,7 +54,10 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
 
     @Override
     public void doModifier(){
-        view.flush();
+        //On transmet à la vue pour qu'elle lance ConsulterAnnonce
+        view.goToConsulter(99l);
+
+        /*view.flush();
         AnnonceDTO inputDTO = model.getAnnonceDTO();
 
         // Déclaration de l'intent
@@ -72,7 +75,7 @@ public class ModifierAnnoncePresenter extends ActivityPresenter<ModifierAnnonceM
 
         //Déclaration du listener (receiver)
         ModifierAnnonceReceiver modifierAnnonceReceiver = new ModifierAnnonceReceiver();
-        view.registerListener(modifierAnnonceReceiver);
+        view.registerListener(modifierAnnonceReceiver);*/
     }
 
     public class ModifierAnnonceReceiver extends BroadcastReceiver {

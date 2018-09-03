@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/play"
-        android:layout_width="371dp"
-        android:layout_height="366dp"
+        android:layout_width="352dp"
+        android:layout_height="357dp"
         android:layout_marginBottom="88dp"
         android:src="@drawable/bouton_commencer"
         app:layout_constraintBottom_toBottomOf="parent"

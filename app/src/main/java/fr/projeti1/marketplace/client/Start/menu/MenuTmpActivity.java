@@ -25,7 +25,7 @@ public class MenuTmpActivity extends AppCompatActivity {
     private Button buttonConsulterProfil;
     private Button buttonModifierProfil;
     private Button buttonCreerProfil;
-    private Button comptetest;
+    // private Button comptetest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class MenuTmpActivity extends AppCompatActivity {
         buttonConsulterProfil = findViewById(R.id.button6);
         buttonModifierProfil = findViewById(R.id.button8);
         buttonCreerProfil = findViewById(R.id.button7);
-        comptetest = findViewById(R.id.button9);
+        // comptetest = findViewById(R.id.button9);
 
         buttonConsulterAnnonce.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,13 +103,13 @@ public class MenuTmpActivity extends AppCompatActivity {
                 finish();
             }
         });
-        comptetest.setOnClickListener(new View.OnClickListener() {
+        /*comptetest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent connection = new Intent(MenuTmpActivity.this, AuthActivity.class);
-                //startActivity(connection);
-                //finish();
+                Intent connection = new Intent(MenuTmpActivity.this, AuthActivity.class);
+                startActivity(connection);
+                finish();
             }
-        });
+        });*/
     }
 }

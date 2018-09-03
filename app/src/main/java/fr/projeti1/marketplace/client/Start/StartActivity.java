@@ -31,7 +31,7 @@ public class StartActivity extends AppCompatActivity {
         //AppDataBase.getAppDatabase(getApplicationContext());
 
         // Initialisation d'un compte particulier et d'un profil pro
-        //initParticulierEtProfilPro();
+        // initParticulierEtProfilPro();
 
         this.play = (ImageView) findViewById(R.id.play);
 

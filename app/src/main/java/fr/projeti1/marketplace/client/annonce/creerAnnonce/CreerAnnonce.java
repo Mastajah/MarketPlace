@@ -3,6 +3,7 @@ package fr.projeti1.marketplace.client.annonce.creerAnnonce;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -140,7 +141,11 @@ public class CreerAnnonce extends Activity<CreerAnnoncePresenterCallBack> implem
     }
 
     // L'activité est ici, et seule l'activité a la main sur la fonction startService() donc aussi définit dans le display
-    public void registerListener(BroadcastReceiver receiver){
-        registerListener(receiver);
+    public void registerListener(BroadcastReceiver receiver, IntentFilter intent){
+        registerReceiver(receiver,intent);
+    }
+
+    public void unregisterListener(BroadcastReceiver receiver){
+        unregisterReceiver(receiver);
     }
 }

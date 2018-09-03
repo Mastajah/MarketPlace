@@ -70,7 +70,7 @@
         <EditText
             android:id="@+id/textfieldNomClient"
             android:inputType="textPersonName"
-            android:text="Nom"
+            android:hint="Nom"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -92,7 +92,7 @@
         <EditText
             android:id="@+id/textfieldPrenomClient"
             android:inputType="textPersonName"
-            android:text="Prenom"
+            android:hint="Prénom"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -114,7 +114,7 @@
         <EditText
             android:id="@+id/textfieldNumTel"
             android:inputType="textPersonName"
-            android:text="Numéro téléphone"
+            android:hint="Numéro de téléphone"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -136,7 +136,7 @@
         <EditText
             android:id="@+id/textfieldTitreAnnonce"
             android:inputType="textPersonName"
-            android:text="Titre de l'annonce"
+            android:hint="Titre de l'annonce"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -158,7 +158,7 @@
         <EditText
             android:id="@+id/textfieldDescrption"
             android:inputType="textPersonName"
-            android:text="Description de l'annonce"
+            android:hint="Ex : compteur en panne"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -192,7 +192,7 @@
         <EditText
             android:id="@+id/textfieldAdresse"
             android:inputType="textPersonName"
-            android:text="Adresse"
+            android:hint="Adresse"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -214,7 +214,7 @@
         <EditText
             android:id="@+id/textfieldVille"
             android:inputType="textPersonName"
-            android:text="Ville"
+            android:hint="Ville"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
@@ -236,7 +236,7 @@
         <EditText
             android:id="@+id/textfieldCodepostal"
             android:inputType="number"
-            android:text="Code postal"
+            android:hint="Code postal"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
             android:layout_width="fill_parent"
